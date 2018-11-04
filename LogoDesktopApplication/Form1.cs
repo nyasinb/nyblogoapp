@@ -27,6 +27,8 @@ namespace LogoDesktopApplication
         object kdZReportData;
       #endregion
 
+        //Yasin Deneme
+
         public Form1()
         {
             InitializeComponent();
