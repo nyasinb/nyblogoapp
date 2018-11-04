@@ -1,0 +1,62 @@
+﻿<salesData>
+<receiptLine>
+	<salesCashAmount>0</salesCashAmount>
+	<salesCurrAmount>0</salesCurrAmount>
+	<salesReceiptType>iptal</salesReceiptType>
+	<salesEKUNo>1</salesEKUNo>
+	<salesTotalVAT>0.23</salesTotalVAT>
+	<salesOtherAmount>0</salesOtherAmount>
+	<salesKKAmount>0</salesKKAmount>
+	<salesReceiptNo>2</salesReceiptNo>
+	<salesTime>20181011154100</salesTime>
+	<salesLines/>
+	<salesTotalCost>1.5</salesTotalCost>
+	<salesZNo>141</salesZNo>
+</receiptLine>
+<receiptLine>
+	<salesCashAmount>9</salesCashAmount>
+	<salesCurrAmount>0</salesCurrAmount>
+	<salesReceiptType>satis</salesReceiptType>
+	<salesEKUNo>1</salesEKUNo>
+	<salesTotalVAT>1.37</salesTotalVAT>
+	<salesOtherAmount>0</salesOtherAmount>
+	<salesKKAmount>0</salesKKAmount>
+	<salesReceiptNo>3</salesReceiptNo>
+	<salesTime>20181011154200</salesTime>
+		<salesLines>
+			<salesLine>
+			<salesLineIncAmount>0</salesLineIncAmount>
+			<salesLineTotCost>9</salesLineTotCost>
+			<salesLineAmount>1</salesLineAmount>
+			<salesLineDecAmount>0</salesLineDecAmount>
+			<salesLineName>Hediyelik Eşya </salesLineName>
+			<salesLineVAT>1800</salesLineVAT>
+			</salesLine>
+		</salesLines>
+	<salesTotalCost>9</salesTotalCost>
+	<salesZNo>141</salesZNo>
+</receiptLine>
+<receiptLine>
+	<salesCashAmount>3</salesCashAmount>
+	<salesCurrAmount>0</salesCurrAmount>
+	<salesReceiptType>satis</salesReceiptType>
+	<salesEKUNo>1</salesEKUNo>
+	<salesTotalVAT>0.46</salesTotalVAT>
+	<salesOtherAmount>0</salesOtherAmount>
+	<salesKKAmount>0</salesKKAmount>
+	<salesReceiptNo>1</salesReceiptNo>
+	<salesTime>20181011154100</salesTime>
+	<salesLines>
+		<salesLine>
+			<salesLineIncAmount>0</salesLineIncAmount>
+			<salesLineTotCost>3</salesLineTotCost>
+			<salesLineAmount>1</salesLineAmount>
+			<salesLineDecAmount>0</salesLineDecAmount>
+			<salesLineName>Hediyelik Eşya </salesLineName>
+			<salesLineVAT>1800</salesLineVAT>
+			</salesLine>
+		</salesLines>
+	<salesTotalCost>3</salesTotalCost>
+	<salesZNo>141</salesZNo>
+</receiptLine>
+</salesData>

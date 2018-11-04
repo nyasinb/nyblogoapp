@@ -1,0 +1,8 @@
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.exe.config
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.pdb
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.Form1.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.Properties.Resources.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.GenerateResource.Cache
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.pdb
