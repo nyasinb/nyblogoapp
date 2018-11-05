@@ -12,7 +12,7 @@ namespace LogoDesktopApplication.WS_Class
     public class WSProvider
     {
 
-        public  object Query_Method_kdSalesReceiptData()
+        public kdSalesReceiptDataCevap Query_Method_kdSalesReceiptData()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
@@ -45,7 +45,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdSalesReceiptDataCevapItem;
         }
                 
-        public object Query_Method_kdContractInfo()
+        public kdContractInfoCevap Query_Method_kdContractInfo()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
@@ -78,7 +78,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdContractInfoCevapItem;
         }
 
-        public object Query_Method_kdEventsData()
+        public kdEventsDataCevap Query_Method_kdEventsData()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
@@ -112,7 +112,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdEventsDataCevapItem;
         }
 
-        public object Query_Method_kdSalesReportData()
+        public kdSalesReportDataCevap Query_Method_kdSalesReportData()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
@@ -145,7 +145,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdSalesReportDataItem;
         }
 
-        public object Query_Method_kdStatisticsData()
+        public kdStatisticsDataCevap Query_Method_kdStatisticsData()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
@@ -178,7 +178,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdStatisticsDataCevapItem;
         }
 
-        public object Query_Method_kdZReportData()
+        public kdZReportDataCevap Query_Method_kdZReportData()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
