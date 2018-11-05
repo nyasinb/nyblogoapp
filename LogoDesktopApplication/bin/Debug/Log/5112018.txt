@@ -93,3 +93,7 @@
 05-11-2018 18:10:57.238 [WARNING] transferVoucherNoCurrent  :: 'System.__ComObject' türündeki COM nesnesi 'UnityObjects.IUnityApplication' arabirim türüne atanamadı. '{2CA7467C-17A1-414C-ABA5-262D8B8ABD38}' IID'sine sahip arabirim için COM bileşenindeki QueryInterface çağrısı aşağıdaki hatayla başarısız olduğundan bu işlem başarısız oldu: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA).
 05-11-2018 18:10:59.549 [WARNING] transferVoucherNoCurrent  :: 'System.__ComObject' türündeki COM nesnesi 'UnityObjects.IUnityApplication' arabirim türüne atanamadı. '{2CA7467C-17A1-414C-ABA5-262D8B8ABD38}' IID'sine sahip arabirim için COM bileşenindeki QueryInterface çağrısı aşağıdaki hatayla başarısız olduğundan bu işlem başarısız oldu: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA).
 05-11-2018 18:11:02.869 [WARNING] transferVoucherNoCurrent  :: 'System.__ComObject' türündeki COM nesnesi 'UnityObjects.IUnityApplication' arabirim türüne atanamadı. '{2CA7467C-17A1-414C-ABA5-262D8B8ABD38}' IID'sine sahip arabirim için COM bileşenindeki QueryInterface çağrısı aşağıdaki hatayla başarısız olduğundan bu işlem başarısız oldu: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA).
+05-11-2018 20:09:53.617 [INFO]    Havuz Cari %18 Cari Oluşturuldu
+05-11-2018 20:09:53.976 [INFO]    Havuz Cari %8 Cari Oluşturuldu
+05-11-2018 20:16:07.515 [INFO]    Havuz Cari %18 Cari Oluşturuldu
+05-11-2018 20:16:07.990 [INFO]    Havuz Cari %8 Cari Oluşturuldu

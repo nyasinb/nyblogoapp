@@ -15,6 +15,7 @@ using LogoDesktopApplication.LOGO_Class;
 using System.Collections;
 using LogoDesktopApplication.WS_Class;
 using static LogoDesktopApplication.LOGO_Class.LogoProviderClass;
+using System.Threading;
 
 namespace LogoDesktopApplication
 {
@@ -41,11 +42,15 @@ namespace LogoDesktopApplication
             InitializeComponent();
             _ws = new WS_Class.WSProvider();
             _logoCon = new ConnectionGlobal();
-            //_logoConnection = _logoCon.Connection();
+            _logoConnection = _logoCon.Connection();
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
-            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartSenkronForm));
+
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
+            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+            _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
         }
 
