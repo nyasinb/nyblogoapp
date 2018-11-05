@@ -85,6 +85,12 @@
     <Compile Include="LOGO Class\ConnectionGlobal.cs" />
     <Compile Include="LOGO Class\LogoProviderClass.cs" />
     <Compile Include="LOGO Class\SQLProvider.cs" />
+    <Compile Include="StartSenkronForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartSenkronForm.Designer.cs">
+      <DependentUpon>StartSenkronForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WS Class\kdContractInfoCevap.cs" />
     <Compile Include="WS Class\kdEventsDataCevap.cs" />
     <Compile Include="WS Class\kdSalesReceiptDataCevap.cs" />
@@ -98,6 +104,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -107,6 +114,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StartSenkronForm.resx">
+      <DependentUpon>StartSenkronForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

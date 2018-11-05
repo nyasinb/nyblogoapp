@@ -45,3 +45,5 @@ C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\Log
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.StartSenkronForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe.licenses

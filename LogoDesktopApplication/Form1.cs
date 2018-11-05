@@ -41,9 +41,12 @@ namespace LogoDesktopApplication
             InitializeComponent();
             _ws = new WS_Class.WSProvider();
             _logoCon = new ConnectionGlobal();
-            _logoConnection = _logoCon.Connection();
+            //_logoConnection = _logoCon.Connection();
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartSenkronForm));
+            System.Threading.Thread.Sleep(1500);
+            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
         }
 
         void MethodTest()
@@ -78,8 +81,12 @@ namespace LogoDesktopApplication
             _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
         }
 
-
-        
+        private void btnBankHesapOlustur_Click(object sender, EventArgs e)
+        {
+            Bank b = new Bank();
+            string Result = _logoProvider.bankCreat(b);
+            Result = _logoProvider.bankCreatAcc(b);
+        }
     }
 }
 

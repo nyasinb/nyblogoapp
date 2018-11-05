@@ -12,13 +12,15 @@ namespace LogoDesktopApplication.LOGO_Class
         #region Değişken
         SQLProvider sqlProvider;
         Log _log;
+        Bank _bank;
         #endregion
-        
+
 
         public LogoProviderClass()
         {
             sqlProvider = new SQLProvider();
             _log = new Log();
+            _bank = new Bank();
         }
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace LogoDesktopApplication.LOGO_Class
                 arps.New();
                 arps.DataFields.FieldByName("ACCOUNT_TYPE").Value = 3;
                 arps.DataFields.FieldByName("CODE").Value = cAriCode;
-                arps.DataFields.FieldByName("TITLE").Value = cariName+cAriCode;
+                arps.DataFields.FieldByName("TITLE").Value = cariName + cAriCode;
                 arps.DataFields.FieldByName("CORRESP_LANG").Value = 1;
                 arps.DataFields.FieldByName("DATA_REFERENCE").Value = 6;
                 arps.DataFields.FieldByName("CREATED_BY").Value = 1;
@@ -68,7 +70,7 @@ namespace LogoDesktopApplication.LOGO_Class
                     if (arps.ErrorCode != 0)
                     {
                         goReturn = ("DBError(" + arps.ErrorCode.ToString() + ")-" + arps.ErrorDesc + arps.DBErrorDesc);
-                        _log.Warning("CreateCurrentParametric ::"+arps.ErrorCode.ToString() + ")-" + arps.ErrorDesc + arps.DBErrorDesc);
+                        _log.Warning("CreateCurrentParametric ::" + arps.ErrorCode.ToString() + ")-" + arps.ErrorDesc + arps.DBErrorDesc);
                     }
                     else if (arps.ValidateErrors.Count > 0)
                     {
@@ -200,6 +202,95 @@ namespace LogoDesktopApplication.LOGO_Class
         //}
 
 
+        /// <summary>
+        /// Banka Tanımlama İşlemi Yapar
+        /// </summary>
+        /// <param name="bank"></param>
+        /// <returns></returns>
+        public string bankCreat(Bank banka)
+        {
+            var result = "";
+            UnityObjects.Data bank = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doBank);
+            bank.New();
+            bank.DataFields.FieldByName("CODE").Value = banka.bankId;
+            bank.DataFields.FieldByName("TITLE").Value = "HAVUZ BANK " + banka.bankName;
+            bank.DataFields.FieldByName("ADDRESS1").Value = "HAVUZ BANK " + banka.bankName;
+            bank.DataFields.FieldByName("CREATED_BY").Value = 1;
+            //bank.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
+            bank.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            bank.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
+            bank.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
+            bank.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
+            bank.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
+
+            if (bank.Post() == true)
+            {
+                return "0";
+            }
+            else
+            {
+                if (bank.ErrorCode != 0)
+                {
+                    result = ("DBError(" + bank.ErrorCode.ToString() + ")-" + bank.ErrorDesc + bank.DBErrorDesc);
+                }
+                else if (bank.ValidateErrors.Count > 0)
+                {
+                    result = "XML ErrorList:";
+                    for (int j = 0; j < bank.ValidateErrors.Count; j++)
+                    {
+                        result += "(" + bank.ValidateErrors[j].ID.ToString() + ") - " + bank.ValidateErrors[j].Error;
+                    }
+                    return (result);
+                }
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// Banka Hesap Tanımlama İşlemi Yapar
+        /// </summary>
+        /// <param name="banka"></param>
+        /// <returns></returns>
+        public string bankCreatAcc(Bank banka)
+        {
+            var result = "";
+            UnityObjects.Data bankac = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doBankAccount);
+            bankac.New();
+            bankac.DataFields.FieldByName("ACCOUNT_TYPE").Value = 1;
+            bankac.DataFields.FieldByName("CODE").Value = 456123124; // Unique olan terminal numarası buraya verilir Code = Hesap Codu. Bu numara sistemde var ise hesap oluşmaz.
+            bankac.DataFields.FieldByName("DESCRIPTION").Value = banka.bankName;
+            bankac.DataFields.FieldByName("CREATED_BY").Value = 1;
+            bankac.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            bankac.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
+            bankac.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
+            bankac.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
+            bankac.DataFields.FieldByName("ACCOUNT_NR").Value = 454545; //Hesap Numarası
+            bankac.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
+            bankac.DataFields.FieldByName("BANK_CODE").Value = banka.bankId; //hangi bankaya aitse onun acquırerid si
+            bankac.DataFields.FieldByName("POS_TERMINAL_NO").Value = 456123123; //Terminal Numarası
+            if (bankac.Post() == true)
+            {
+                return "0";
+            }
+            else
+            {
+                if (bankac.ErrorCode != 0)
+                {
+                    result = ("DBError(" + bankac.ErrorCode.ToString() + ")-" + bankac.ErrorDesc + bankac.DBErrorDesc);
+                }
+                else if (bankac.ValidateErrors.Count > 0)
+                {
+                    result = "XML ErrorList:";
+                    for (int j = 0; j < bankac.ValidateErrors.Count; j++)
+                    {
+                        result += "(" + bankac.ValidateErrors[j].ID.ToString() + ") - " + bankac.ValidateErrors[j].Error;
+                    }
+                    return (result);
+                }
+            }
+            return "-1";
+        }
 
         /// <summary>
         /// kdSalesReceiptData İçerisinde gelen fiş verilerini logoya sevk eder.
@@ -209,7 +300,6 @@ namespace LogoDesktopApplication.LOGO_Class
         public string transferVoucherNoCurrent(kdSalesReceiptDataCevap kdSalesReceiptData)
         {
             string Result = null;
-
 
             UnityObjects.Data arpvoucher = null;
             UnityObjects.Lines transactions_lines = null;
@@ -313,7 +403,7 @@ namespace LogoDesktopApplication.LOGO_Class
                 }
                 return Result;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _log.Warning("transferVoucherNoCurrent  :: " + ex.Message);
                 return ex.Message;
@@ -332,6 +422,48 @@ namespace LogoDesktopApplication.LOGO_Class
             HavuzCari8 = 998,
             HavuzCari18 = 999,
             ParcaliOdeme = 1000,
+        }       
+
+        public class Bank
+        {
+            string _name = "Merkez Bankası";
+            int _id = 1;
+            public string bankName { get { return _name; } set { _name = value; } }
+            public int bankId { get { return _id; } set { _id = value; } }
+
+        }
+
+        /// <summary>
+        /// Banka Acquirer Idler Globaldir.
+        /// </summary>
+        public enum BankAcquirerID
+        {
+            MerkezBankasi = 1,
+            HalkBankasi = 12,
+            VakıflarBankasi = 15,
+            TurkEkonomiBankasi = 32,
+            AkBank = 46,
+            SekerBank = 59,
+            GarantiBankasi = 62,
+            İşBankası = 64,
+            YapıveKrediBankası = 67,
+            Citibank = 92,
+            TurkishBank = 96,
+            INGBank = 103,
+            Fibabanka = 108,
+            TurklandBank = 109,
+            TekstilBank = 111,
+            QNBFinansbank = 123,
+            HSBC = 124,
+            AlternatifBank = 125,
+            BurgerBank = 134,
+            Denizbank = 135,
+            AnadoluBank = 143,
+            AktifYatırımBankası = 146,
+            OdeaBank = 203,
+            AlbarakaTürkKatılımBankası = 205,
+            KuveyTürkKatılımBankası = 206,
+            ZiraatBankası = 10,
         }
     }
 }
