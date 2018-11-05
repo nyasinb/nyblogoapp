@@ -31,6 +31,7 @@ namespace LogoDesktopApplication
 
         //Yasin deneme iki
         //Yasin deneme
+        //Yasin deneme uc
         public Form1()
         {
             InitializeComponent();
