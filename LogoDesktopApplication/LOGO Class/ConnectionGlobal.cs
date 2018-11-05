@@ -15,7 +15,7 @@ namespace LogoDesktopApplication.LOGO_Class
         {
             LobObject();
         }
-        public static void LobObject()
+        public void LobObject()
         {
             try
             {

@@ -52,6 +52,10 @@ namespace LogoDesktopApplication
             _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
 
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+            _logoCon.LobObject();
+            System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
+            
+
         }
 
         void MethodTest()
