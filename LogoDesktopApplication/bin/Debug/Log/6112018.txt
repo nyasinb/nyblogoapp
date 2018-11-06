@@ -1,0 +1,4 @@
+﻿06-11-2018 09:23:31.097 [INFO]    Havuz Cari %18 Cari Oluşturuldu
+06-11-2018 09:23:31.515 [INFO]    Havuz Cari %8 Cari Oluşturuldu
+06-11-2018 10:06:29.669 [INFO]    Havuz Cari %18 Cari Oluşturuldu
+06-11-2018 10:06:30.186 [INFO]    Havuz Cari %8 Cari Oluşturuldu

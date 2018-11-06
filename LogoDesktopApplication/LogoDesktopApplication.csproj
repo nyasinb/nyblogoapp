@@ -51,8 +51,11 @@
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="GMP3Infoteks, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\GMP3Infoteks.dll</HintPath>
@@ -61,8 +64,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,12 +80,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="HelperForms\HelperItemCs.cs" />
+    <Compile Include="HelperForms\InfoteksLogin.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="HelperForms\InfoteksLogin.Designer.cs">
+      <DependentUpon>InfoteksLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperForms\LogoSenkronForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelperForms\LogoSenkronForm.Designer.cs">
+      <DependentUpon>LogoSenkronForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperForms\OtoSenkron.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="LOGO Class\ConnectionGlobal.cs" />
     <Compile Include="LOGO Class\LogoProviderClass.cs" />
@@ -90,6 +103,12 @@
     </Compile>
     <Compile Include="StartingControlForm.Designer.cs">
       <DependentUpon>StartingControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForm.Designer.cs">
+      <DependentUpon>WinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WS Class\kdContractInfoCevap.cs" />
     <Compile Include="WS Class\kdEventsDataCevap.cs" />
@@ -101,8 +120,11 @@
     <Compile Include="WS Class\kdZReportDataCevap.cs" />
     <Compile Include="WS Class\Serializer.cs" />
     <Compile Include="WS Class\WSProvider.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="HelperForms\InfoteksLogin.resx">
+      <DependentUpon>InfoteksLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelperForms\LogoSenkronForm.resx">
+      <DependentUpon>LogoSenkronForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -113,9 +135,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="StartingControlForm.resx">
       <DependentUpon>StartingControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForm.resx">
+      <DependentUpon>WinForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,6 +178,21 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle Off-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Toggle On-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelperForms\Config.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

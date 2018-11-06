@@ -102,3 +102,5 @@
 05-11-2018 20:34:09.903 [WARNING] CreateCurrentParametric:: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA)
 05-11-2018 20:34:09.918 [WARNING] CreateCurrentParametric:: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA)
 05-11-2018 20:34:09.934 [WARNING] CreateCurrentParametric:: RPC sunucusu kullanılamıyor. (HRESULT özel durum döndürdü: 0x800706BA)
+05-11-2018 21:19:17.521 [INFO]    Havuz Cari %18 Cari Oluşturuldu
+05-11-2018 21:19:17.896 [INFO]    Havuz Cari %8 Cari Oluşturuldu
