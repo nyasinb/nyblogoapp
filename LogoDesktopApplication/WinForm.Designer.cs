@@ -41,7 +41,10 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.midPanel = new System.Windows.Forms.Panel();
+            this.thTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnConnectionImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -121,7 +124,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(737, 50);
+            this.barDockControlTop.Size = new System.Drawing.Size(429, 50);
             // 
             // barDockControlBottom
             // 
@@ -130,7 +133,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 308);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(737, 34);
+            this.barDockControlBottom.Size = new System.Drawing.Size(429, 34);
             // 
             // barDockControlLeft
             // 
@@ -145,7 +148,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(737, 50);
+            this.barDockControlRight.Location = new System.Drawing.Point(429, 50);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 258);
@@ -155,14 +158,29 @@
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(0, 50);
             this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(737, 258);
+            this.midPanel.Size = new System.Drawing.Size(429, 258);
             this.midPanel.TabIndex = 4;
+            // 
+            // thTimer
+            // 
+            this.thTimer.Tick += new System.EventHandler(this.thTimer_Tick);
+            // 
+            // btnConnectionImage
+            // 
+            this.btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ClosedWıfı;
+            this.btnConnectionImage.Location = new System.Drawing.Point(384, 315);
+            this.btnConnectionImage.Name = "btnConnectionImage";
+            this.btnConnectionImage.Size = new System.Drawing.Size(38, 22);
+            this.btnConnectionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnConnectionImage.TabIndex = 0;
+            this.btnConnectionImage.TabStop = false;
             // 
             // WinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 342);
+            this.ClientSize = new System.Drawing.Size(429, 342);
+            this.Controls.Add(this.btnConnectionImage);
             this.Controls.Add(this.midPanel);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -172,6 +190,7 @@
             this.Name = "WinForm";
             this.Text = "WinForm";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +209,7 @@
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private DevExpress.XtraBars.BarButtonItem BtnlogoProc;
         private System.Windows.Forms.Panel midPanel;
+        private System.Windows.Forms.Timer thTimer;
+        private System.Windows.Forms.PictureBox btnConnectionImage;
     }
 }

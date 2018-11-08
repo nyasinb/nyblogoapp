@@ -12,6 +12,8 @@ using LogoDesktopApplication.LOGO_Class;
 using LogoDesktopApplication.WS_Class;
 using static LogoDesktopApplication.LOGO_Class.LogoProviderClass;
 using LogoDesktopApplication.HelperForms;
+using System.IO;
+using System.Threading;
 
 namespace LogoDesktopApplication
 {
@@ -30,6 +32,8 @@ namespace LogoDesktopApplication
         bool _logoConnection = false;
         LogoProviderClass _logoProvider;
         SQLProvider _sqlProvider;
+        public bool networkState = false;
+        Thread _th;
         #endregion
 
         public WinForm()
@@ -41,12 +45,45 @@ namespace LogoDesktopApplication
             _logoConnection = _logoCon.Connection();
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
+            _xmlProv = new XmlProvider();
+            item = new OtoSenkron();
+            thTimer.Start();
+            thTimer.Interval = 5000;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
-            //kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
-            //_logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+            if (networkState)
+            {
+                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+            }
+            else
+            {
+
+            }
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
             System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
+        }
+
+        public void NetworkControl()
+        {
+            try
+            {
+                networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+                if (networkState==true)
+                {
+                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ConnectedWıfı;
+                }
+                else
+                {
+                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ClosedWıfı;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //BglntDurmuLabel.Text = "İnternet Bağlantısı Pasif";
+
+            }
         }
 
 
@@ -103,12 +140,23 @@ namespace LogoDesktopApplication
             f.Dock = DockStyle.Fill;
         }
 
+        XmlProvider _xmlProv;
+        OtoSenkron item;
         private void BtnlogoProc_ItemClick(object sender, ItemClickEventArgs e)
         {
             midPanel.Controls.Clear();
             LogoSenkronForm f = new LogoSenkronForm();
             midPanel.Controls.Add(f);
+            f.Refresh();
             f.Dock = DockStyle.Fill;
+
+        }
+
+        public void thTimer_Tick(object sender, EventArgs e)
+        {
+            int sayac = 0;
+            _th = new Thread(new ThreadStart(NetworkControl));
+            _th.Start();
         }
     }
 }

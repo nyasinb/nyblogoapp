@@ -11,6 +11,7 @@ namespace LogoDesktopApplication.HelperForms
         public string Durum { get; set; }
         public string Saat { get; set; }
         public string Period { get; set; }
+        public int SenkronType { get; set; }
 
     }
 }

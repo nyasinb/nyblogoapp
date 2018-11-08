@@ -94,6 +94,7 @@
       <DependentUpon>LogoSenkronForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperForms\OtoSenkron.cs" />
+    <Compile Include="HelperForms\XmlProvider.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="LOGO Class\ConnectionGlobal.cs" />
     <Compile Include="LOGO Class\LogoProviderClass.cs" />
@@ -193,6 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HelperForms\Config.xml" />
+    <None Include="Resources\ClosedWıfı.png" />
+    <None Include="Resources\ConnectedWıfı.png" />
+    <None Include="Resources\timeIcon.png" />
+    <None Include="Resources\periodIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
