@@ -32,14 +32,20 @@ namespace LogoDesktopApplication
         bool _logoConnection = false;
         LogoProviderClass _logoProvider;
         SQLProvider _sqlProvider;
-        public bool networkState = false;
+        Thread _thiki;
+        DialogResult dr;
         Thread _th;
+        System.Windows.Forms.Timer _timer;
+        int say = 0;
+        OtoSenkron _otoSenkron;
+        Log _log;
         #endregion
 
         public WinForm()
         {
+            _log = new Log();
             InitializeComponent();
-
+            _otoSenkron = new OtoSenkron();
             _ws = new WS_Class.WSProvider();
             _logoCon = new ConnectionGlobal();
             _logoConnection = _logoCon.Connection();
@@ -47,29 +53,45 @@ namespace LogoDesktopApplication
             _sqlProvider = new SQLProvider();
             _xmlProv = new XmlProvider();
             item = new OtoSenkron();
+            _timer = new System.Windows.Forms.Timer();
+            _timer.Interval = 60000;
+            _timer.Tick += new EventHandler(otoSenkronMethod);
+            _timer.Start();
+            NetworkControl();
             thTimer.Start();
             thTimer.Interval = 5000;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
-            if (networkState)
+            if (_logoCon.networkState)
             {
                 kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
-                _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                if (kdSalesReceiptData.cevapKodu!="000")
+                {
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                    _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
             }
             else
             {
-
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
-            System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
+            //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
 
         public void NetworkControl()
         {
             try
             {
-                networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
-                if (networkState==true)
+                _logoCon.networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+                if (_logoCon.networkState == true)
                 {
                     btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ConnectedWıfı;
                 }
@@ -158,5 +180,80 @@ namespace LogoDesktopApplication
             _th = new Thread(new ThreadStart(NetworkControl));
             _th.Start();
         }
+
+
+        private void btnSenkron_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.AboutSplashScreenManager.ShowForm(this, typeof(waitForm));
+            if (_logoCon.networkState)
+            {
+                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                if (kdSalesReceiptData.cevapKodu != "000")
+                {
+                    DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                    _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+            }
+            else
+            {
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+        public void OtoSync()
+        {
+            _otoSenkron = _xmlProv.XmlRead();
+            int GO = Convert.ToInt16(_otoSenkron.Period) * 60;
+            say += 60;
+            if (_otoSenkron.Durum == "True" && _otoSenkron.SenkronType == 0)  //0 ise period, 1 ise saat.
+            {
+                if (say == GO)
+                {
+                    if (_logoCon.networkState)
+                    {
+                        kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                        System.Threading.Thread.Sleep(1000);
+                        if (kdSalesReceiptData.cevapKodu == "000")
+                        {
+                            string Result =_logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                            if (Result=="0")
+                            {
+                                _log.Info("Oto senkron yapıldı. Aktarılan data: " + kdSalesReceiptData.salesData.Count);
+                                say = 0;
+                            }
+                            else
+                            {
+                                _log.Warning("OtoSync  ::  "+Result);
+                            }
+                        }
+                        else
+                            _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama );
+                        say = 0;
+                    }
+                    else
+                    {
+                        _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
+                        say -= 10;
+                    }
+                }
+            }
+        }
+        public void otoSenkronMethod(object sender, EventArgs e)
+        {
+            _thiki = new Thread(new ThreadStart(OtoSync));
+            _thiki.Start();
+
+        }
+
     }
 }

@@ -382,7 +382,7 @@ namespace LogoDesktopApplication.LOGO_Class
 
                     if (arpvoucher.Post() == true)
                     {
-                        Result = Result + (": POST OK !");
+                        Result = Result + ("0");
                     }
                     else
                     {

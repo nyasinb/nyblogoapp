@@ -1,0 +1,6 @@
+﻿08-11-2018 23:24:43.916 [WARNING] oto senkron yapılamadı Tanimsiz YNOKC
+08-11-2018 23:33:10.845 [WARNING] oto senkron yapılamadı Tanimsiz YNOKC
+08-11-2018 23:34:02.040 [WARNING] oto senkron yapılamadı Tanimsiz YNOKC
+08-11-2018 23:34:34.742 [WARNING] transferVoucherNoCurrent  :: 'GMP3Infoteks.OKC.GlobalDll' tür başlatıcısı özel durum döndürdü.
+08-11-2018 23:35:33.683 [WARNING] transferVoucherNoCurrent  :: 'GMP3Infoteks.OKC.GlobalDll' tür başlatıcısı özel durum döndürdü.
+08-11-2018 23:35:33.690 [WARNING] OtoSync  ::  'GMP3Infoteks.OKC.GlobalDll' tür başlatıcısı özel durum döndürdü.

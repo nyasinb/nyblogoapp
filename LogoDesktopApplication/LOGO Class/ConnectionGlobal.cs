@@ -10,6 +10,7 @@ namespace LogoDesktopApplication.LOGO_Class
 {
     public class ConnectionGlobal
     {
+        public bool networkState = false;
 
         public ConnectionGlobal()
         {

@@ -1,10 +1,15 @@
-﻿using System;
+﻿using LogoDesktopApplication.HelperForms;
+using LogoDesktopApplication.LOGO_Class;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace LogoDesktopApplication.WS_Class
@@ -236,6 +241,7 @@ namespace LogoDesktopApplication.WS_Class
             }
         }
 
+
         #region QUERY SOAP
 
 
@@ -251,13 +257,13 @@ namespace LogoDesktopApplication.WS_Class
         public static string SOAP_QUERY_kdContractInfo = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdContractInfo>" +
                                              "<kurumKodu>infoteks</kurumKodu>" +
                                              "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-                                             "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+                                             "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                                              "</kdContractInfo></soapenv:Body></soapenv:Envelope>";
 
         public static string SOAP_QUERY_kdEventsData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdEventsData>" +
                                      "<kurumKodu>infoteks</kurumKodu>" +
                                      "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-                                     "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+                                     "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                                      "<reportDateStart/>" +
                                      "<reportDateEnd/>" +
                                      "</kdEventsData></soapenv:Body></soapenv:Envelope>";
@@ -265,7 +271,7 @@ namespace LogoDesktopApplication.WS_Class
         public static string SOAP_QUERY_kdSalesReportData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdSalesReportData>" +
                              "<kurumKodu>infoteks</kurumKodu>" +
                              "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-                             "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+                             "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                              "<reportDateStart/>" +
                              "<reportDateEnd/>" +
                              "<reportZNo/>" +
@@ -274,7 +280,7 @@ namespace LogoDesktopApplication.WS_Class
         public static string SOAP_QUERY_kdStatisticsData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdStatisticsData>" +
                      "<kurumKodu>infoteks</kurumKodu>" +
                      "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-                     "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+                     "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                      "<reportDateStart/>" +
                      "<reportDateEnd/>" +
                      "</kdStatisticsData></soapenv:Body></soapenv:Envelope>";
@@ -282,7 +288,7 @@ namespace LogoDesktopApplication.WS_Class
         public static string SOAP_QUERY_kdZReportData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdZReportData>" +
              "<kurumKodu>infoteks</kurumKodu>" +
              "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-             "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+             "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
              "<reportDateStart/>" +
              "<reportDateEnd/>" +
              "<reportZNo/>" +
