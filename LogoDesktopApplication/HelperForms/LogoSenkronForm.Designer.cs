@@ -33,13 +33,13 @@
             this.lblSenkronSaat = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
             this.midPanel = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboPeriod = new System.Windows.Forms.ComboBox();
             this.lblSenkronPeriod = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.chckBoxSenkronType = new System.Windows.Forms.CheckBox();
             this.btnKaydet = new System.Windows.Forms.PictureBox();
             this.btnSenkronOnOf = new DevExpress.XtraEditors.CheckButton();
-            this.chckBoxSenkronType = new System.Windows.Forms.CheckBox();
-            this.comboPeriod = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.topPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.panelBottom.SuspendLayout();
@@ -89,6 +89,34 @@
             this.midPanel.TabIndex = 4;
             this.midPanel.Visible = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.CustomFormat = "H:mm";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(212, 42);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(143, 22);
+            this.dateTimePicker1.TabIndex = 26;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // comboPeriod
+            // 
+            this.comboPeriod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboPeriod.FormattingEnabled = true;
+            this.comboPeriod.Items.AddRange(new object[] {
+            "5 DK",
+            "10 DK",
+            "20 DK",
+            "30 DK",
+            "40 DK",
+            "50 DK"});
+            this.comboPeriod.Location = new System.Drawing.Point(212, 95);
+            this.comboPeriod.Name = "comboPeriod";
+            this.comboPeriod.Size = new System.Drawing.Size(143, 24);
+            this.comboPeriod.TabIndex = 25;
+            this.comboPeriod.Visible = false;
+            // 
             // lblSenkronPeriod
             // 
             this.lblSenkronPeriod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -109,6 +137,16 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(422, 71);
             this.panelBottom.TabIndex = 5;
+            // 
+            // chckBoxSenkronType
+            // 
+            this.chckBoxSenkronType.AutoSize = true;
+            this.chckBoxSenkronType.Location = new System.Drawing.Point(33, 21);
+            this.chckBoxSenkronType.Name = "chckBoxSenkronType";
+            this.chckBoxSenkronType.Size = new System.Drawing.Size(18, 17);
+            this.chckBoxSenkronType.TabIndex = 28;
+            this.chckBoxSenkronType.UseVisualStyleBackColor = true;
+            this.chckBoxSenkronType.Click += new System.EventHandler(this.chckBoxSenkronType_Click);
             // 
             // btnKaydet
             // 
@@ -133,44 +171,6 @@
             this.btnSenkronOnOf.Text = "Senkron Açık";
             this.btnSenkronOnOf.CheckedChanged += new System.EventHandler(this.btnSenkronOnOf_CheckedChanged);
             this.btnSenkronOnOf.Click += new System.EventHandler(this.btnSenkronOnOf_Click);
-            // 
-            // chckBoxSenkronType
-            // 
-            this.chckBoxSenkronType.AutoSize = true;
-            this.chckBoxSenkronType.Location = new System.Drawing.Point(33, 21);
-            this.chckBoxSenkronType.Name = "chckBoxSenkronType";
-            this.chckBoxSenkronType.Size = new System.Drawing.Size(18, 17);
-            this.chckBoxSenkronType.TabIndex = 28;
-            this.chckBoxSenkronType.UseVisualStyleBackColor = true;
-            this.chckBoxSenkronType.Click += new System.EventHandler(this.chckBoxSenkronType_Click);
-            // 
-            // comboPeriod
-            // 
-            this.comboPeriod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboPeriod.FormattingEnabled = true;
-            this.comboPeriod.Items.AddRange(new object[] {
-            "5 DK",
-            "10 DK",
-            "20 DK",
-            "30 DK",
-            "40 DK",
-            "50 DK"});
-            this.comboPeriod.Location = new System.Drawing.Point(212, 95);
-            this.comboPeriod.Name = "comboPeriod";
-            this.comboPeriod.Size = new System.Drawing.Size(143, 24);
-            this.comboPeriod.TabIndex = 25;
-            this.comboPeriod.Visible = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.CustomFormat = "H:mm";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 42);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 22);
-            this.dateTimePicker1.TabIndex = 26;
-            this.dateTimePicker1.Visible = false;
             // 
             // LogoSenkronForm
             // 

@@ -62,6 +62,8 @@ namespace LogoDesktopApplication
             thTimer.Interval = 5000;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
+            Bank a = new Bank();
+            _logoProvider.bankCreatAcc(a);
             if (_logoCon.networkState)
             {
                 kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
@@ -77,12 +79,12 @@ namespace LogoDesktopApplication
             }
             else
             {
+                DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
                 "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
                 "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
             //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
 
@@ -97,7 +99,7 @@ namespace LogoDesktopApplication
                 }
                 else
                 {
-                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ClosedWıfı;
+                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.closed;
                 }
 
             }
@@ -198,6 +200,7 @@ namespace LogoDesktopApplication
                 }
                 else
                     _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
             }
             else
             {
@@ -209,14 +212,13 @@ namespace LogoDesktopApplication
         }
 
 
-
         public void OtoSync()
         {
             _otoSenkron = _xmlProv.XmlRead();
-            int GO = Convert.ToInt16(_otoSenkron.Period) * 60;
-            say += 60;
             if (_otoSenkron.Durum == "True" && _otoSenkron.SenkronType == 0)  //0 ise period, 1 ise saat.
             {
+                int GO = Convert.ToInt16(_otoSenkron.Period) * 60;
+                say += 60;
                 if (say == GO)
                 {
                     if (_logoCon.networkState)
@@ -225,19 +227,19 @@ namespace LogoDesktopApplication
                         System.Threading.Thread.Sleep(1000);
                         if (kdSalesReceiptData.cevapKodu == "000")
                         {
-                            string Result =_logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
-                            if (Result=="0")
+                            string Result = _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                            if (Result == "0")
                             {
                                 _log.Info("Oto senkron yapıldı. Aktarılan data: " + kdSalesReceiptData.salesData.Count);
                                 say = 0;
                             }
                             else
                             {
-                                _log.Warning("OtoSync  ::  "+Result);
+                                _log.Warning("OtoSync  ::  " + Result);
                             }
                         }
                         else
-                            _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama );
+                            _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
                         say = 0;
                     }
                     else
@@ -247,7 +249,51 @@ namespace LogoDesktopApplication
                     }
                 }
             }
+            else if (_otoSenkron.Durum == "True" && _otoSenkron.SenkronType == 1)
+            {
+                if (_logoCon.networkState)
+                {
+                    TimeSpan MaxTimeKontrol = DateTime.Parse(String.Format("{0:t}", DateTime.Now)) - DateTime.Parse(_otoSenkron.Saat);
+                    string formTime = String.Format("{0:t}", DateTime.Now);
+                    if (formTime == _otoSenkron.Saat || MaxTimeKontrol.Minutes<=5)
+                    {
+                        if (_logoCon.networkState)
+                        {
+                            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                            System.Threading.Thread.Sleep(1000);
+                            if (kdSalesReceiptData.cevapKodu == "000")
+                            {
+                                string Result = _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                                if (Result == "0")
+                                {
+                                    _log.Info("Oto senkron yapıldı. Aktarılan data: " + kdSalesReceiptData.salesData.Count);
+                                }
+                                else
+                                {
+                                    _log.Warning("OtoSync  ::  " + Result);
+                                }
+                            }
+                            else
+                                _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
+                        }
+                        else
+                        {
+                            _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
+                        }
+                    }
+                }
+            }
+            else if (_otoSenkron.Durum == "False" || _otoSenkron.Durum == "false")
+            {
+                _log.Warning("Oto Senkron Kapalı");
+            }
+            else
+            {
+                _log.Warning("OtoSync CONFİG Dosyasını kontrol ediniz...        ");
+            }
+
         }
+
         public void otoSenkronMethod(object sender, EventArgs e)
         {
             _thiki = new Thread(new ThreadStart(OtoSync));

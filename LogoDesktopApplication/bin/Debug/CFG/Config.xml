@@ -1,8 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<OtoSenkron>
-
-<SenkronType>0</SenkronType>
-<Saat />
-<Period>1</Period>
-<Durum>True</Durum>
-</OtoSenkron>
+﻿<?xml version="1.0" encoding="utf-8"?><OtoSenkron><SenkronType>0</SenkronType><Saat>0</Saat><Period>0</Period><Durum>False</Durum></OtoSenkron>

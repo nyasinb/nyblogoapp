@@ -246,9 +246,9 @@ namespace LogoDesktopApplication.WS_Class
 
 
         public static string SOAP_QUERY_kdSalesReceiptData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdSalesReceiptData>" +
-                                             "<kurumKodu>infoteks</kurumKodu>" +
-                                             "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
-                                             "<OKCSeriNo>TEST20181993</OKCSeriNo>" +
+                                             "<kurumKodu>12345YSN</kurumKodu>" +
+                                             "<kurumToken>12345BZT</kurumToken>" +
+                                             "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                                              "<reportDateStart/>" +
                                              "<reportDateEnd/>" +
                                              "<reportZNo/>" +

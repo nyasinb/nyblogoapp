@@ -258,7 +258,7 @@ namespace LogoDesktopApplication.LOGO_Class
             UnityObjects.Data bankac = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doBankAccount);
             bankac.New();
             bankac.DataFields.FieldByName("ACCOUNT_TYPE").Value = 1;
-            bankac.DataFields.FieldByName("CODE").Value = 456123124; // Unique olan terminal numarası buraya verilir Code = Hesap Codu. Bu numara sistemde var ise hesap oluşmaz.
+            bankac.DataFields.FieldByName("CODE").Value = 456123125; // Unique olan terminal numarası buraya verilir Code = Hesap Codu. Bu numara sistemde var ise hesap oluşmaz.
             bankac.DataFields.FieldByName("DESCRIPTION").Value = banka.bankName;
             bankac.DataFields.FieldByName("CREATED_BY").Value = 1;
             bankac.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
@@ -267,6 +267,7 @@ namespace LogoDesktopApplication.LOGO_Class
             bankac.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
             bankac.DataFields.FieldByName("ACCOUNT_NR").Value = 454545; //Hesap Numarası
             bankac.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
+            bankac.DataFields.FieldByName("KKUSAGE").Value = 1; // Hesabın kredi kartı fişlerinde kullanılması için onay verir.
             bankac.DataFields.FieldByName("BANK_CODE").Value = banka.bankId; //hangi bankaya aitse onun acquırerid si
             bankac.DataFields.FieldByName("POS_TERMINAL_NO").Value = 456123123; //Terminal Numarası
             if (bankac.Post() == true)

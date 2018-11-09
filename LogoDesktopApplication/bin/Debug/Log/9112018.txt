@@ -1,0 +1,18 @@
+﻿09-11-2018 13:50:15.257 [WARNING] OtoSync  ::  DBError(8)-Kayıt veritabanına aktarılamadı.
+09-11-2018 14:29:05.557 [WARNING] OtoSync  ::  DBError(8)-Kayıt veritabanına aktarılamadı.
+09-11-2018 14:29:51.269 [WARNING] OtoSync  ::  DBError(8)-Kayıt veritabanına aktarılamadı.
+09-11-2018 14:30:51.214 [WARNING] OtoSync  ::  DBError(8)-Kayıt veritabanına aktarılamadı.
+09-11-2018 14:31:51.214 [WARNING] OtoSync  ::  DBError(8)-Kayıt veritabanına aktarılamadı.
+09-11-2018 14:44:04.114 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:45:04.085 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:46:04.085 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:47:04.085 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:48:04.085 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:49:04.088 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:50:04.085 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:51:04.092 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:52:04.092 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:56:28.696 [WARNING] Oto Senkron Kapalı
+09-11-2018 14:57:28.664 [WARNING] Oto Senkron Kapalı
+09-11-2018 15:00:07.915 [WARNING] Oto Senkron Kapalı
+09-11-2018 15:01:07.888 [WARNING] Oto Senkron Kapalı

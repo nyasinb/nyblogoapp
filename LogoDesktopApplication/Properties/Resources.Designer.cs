@@ -73,9 +73,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ClosedWıfı {
+        internal static System.Drawing.Bitmap closed {
             get {
-                object obj = ResourceManager.GetObject("ClosedWıfı", resourceCulture);
+                object obj = ResourceManager.GetObject("closed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

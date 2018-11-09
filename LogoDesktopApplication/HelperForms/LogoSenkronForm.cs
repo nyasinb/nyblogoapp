@@ -61,27 +61,27 @@ namespace LogoDesktopApplication.HelperForms
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            //dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-            //this,
-            //"Kayıt Oluşturuldu,TP & CP Oluşturmaya Gitmek İstiyor Musunuz ?",
-            //"Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //if (dr == System.Windows.Forms.DialogResult.Yes)
-            //{
-            //}
-
+            string WriteResult = "";
             OtoSenkron s = new OtoSenkron();
             s.Durum = btnSenkronOnOf.Checked.ToString();
             if (s.Durum == "false" || s.Durum == "False")
             {
                 s.Saat = "0";
                 s.Period = "0";
+                s.SenkronType = 0;
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Oto Senkron Kapatılıyor",
+                    "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                WriteResult = _xmlProv.XmlWriterMethod(s);
             }
             else
             {
                 if (chckBoxSenkronType.Checked)
                 {
                     s.SenkronType = 1;
-                    s.Saat = String.Format("{0:t}", dateTimePicker1.Text);
+                    s.Saat = String.Format("{0:t}", dateTimePicker1.Value);
                     dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                     this,
                     "Saat: "+s.Saat+"'de Otomatik Senkron Yapılacaktır\nBilgisayarınız Açık Olmalı ve\nİnternet Bağlantısı Olması Gerekmektedir.",
@@ -97,7 +97,6 @@ namespace LogoDesktopApplication.HelperForms
                     "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 }
             }
-            string WriteResult = "";
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
                 WriteResult = _xmlProv.XmlWriterMethod(s);
