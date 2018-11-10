@@ -216,7 +216,7 @@ namespace LogoDesktopApplication.WS_Class
             return kdStatisticsDataCevapItem;
         }
 
-        public  HttpWebRequest CreateWebRequest(string url, string action)
+        public HttpWebRequest CreateWebRequest(string url, string action)
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
             webRequest.Headers.Add("SOAPAction", action);
@@ -226,14 +226,14 @@ namespace LogoDesktopApplication.WS_Class
             return webRequest;
         }
 
-        public  XmlDocument CreateSoapEnvelope(string query)
+        public XmlDocument CreateSoapEnvelope(string query)
         {
             XmlDocument soapEnvelopeDocument = new XmlDocument();
             soapEnvelopeDocument.LoadXml(query);
             return soapEnvelopeDocument;
         }
 
-        public  void InsertSoapEnvelopeIntoWebRequest(XmlDocument soapEnvelopeXml, HttpWebRequest webRequest)
+        public void InsertSoapEnvelopeIntoWebRequest(XmlDocument soapEnvelopeXml, HttpWebRequest webRequest)
         {
             using (Stream stream = webRequest.GetRequestStream())
             {
@@ -253,10 +253,9 @@ namespace LogoDesktopApplication.WS_Class
                                              "<reportDateEnd/>" +
                                              "<reportZNo/>" +
                                              "</kdSalesReceiptData></soapenv:Body></soapenv:Envelope>";
-
         public static string SOAP_QUERY_kdContractInfo = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdContractInfo>" +
-                                             "<kurumKodu>infoteks</kurumKodu>" +
-                                             "<kurumToken>SD5S1DV5166SDSDVCSDVSV66DETRH</kurumToken>" +
+                                             "<kurumKodu>12345YSN</kurumKodu>" +
+                                             "<kurumToken>12345BZT</kurumToken>" +
                                              "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                                              "</kdContractInfo></soapenv:Body></soapenv:Envelope>";
 

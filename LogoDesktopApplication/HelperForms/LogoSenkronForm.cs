@@ -18,10 +18,13 @@ namespace LogoDesktopApplication.HelperForms
         XmlProvider _xmlProv;
         OtoSenkron item;
         DialogResult dr;
+        Login _login;
         public bool senkronType { get; set; }
         public LogoSenkronForm()
         {
+
             InitializeComponent();
+            _login = new HelperForms.Login();
             _ser = new Serializer();
             item = new OtoSenkron();
             _xmlProv = new XmlProvider();
@@ -99,6 +102,9 @@ namespace LogoDesktopApplication.HelperForms
             }
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
+                _login.State = "True";
+                //item.Login.Add(_login);
+                s = item;
                 WriteResult = _xmlProv.XmlWriterMethod(s);
                 if (WriteResult == "0")
                 {

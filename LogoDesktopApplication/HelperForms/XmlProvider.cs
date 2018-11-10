@@ -10,7 +10,7 @@ namespace LogoDesktopApplication.HelperForms
 {
    public class XmlProvider
     {
-        Serializer _ser;
+        Serializer _ser;        
         public XmlProvider()
         {
             _ser = new Serializer();
@@ -46,8 +46,15 @@ namespace LogoDesktopApplication.HelperForms
                         }
                         writer.WriteElementString("Period", s.Period.Replace("DK", " ").Trim());
                         writer.WriteElementString("Durum", s.Durum);
+                        writer.WriteStartElement("Login");
+                        writer.WriteElementString("userName",s.Login.userName);
+                        writer.WriteElementString("passWord", s.Login.passWord);
+                        writer.WriteElementString("State", Convert.ToString(s.Login.State));
+
+
                         writer.WriteEndElement();
                         writer.WriteEndDocument();
+
                     }
                 }
                 return "0";

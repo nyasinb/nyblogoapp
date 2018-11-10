@@ -52,7 +52,7 @@ namespace LogoDesktopApplication
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
             _xmlProv = new XmlProvider();
-            item = new OtoSenkron();
+             item = new OtoSenkron();
             _timer = new System.Windows.Forms.Timer();
             _timer.Interval = 60000;
             _timer.Tick += new EventHandler(otoSenkronMethod);
@@ -62,8 +62,8 @@ namespace LogoDesktopApplication
             thTimer.Interval = 5000;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
-            Bank a = new Bank();
-            _logoProvider.bankCreatAcc(a);
+            //Bank a = new Bank();
+            //_logoProvider.bankCreatAcc(a);
             if (_logoCon.networkState)
             {
                 kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
@@ -85,11 +85,23 @@ namespace LogoDesktopApplication
                 "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
                 "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            BtninfoteksProc.PerformClick();
+
+            DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
             //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
 
         public void NetworkControl()
         {
+            item = _xmlProv.XmlRead();
+            if (item.Login.State == "True")
+            {
+                BtnlogoProc.Enabled = true;
+            }
+            else
+            {
+                BtnlogoProc.Enabled = false;
+            }
             try
             {
                 _logoCon.networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
