@@ -29,6 +29,10 @@ namespace LogoDesktopApplication
         public string salesTime { get; set; }
         public string salesTotalCost { get; set; }
         public string salesZNo { get; set; }
+
+        public string salesFaturaTarihi { get; set; }
+        public string salesType { get; set; }
+        public string salesFaturaNo { get; set; }
         public List<salesLine> salesLines { get; set; }
         public List<bankLine> bankLines { get; set; }
     }
@@ -51,5 +55,6 @@ namespace LogoDesktopApplication
         public string account_no { get; set; }
         public string acquirer_id { get; set; }
         public string kk_number { get; set; }
+        public float amount { get; set; }
     }
 }
