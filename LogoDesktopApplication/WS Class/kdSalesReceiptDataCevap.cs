@@ -30,6 +30,7 @@ namespace LogoDesktopApplication
         public string salesTotalCost { get; set; }
         public string salesZNo { get; set; }
         public List<salesLine> salesLines { get; set; }
+        public List<bankLine> bankLines { get; set; }
     }
 
     public class salesLine
@@ -40,6 +41,15 @@ namespace LogoDesktopApplication
         public string salesLineDecAmount { get; set; }
         public string salesLineName { get; set; }
         public string salesLineVAT { get; set; }
-
+    }
+    public class bankLine
+    {
+        public string batch_no { get; set; }
+        public string terminal_no { get; set; }
+        public string onay_no { get; set; }
+        public string receipt_no { get; set; }
+        public string account_no { get; set; }
+        public string acquirer_id { get; set; }
+        public string kk_number { get; set; }
     }
 }

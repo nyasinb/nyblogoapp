@@ -39,12 +39,14 @@ namespace LogoDesktopApplication
         int say = 0;
         OtoSenkron _otoSenkron;
         Log _log;
+        kdAcquirerInfoCevap _acquir;
         #endregion
 
         public WinForm()
         {
             _log = new Log();
             InitializeComponent();
+            _acquir = new kdAcquirerInfoCevap();
             _otoSenkron = new OtoSenkron();
             _ws = new WS_Class.WSProvider();
             _logoCon = new ConnectionGlobal();
@@ -62,6 +64,8 @@ namespace LogoDesktopApplication
             thTimer.Interval = 5000;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
+            _acquir = _ws.Query_Method_kdAcquirerInfo();
+            CreatBank();
             //Bank a = new Bank();
             //_logoProvider.bankCreatAcc(a);
             if (_logoCon.networkState)
@@ -158,11 +162,11 @@ namespace LogoDesktopApplication
 
         }
 
-        public void BankaHesapOlustur()
+        public void CreatBank()
         {
-            Bank b = new Bank();
-            string Result = _logoProvider.bankCreat(b);
-            Result = _logoProvider.bankCreatAcc(b);
+            //Bank b = new Bank();
+            string Result = _logoProvider.bankCreat(_acquir);
+            //Result = _logoProvider.bankCreatAcc(b);
 
         }
 

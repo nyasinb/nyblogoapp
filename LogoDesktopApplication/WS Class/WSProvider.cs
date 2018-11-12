@@ -216,6 +216,39 @@ namespace LogoDesktopApplication.WS_Class
             return kdStatisticsDataCevapItem;
         }
 
+        public kdAcquirerInfoCevap Query_Method_kdAcquirerInfo()
+        {
+
+            var _url = "http://94.103.42.156:8069/kdintegration/";
+            var _action = _url + "kdAcquirerInfo";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(SOAP_QUERY_kdAcquirerInfo);
+            HttpWebRequest webRequest = CreateWebRequest(_url, _action);
+            InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
+            IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
+            asyncResult.AsyncWaitHandle.WaitOne();
+            string soapResult;
+            kdAcquirerInfoCevap kdAcquirerInfoCevapItem;
+            using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
+            {
+                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                {
+                    soapResult = rd.ReadToEnd();
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(soapResult);
+
+                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdAcquirerInfoCevap");
+                    Serializer ser = new Serializer();
+                    string path = string.Empty;
+                    foreach (XmlNode xn in receiptLine)
+                    {
+                        path = xn.OuterXml;
+                    }
+                    kdAcquirerInfoCevapItem = ser.Deserialize<kdAcquirerInfoCevap>(path);
+                }
+            }
+            return kdAcquirerInfoCevapItem;
+        }
+
         public HttpWebRequest CreateWebRequest(string url, string action)
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -292,6 +325,11 @@ namespace LogoDesktopApplication.WS_Class
              "<reportDateEnd/>" +
              "<reportZNo/>" +
              "</kdZReportData></soapenv:Body></soapenv:Envelope>";
+
+        public static string SOAP_QUERY_kdAcquirerInfo = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdAcquirerInfo>" +
+                                                         "<kurumKodu>12345YSN</kurumKodu>" +
+                                                         "<kurumToken>12345BZT</kurumToken>" +
+                                                         "</kdAcquirerInfo></soapenv:Body></soapenv:Envelope>";
 
         #endregion
     }

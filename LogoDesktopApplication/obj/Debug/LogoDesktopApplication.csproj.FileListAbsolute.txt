@@ -63,3 +63,4 @@ C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\Log
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe.licenses
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.pdb
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csprojResolveAssemblyReference.cache
