@@ -259,27 +259,27 @@ namespace LogoDesktopApplication.LOGO_Class
         /// <param name="i"></param>
         /// <param name="bankName"></param>
         /// <returns></returns>
-        public string bankCreatAcc(kdSalesReceiptDataCevap kdSalesReceiptData, int i,string bankName)
+        public void bankCreatAcc(kdSalesReceiptDataCevap kdSalesReceiptData, int j, int i, string bankName)
         {
             var result = "";
             UnityObjects.Data bankac = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doBankAccount);
             bankac.New();
             bankac.DataFields.FieldByName("ACCOUNT_TYPE").Value = 1;
-            bankac.DataFields.FieldByName("CODE").Value = kdSalesReceiptData.salesData[i].bankLines[i].acquirer_id; // Unique olan terminal numarası buraya verilir Code = Hesap Codu. Bu numara sistemde var ise hesap oluşmaz.
+            bankac.DataFields.FieldByName("CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id; // Unique olan terminal numarası buraya verilir Code = Hesap Codu. Bu numara sistemde var ise hesap oluşmaz.
             bankac.DataFields.FieldByName("DESCRIPTION").Value = bankName;
             bankac.DataFields.FieldByName("CREATED_BY").Value = 1;
             bankac.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
             bankac.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
             bankac.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
             bankac.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
-            bankac.DataFields.FieldByName("ACCOUNT_NR").Value = kdSalesReceiptData.salesData[i].bankLines[i].account_no; //Hesap Numarası
+            bankac.DataFields.FieldByName("ACCOUNT_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].account_no; //Hesap Numarası
             bankac.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
             bankac.DataFields.FieldByName("KKUSAGE").Value = 1; // Hesabın kredi kartı fişlerinde kullanılması için onay verir.
-            bankac.DataFields.FieldByName("BANK_CODE").Value = kdSalesReceiptData.salesData[i].bankLines[i].acquirer_id; //hangi bankaya aitse onun acquırerid si
-            bankac.DataFields.FieldByName("POS_TERMINAL_NO").Value = 456123123; //Terminal Numarası
+            bankac.DataFields.FieldByName("BANK_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id; //hangi bankaya aitse onun acquırerid si
+            bankac.DataFields.FieldByName("POS_TERMINAL_NO").Value = kdSalesReceiptData.salesData[j].bankLines[i].terminal_no; //Terminal Numarası
             if (bankac.Post() == true)
             {
-                return "0";
+                Result = "0";
             }
             else
             {
@@ -290,16 +290,311 @@ namespace LogoDesktopApplication.LOGO_Class
                 else if (bankac.ValidateErrors.Count > 0)
                 {
                     result = "XML ErrorList:";
-                    for (int j = 0; j < bankac.ValidateErrors.Count; j++)
+                    for (int k = 0; k < bankac.ValidateErrors.Count; k++)
                     {
-                        result += "(" + bankac.ValidateErrors[j].ID.ToString() + ") - " + bankac.ValidateErrors[j].Error;
+                        result += "(" + bankac.ValidateErrors[k].ID.ToString() + ") - " + bankac.ValidateErrors[k].Error;
                     }
-                    return (result);
+                    Result += (result);
                 }
             }
-            return "-1";
+        }
+        string Result = null;
+
+        UnityObjects.Data arpvoucher = null;
+        UnityObjects.Lines transactions_lines = null;
+
+        public void KKParcaliOdemeFisAktar(kdSalesReceiptDataCevap kdSalesReceiptData,string fisNo, int i , int j)
+        {
+            arpvoucher = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doARAPVoucher);
+            arpvoucher.New();
+            arpvoucher.DataFields.FieldByName("NUMBER").Value = fisNo;
+            arpvoucher.DataFields.FieldByName("DATE").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            arpvoucher.DataFields.FieldByName("TYPE").Value = 70; // Kredi Kartı Fişi
+            arpvoucher.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
+            arpvoucher.DataFields.FieldByName("TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+            arpvoucher.DataFields.FieldByName("RC_TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+            arpvoucher.DataFields.FieldByName("CREATED_BY").Value = 1;
+            arpvoucher.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            arpvoucher.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
+            arpvoucher.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
+            arpvoucher.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
+            arpvoucher.DataFields.FieldByName("CURRSEL_TOTALS").Value = 3;
+            arpvoucher.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
+
+            transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
+            transactions_lines.AppendLine();
+            transactions_lines[transactions_lines.Count - 1].FieldByName("ARP_CODE").Value = 1000; // Cari Kodu
+            transactions_lines[transactions_lines.Count - 1].FieldByName("DOC_NUMBER").Value = "Parçalı Ödeme";
+            transactions_lines[transactions_lines.Count - 1].FieldByName("DESCRIPTION").Value = "Açıklama";
+            transactions_lines[transactions_lines.Count - 1].FieldByName("CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+            transactions_lines[transactions_lines.Count - 1].FieldByName("TC_XRATE").Value = 1;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount); // KK İşlem tutarı
+            transactions_lines[transactions_lines.Count - 1].FieldByName("RC_XRATE").Value = 1;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("RC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+            transactions_lines[transactions_lines.Count - 1].FieldByName("BNLN_TC_XRATE").Value = 1;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("BNLN_TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+
+            transactions_lines[transactions_lines.Count - 1].FieldByName("DATA_REFERENCE").Value = 208;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("CREDIT_CARD_NO").Value = kdSalesReceiptData.salesData[j].bankLines[0].kk_number;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
+            transactions_lines[transactions_lines.Count - 1].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
+            transactions_lines[transactions_lines.Count - 1].FieldByName("AFFECT_RISK").Value = 0;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("BATCH_NR").Value = kdSalesReceiptData.salesData[j].bankLines[0].batch_no;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("APPROVE_NR").Value = kdSalesReceiptData.salesData[j].bankLines[0].onay_no;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[0].acquirer_id;
+            transactions_lines[transactions_lines.Count - 1].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
+            arpvoucher.DataFields.FieldByName("ARP_CODE").Value = 1000;
+            arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 0;
+            try
+            {
+                if (arpvoucher.Post() == true)
+                {
+                    Result = "ok !";
+                }
+                else
+                {
+                    if (arpvoucher.ErrorCode != 0)
+                    {
+                        Result = ("DBError(" + arpvoucher.ErrorCode.ToString() + ")-" + arpvoucher.ErrorDesc + arpvoucher.DBErrorDesc);
+                    }
+                    else if (arpvoucher.ValidateErrors.Count > 0)
+                    {
+                        string result = "XML ErrorList:";
+                        for (int k = 0; k < arpvoucher.ValidateErrors.Count; k++)
+                        {
+                            result += "(" + arpvoucher.ValidateErrors[k].ID.ToString() + ") - " + arpvoucher.ValidateErrors[k].Error;
+                        }
+                        Result = (result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Warning("K.k Fiş aktarım hatası :: " + Result);            
+            }
         }
 
+        public void KKOdemeAktar(kdSalesReceiptDataCevap kdSalesReceiptData, string fisNo, int j)
+        {
+            //burası sadece kredi kartlı satışlarda iş yapacaz.
+            for (int i = 0; i < kdSalesReceiptData.salesData[j].salesLines.Count; i++)
+            {
+                string Query = "select Code from LG_001_BNCARD where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id) + "'";
+                string QueryResult = sqlProvider.DataReadCardCodeControl(Query);
+                if (QueryResult == "-1") // banka tanımlı değil gir oluştur.
+                {
+                    //hepsi program açılışta servisten çekilip otomatik oluşturuluyor. 
+                }
+                else
+                {
+                    //Bankası tanımlıysa banka hesabı varmı gir ona bak hele.
+                    Query = "select ACCOUNTNO,POSTERMINALNUM from LG_001_BANKACC where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id) + "'";
+                    QueryResult = sqlProvider.DataReadCardBankAccControl(Query);
+                    if (QueryResult == "-1")
+                    {
+                        //tanımlı acc yok gir oluştur.
+                        for (int z = 0; z < kdSalesReceiptData.salesData[j].bankLines.Count; z++)
+                        {
+                            Query = "select DEFINITION_,LOGICALREF from LG_001_BNCARD where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[z].acquirer_id) + "'";
+                            QueryResult = sqlProvider.DataReadReturnBankNameWhereAcqID(Query);
+                            bankCreatAcc(kdSalesReceiptData, j, z, QueryResult);
+                        }
+                        if (Result == "0")
+                        {
+                            _log.Info("Banka Acc Oluşturuldu Bank Name :: " + QueryResult);
+                        }
+                        //kk li fiş aktarımı başlar
+                    }
+
+                    if (i == 0)
+                    {
+                        arpvoucher = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doARAPVoucher);
+                        arpvoucher.New();
+                        arpvoucher.DataFields.FieldByName("NUMBER").Value = fisNo;
+                        arpvoucher.DataFields.FieldByName("DATE").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+                        arpvoucher.DataFields.FieldByName("TYPE").Value = 70; // Kredi Kartı Fişi
+                        arpvoucher.DataFields.FieldByName("TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        arpvoucher.DataFields.FieldByName("RC_TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        arpvoucher.DataFields.FieldByName("CREATED_BY").Value = 1;
+                        arpvoucher.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+                        arpvoucher.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
+                        arpvoucher.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
+                        arpvoucher.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
+                        arpvoucher.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
+                        arpvoucher.DataFields.FieldByName("CURRSEL_TOTALS").Value = 3;
+                        arpvoucher.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
+                        arpvoucher.DataFields.FieldByName("NOTES1").Value = "Fis No: " + kdSalesReceiptData.salesData[j].salesReceiptNo + " Z No: " + kdSalesReceiptData.salesData[j].salesZNo + " Eku No: " + kdSalesReceiptData.salesData[j].salesEKUNo;
+                        arpvoucher.DataFields.FieldByName("NOTES2").Value = "Fişin Tamamı Kredi Kartı ile ödenmiştir\nToplam Odeme: " + float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+
+                        transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
+                        transactions_lines.AppendLine();
+
+                        transactions_lines[i].FieldByName("ARP_CODE").Value = 1000;
+                        transactions_lines[i].FieldByName("DOC_NUMBER").Value = kdSalesReceiptData.salesData[j].bankLines[i].receipt_no;
+                        transactions_lines[i].FieldByName("CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("TC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount); // KK İşlem tutarı
+                        transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("RC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("BNLN_TC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("BNLN_TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 208;
+                        transactions_lines[i].FieldByName("CREDIT_CARD_NO").Value = kdSalesReceiptData.salesData[j].bankLines[i].kk_number;
+                        transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
+                        transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
+                        transactions_lines[i].FieldByName("AFFECT_RISK").Value = 0;
+                        transactions_lines[i].FieldByName("BATCH_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].batch_no;
+                        transactions_lines[i].FieldByName("APPROVE_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].onay_no;
+                        transactions_lines[i].FieldByName("DESCRIPTION").Value = "Ürün Adı :" + kdSalesReceiptData.salesData[j].salesLines[i].salesLineName;
+                        transactions_lines[i].FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id;
+                        transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
+                        arpvoucher.DataFields.FieldByName("ARP_CODE").Value = 1000;
+                        arpvoucher.DataFields.FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id;
+                        arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 0;
+                        arpvoucher.DataFields.FieldByName("POS_TERMINAL_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].terminal_no;
+                    }
+                    else
+                    {
+                        transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
+                        transactions_lines.AppendLine();
+
+                        transactions_lines[i].FieldByName("ARP_CODE").Value = 1000;
+                        transactions_lines[i].FieldByName("DOC_NUMBER").Value = "Makbuz No";
+                        transactions_lines[i].FieldByName("CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("TC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);  // KK İşlem tutarı
+                        transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("RC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("BNLN_TC_XRATE").Value = 1;
+                        transactions_lines[i].FieldByName("BNLN_TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
+                        transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 208;
+                        transactions_lines[i].FieldByName("CREDIT_CARD_NO").Value = kdSalesReceiptData.salesData[j].bankLines[i].kk_number;
+                        transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
+                        transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
+                        transactions_lines[i].FieldByName("AFFECT_RISK").Value = 0;
+                        transactions_lines[i].FieldByName("BATCH_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].batch_no;
+                        transactions_lines[i].FieldByName("APPROVE_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].onay_no;
+                        transactions_lines[i].FieldByName("DESCRIPTION").Value = "Ürün Adı :" + kdSalesReceiptData.salesData[j].salesLines[i].salesLineName;
+                        transactions_lines[i].FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].terminal_no;
+                        transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
+                        arpvoucher.DataFields.FieldByName("ARP_CODE").Value = 1000;
+                        arpvoucher.DataFields.FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].terminal_no;
+                        arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 0;
+                        arpvoucher.DataFields.FieldByName("POS_TERMINAL_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].terminal_no;
+                    }
+                }
+            }
+            if (arpvoucher.Post() == true)
+            {
+                Result = Result + ("0");
+            }
+            else
+            {
+                if (arpvoucher.ErrorCode != 0)
+                {
+                    Result = "DBError(" + arpvoucher.ErrorCode.ToString() + ")-" + arpvoucher.ErrorDesc + arpvoucher.DBErrorDesc;
+                }
+                else if (arpvoucher.ValidateErrors.Count > 0)
+                {
+                    string result = "XML ErrorList:";
+                    for (int m = 0; m < arpvoucher.ValidateErrors.Count; m++)
+                    {
+                        result += "(" + arpvoucher.ValidateErrors[m].ID.ToString() + ") - " + arpvoucher.ValidateErrors[m].Error;
+                    }
+                    Result = (result);
+                }
+            }
+        }
+
+        public void KKNakitAktar(kdSalesReceiptDataCevap kdSalesReceiptData, string fisNo, int j)
+        {
+            for (int i = 0; i < kdSalesReceiptData.salesData[j].salesLines.Count; i++)
+            {
+                string QuerycariNo = "select CODE from LG_001_CLCARD where DEFINITION_='Havuz Cari %" +
+                    Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100 + "'";
+                string arpcode = sqlProvider.DataReadCardCodeControl(QuerycariNo);
+                if (arpcode == "-1") // Cariler yok ise gider oluşturur.
+                {
+                    Result = CreateCurrentParametric(Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100, "Havuz Cari %");
+                    if (Result == "0") // Eğer cariyi oluşturabildiyse gidip codunu alır.
+                    {
+                        QuerycariNo = "select CODE from LG_001_CLCARD where DEFINITION_='Havuz Cari %" +
+                                            Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100 + "'";
+                        arpcode = sqlProvider.DataReadCardCodeControl(QuerycariNo);
+                    }
+                }
+                if (i == 0)
+                {
+                    arpvoucher = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doARAPVoucher);
+                    arpvoucher.New();
+                    arpvoucher.DataFields.FieldByName("NUMBER").Value = fisNo;
+                    arpvoucher.DataFields.FieldByName("DATE").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+                    arpvoucher.DataFields.FieldByName("TYPE").Value = 1;
+                    arpvoucher.DataFields.FieldByName("NOTES1").Value = "Fis No: " + kdSalesReceiptData.salesData[j].salesReceiptNo + " Z No: " + kdSalesReceiptData.salesData[j].salesZNo + " Eku No: " + kdSalesReceiptData.salesData[j].salesEKUNo;
+                    arpvoucher.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
+                    arpvoucher.DataFields.FieldByName("CREATED_BY").Value = 1;
+                    arpvoucher.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+                    arpvoucher.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
+                    arpvoucher.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
+                    arpvoucher.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
+                    arpvoucher.DataFields.FieldByName("CURRSEL_TOTALS").Value = 3;
+                    arpvoucher.DataFields.FieldByName("DATA_REFERENCE").Value = 5;
+                    transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
+                    transactions_lines.AppendLine();
+                    transactions_lines[i].FieldByName("ARP_CODE").Value = arpcode;
+                    transactions_lines[i].FieldByName("DESCRIPTION").Value = kdSalesReceiptData.salesData[j].salesLines[i].salesLineName.Trim();
+                    transactions_lines[i].FieldByName("CREDIT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("TC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
+                    transactions_lines[i].FieldByName("RC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 59;
+                    transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
+                    transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
+                    transactions_lines[i].FieldByName("AFFECT_RISK").Value = 1;
+                    transactions_lines[i].FieldByName("DISCOUNTED").Value = 5;
+                    transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
+                    arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 1;
+                }
+                else
+                {
+                    transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
+                    transactions_lines.AppendLine();
+                    transactions_lines[i].FieldByName("ARP_CODE").Value = arpcode;
+                    transactions_lines[i].FieldByName("DESCRIPTION").Value = kdSalesReceiptData.salesData[j].salesLines[i].salesLineName.Trim();
+                    transactions_lines[i].FieldByName("CREDIT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("TC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
+                    transactions_lines[i].FieldByName("RC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
+                    transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 59;
+                    transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
+                    transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
+                    transactions_lines[i].FieldByName("AFFECT_RISK").Value = 1;
+                    transactions_lines[i].FieldByName("DISCOUNTED").Value = 5;
+                    transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
+                    arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 1;
+                }
+            }
+            if (arpvoucher.Post() == true)
+            {
+                Result = Result + ("0");
+            }
+            else
+            {
+                if (arpvoucher.ErrorCode != 0)
+                {
+                    Result = "DBError(" + arpvoucher.ErrorCode.ToString() + ")-" + arpvoucher.ErrorDesc + arpvoucher.DBErrorDesc;
+                }
+                else if (arpvoucher.ValidateErrors.Count > 0)
+                {
+                    string result = "XML ErrorList:";
+                    for (int m = 0; m < arpvoucher.ValidateErrors.Count; m++)
+                    {
+                        result += "(" + arpvoucher.ValidateErrors[m].ID.ToString() + ") - " + arpvoucher.ValidateErrors[m].Error;
+                    }
+                    Result = (result);
+                }
+            }
+        }
         /// <summary>
         /// kdSalesReceiptData İçerisinde gelen fiş verilerini logoya sevk eder.
         /// </summary>
@@ -307,10 +602,6 @@ namespace LogoDesktopApplication.LOGO_Class
         /// <returns></returns>
         public string transferVoucherNoCurrent(kdSalesReceiptDataCevap kdSalesReceiptData)
         {
-            string Result = null;
-
-            UnityObjects.Data arpvoucher = null;
-            UnityObjects.Lines transactions_lines = null;
             CreateCurrentParametric(1000, "Havuz Cari %");
             try
             {
@@ -321,230 +612,28 @@ namespace LogoDesktopApplication.LOGO_Class
                     var ekuNo = kdSalesReceiptData.salesData[j].salesEKUNo.ToString().PadLeft(5, '0');
                     var fisNo = ekuNo + zNo + sRetfisNo;
                     //k.k ve nakit aynı anda varsa buraya giriyor orada patlıyor oraya bir bakacaz
+
                     if (Convert.ToInt16(kdSalesReceiptData.salesData[j].salesCashAmount) > 0 && Convert.ToInt16(kdSalesReceiptData.salesData[j].salesKKAmount) > 0)
                     {
-                        break;
+                        KKParcaliOdemeFisAktar(kdSalesReceiptData, fisNo, j, 0);
                     }
                     if (kdSalesReceiptData.salesData[j].salesCashAmount == "0" && Convert.ToInt16(kdSalesReceiptData.salesData[j].salesKKAmount) > 0)
                     {
-                        //burası sadece kredi kartlı satışlarda iş yapacaz.
-                        for (int i = 0; i < kdSalesReceiptData.salesData[j].salesLines.Count; i++)
-                        {
-                            string Query = "select Code from LG_001_BNCARD where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id) + "'";
-                            string QueryResult = sqlProvider.DataReadCardCodeControl(Query);
-                            if (QueryResult=="-1") // banka tanımlı değil gir oluştur.
-                            {
-                                //hepsi program açılışta servisten çekilip otomatik oluşturuluyor. 
-                            }
-                            else
-                            {
-                                //Bankası tanımlıysa banka hesabı varmı gir ona bak hele.
-                                Query = "select ACCOUNTNO,POSTERMINALNUM from LG_001_BANKACC where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id) + "'";
-                                QueryResult = sqlProvider.DataReadCardBankAccControl(Query);
-                                if (QueryResult=="-1")
-                                {
-                                    //tanımlı acc yok gir oluştur.
-                                    Query = "select DEFINITION_ from LG_001_BNCARD where CODE='" + Convert.ToInt16(kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id) + "'";
-                                    QueryResult = sqlProvider.DataReadReturnBankNameWhereAcqID(Query);
-                                    Result = bankCreatAcc(kdSalesReceiptData, i, QueryResult);
-                                    if (Result=="0")
-                                    {
-                                        _log.Info("Banka Acc Oluşturuldu Bank Name :: " + QueryResult);
-                                    }
-                                    //kk li fiş aktarımı başlar
-                                }
-
-                                if (i == 0)
-                                {
-                                    arpvoucher = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doARAPVoucher);
-                                    arpvoucher.New();
-                                    arpvoucher.DataFields.FieldByName("NUMBER").Value = fisNo;
-                                    arpvoucher.DataFields.FieldByName("DATE").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
-                                    arpvoucher.DataFields.FieldByName("TYPE").Value = 70; // Kredi Kartı Fişi
-                                    arpvoucher.DataFields.FieldByName("TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    arpvoucher.DataFields.FieldByName("RC_TOTAL_CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    arpvoucher.DataFields.FieldByName("CREATED_BY").Value = 1;
-                                    arpvoucher.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
-                                    arpvoucher.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
-                                    arpvoucher.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
-                                    arpvoucher.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
-                                    arpvoucher.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
-                                    arpvoucher.DataFields.FieldByName("CURRSEL_TOTALS").Value = 3;
-                                    arpvoucher.DataFields.FieldByName("DATA_REFERENCE").Value = 1;
-                                    arpvoucher.DataFields.FieldByName("NOTES1").Value = "Fis No: " + kdSalesReceiptData.salesData[j].salesReceiptNo + " Z No: " + kdSalesReceiptData.salesData[j].salesZNo + " Eku No: " + kdSalesReceiptData.salesData[j].salesEKUNo;
-                                    arpvoucher.DataFields.FieldByName("NOTES2").Value = "Fişin Tamamı Kredi Kartı ile ödenmiştir\nToplam Odeme: "+ float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-
-                                    transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
-                                    transactions_lines.AppendLine();
-
-                                    transactions_lines[i].FieldByName("ARP_CODE").Value = 1000;
-                                    transactions_lines[i].FieldByName("DOC_NUMBER").Value = kdSalesReceiptData.salesData[j].bankLines[i].receipt_no;
-                                    transactions_lines[i].FieldByName("CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("TC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount); // KK İşlem tutarı
-                                    transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("RC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("BNLN_TC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("BNLN_TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 208;
-                                    transactions_lines[i].FieldByName("CREDIT_CARD_NO").Value = kdSalesReceiptData.salesData[j].bankLines[i].kk_number;
-                                    transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
-                                    transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
-                                    transactions_lines[i].FieldByName("AFFECT_RISK").Value = 0;
-                                    transactions_lines[i].FieldByName("BATCH_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].batch_no;
-                                    transactions_lines[i].FieldByName("APPROVE_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].onay_no;
-                                    transactions_lines[i].FieldByName("DESCRIPTION").Value = "Ürün Adı :" + kdSalesReceiptData.salesData[j].salesLines[i].salesLineName;
-                                    transactions_lines[i].FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id;
-                                    transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
-                                    arpvoucher.DataFields.FieldByName("ARP_CODE").Value = 1000;
-                                    arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 0;
-                                }
-                                else
-                                {
-                                    transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
-                                    transactions_lines.AppendLine();
-
-                                    transactions_lines[i].FieldByName("ARP_CODE").Value = 1000;
-                                    transactions_lines[i].FieldByName("DOC_NUMBER").Value = "Makbuz No";
-                                    transactions_lines[i].FieldByName("CREDIT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("TC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);  // KK İşlem tutarı
-                                    transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("RC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("BNLN_TC_XRATE").Value = 1;
-                                    transactions_lines[i].FieldByName("BNLN_TC_AMOUNT").Value = float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount) - float.Parse(kdSalesReceiptData.salesData[j].salesKKAmount);
-                                    transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 208;
-                                    transactions_lines[i].FieldByName("CREDIT_CARD_NO").Value = kdSalesReceiptData.salesData[j].bankLines[i].kk_number;
-                                    transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
-                                    transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
-                                    transactions_lines[i].FieldByName("AFFECT_RISK").Value = 0;
-                                    transactions_lines[i].FieldByName("BATCH_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].batch_no;
-                                    transactions_lines[i].FieldByName("APPROVE_NR").Value = kdSalesReceiptData.salesData[j].bankLines[i].onay_no;
-                                    transactions_lines[i].FieldByName("DESCRIPTION").Value = "Ürün Adı :" + kdSalesReceiptData.salesData[j].salesLines[i].salesLineName;
-                                    transactions_lines[i].FieldByName("BANKACC_CODE").Value = kdSalesReceiptData.salesData[j].bankLines[i].acquirer_id;
-                                    transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
-                                }
-                            }
-                        }
-                        if (arpvoucher.Post() == true)
-                        {
-                            Result = Result + ("0");
-                        }
-                        else
-                        {
-                            if (arpvoucher.ErrorCode != 0)
-                            {
-                                Result = "DBError(" + arpvoucher.ErrorCode.ToString() + ")-" + arpvoucher.ErrorDesc + arpvoucher.DBErrorDesc;
-                            }
-                            else if (arpvoucher.ValidateErrors.Count > 0)
-                            {
-                                string result = "XML ErrorList:";
-                                for (int m = 0; m < arpvoucher.ValidateErrors.Count; m++)
-                                {
-                                    result += "(" + arpvoucher.ValidateErrors[m].ID.ToString() + ") - " + arpvoucher.ValidateErrors[m].Error;
-                                }
-                                Result = (result);
-                            }
-                        }
+                        KKOdemeAktar(kdSalesReceiptData, fisNo, j);
                     }
 
                     ///Buraya sadece nakit fişlerde girecek.
                     if (kdSalesReceiptData.salesData[j].salesKKAmount == "0" && Convert.ToInt16(kdSalesReceiptData.salesData[j].salesCashAmount) > 0)
                     {
-                        for (int i = 0; i < kdSalesReceiptData.salesData[j].salesLines.Count; i++)
-                        {
-                            string QuerycariNo = "select CODE from LG_001_CLCARD where DEFINITION_='Havuz Cari %" +
-                                Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100 + "'";
-                            string arpcode = sqlProvider.DataReadCardCodeControl(QuerycariNo);
-                            if (arpcode == "-1") // Cariler yok ise gider oluşturur.
-                            {
-                                Result = CreateCurrentParametric(Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100, "Havuz Cari %");
-                                if (Result == "0") // Eğer cariyi oluşturabildiyse gidip codunu alır.
-                                {
-                                    QuerycariNo = "select CODE from LG_001_CLCARD where DEFINITION_='Havuz Cari %" +
-                                                        Convert.ToInt16(kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT) / 100 + "'";
-                                    arpcode = sqlProvider.DataReadCardCodeControl(QuerycariNo);
-                                }
-                            }
-                            if (i == 0)
-                            {
-                                arpvoucher = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doARAPVoucher);
-                                arpvoucher.New();
-                                arpvoucher.DataFields.FieldByName("NUMBER").Value = fisNo;
-                                arpvoucher.DataFields.FieldByName("DATE").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
-                                arpvoucher.DataFields.FieldByName("TYPE").Value = 1;
-                                arpvoucher.DataFields.FieldByName("NOTES1").Value = "Fis No: " + kdSalesReceiptData.salesData[j].salesReceiptNo + " Z No: " + kdSalesReceiptData.salesData[j].salesZNo + " Eku No: " + kdSalesReceiptData.salesData[j].salesEKUNo;
-                                arpvoucher.DataFields.FieldByName("TIME").Value = DateTime.Now.Millisecond + 256 * DateTime.Now.Second + 65536 * DateTime.Now.Minute + 16777216 * DateTime.Now.Hour;
-                                arpvoucher.DataFields.FieldByName("CREATED_BY").Value = 1;
-                                arpvoucher.DataFields.FieldByName("DATE_CREATED").Value = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
-                                arpvoucher.DataFields.FieldByName("HOUR_CREATED").Value = DateTime.Now.Hour.ToString();
-                                arpvoucher.DataFields.FieldByName("MIN_CREATED").Value = DateTime.Now.Minute.ToString();
-                                arpvoucher.DataFields.FieldByName("SEC_CREATED").Value = DateTime.Now.Second.ToString();
-                                arpvoucher.DataFields.FieldByName("CURRSEL_TOTALS").Value = 3;
-                                arpvoucher.DataFields.FieldByName("DATA_REFERENCE").Value = 5;
-                                transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
-                                transactions_lines.AppendLine();
-                                transactions_lines[i].FieldByName("ARP_CODE").Value = arpcode;
-                                transactions_lines[i].FieldByName("DESCRIPTION").Value = kdSalesReceiptData.salesData[j].salesLines[i].salesLineName.Trim();
-                                transactions_lines[i].FieldByName("CREDIT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("TC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
-                                transactions_lines[i].FieldByName("RC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 59;
-                                transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
-                                transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
-                                transactions_lines[i].FieldByName("AFFECT_RISK").Value = 1;
-                                transactions_lines[i].FieldByName("DISCOUNTED").Value = 5;
-                                transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
-                                arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 1;
-                            }
-                            else
-                            {
-                                transactions_lines = arpvoucher.DataFields.FieldByName("TRANSACTIONS").Lines;
-                                transactions_lines.AppendLine();
-                                transactions_lines[i].FieldByName("ARP_CODE").Value = arpcode;
-                                transactions_lines[i].FieldByName("DESCRIPTION").Value = kdSalesReceiptData.salesData[j].salesLines[i].salesLineName.Trim();
-                                transactions_lines[i].FieldByName("CREDIT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("TC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("RC_XRATE").Value = 1;
-                                transactions_lines[i].FieldByName("RC_AMOUNT").Value = (float)float.Parse(kdSalesReceiptData.salesData[j].salesLines[i].salesLineTotCost);
-                                transactions_lines[i].FieldByName("DATA_REFERENCE").Value = 59;
-                                transactions_lines[i].FieldByName("MONTH").Value = DateTime.Now.Month.ToString();
-                                transactions_lines[i].FieldByName("YEAR").Value = DateTime.Now.Year.ToString();
-                                transactions_lines[i].FieldByName("AFFECT_RISK").Value = 1;
-                                transactions_lines[i].FieldByName("DISCOUNTED").Value = 5;
-                                transactions_lines[i].FieldByName("DISTRIBUTION_TYPE_FNO").Value = 0;
-                                arpvoucher.DataFields.FieldByName("AFFECT_RISK").Value = 1;
-                            }
-                        }
-                    }
-                    if (arpvoucher.Post() == true)
-                    {
-                        Result = Result + ("0");
-                    }
-                    else
-                    {
-                        if (arpvoucher.ErrorCode != 0)
-                        {
-                            Result = "DBError(" + arpvoucher.ErrorCode.ToString() + ")-" + arpvoucher.ErrorDesc + arpvoucher.DBErrorDesc;
-                        }
-                        else if (arpvoucher.ValidateErrors.Count > 0)
-                        {
-                            string result = "XML ErrorList:";
-                            for (int m = 0; m < arpvoucher.ValidateErrors.Count; m++)
-                            {
-                                result += "(" + arpvoucher.ValidateErrors[m].ID.ToString() + ") - " + arpvoucher.ValidateErrors[m].Error;
-                            }
-                            Result = (result);
-                        }
+                        KKNakitAktar(kdSalesReceiptData, fisNo, j);
                     }
                 }
             }
             catch (Exception ex)
             {
                 _log.Warning("transferVoucherNoCurrent  :: " + ex.Message);
-                return ex.Message;
             }
+            return "";
         }
 
 

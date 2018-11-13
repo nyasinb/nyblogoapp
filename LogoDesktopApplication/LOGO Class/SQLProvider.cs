@@ -85,7 +85,6 @@ namespace LogoDesktopApplication.LOGO_Class
                 while (dr.Read())
                 {
                     string DEFINITION = dr["DEFINITION_"].ToString();
-
                     return DEFINITION;
                 }
                 return "-1";
