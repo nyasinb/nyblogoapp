@@ -1,4 +1,5 @@
-﻿namespace LogoDesktopApplication
+﻿
+namespace LogoDesktopApplication
 {
     partial class WinForm
     {
@@ -29,49 +30,49 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WinForm));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WinForm));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.BtninfoteksProc = new DevExpress.XtraBars.BarButtonItem();
-            this.BtnlogoProc = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSenkron = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
-            this.btnExcelProcces = new DevExpress.XtraBars.BarButtonItem();
-            this.popUpExcel = new DevExpress.XtraBars.PopupControlContainer(this.components);
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.BtninfoteksProc = new DevExpress.XtraBars.BarButtonItem();
+            this.BtnlogoProc = new DevExpress.XtraBars.BarButtonItem();
             this.btnNowSenkron = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.btnSenkron = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExcelProcces = new DevExpress.XtraBars.BarButtonItem();
             this.midPanel = new System.Windows.Forms.Panel();
-            this.thTimer = new System.Windows.Forms.Timer(this.components);
             this.btnConnectionImage = new System.Windows.Forms.PictureBox();
+            this.thTimer = new System.Windows.Forms.Timer(this.components);
+            this.backGorundProc = new System.ComponentModel.BackgroundWorker();
+            this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCloseApp = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnHide = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popUpExcel)).BeginInit();
-            this.popUpExcel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHide)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -87,111 +88,10 @@
             this.barEditItem1,
             this.barButtonItem2,
             this.btnExcelProcces});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 9;
+            this.barManager1.MaxItemId = 13;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemTextEdit1});
-            this.barManager1.StatusBar = this.bar3;
-            // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.BtninfoteksProc),
-            new DevExpress.XtraBars.LinkPersistInfo(this.BtnlogoProc),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSenkron)});
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
-            // 
-            // BtninfoteksProc
-            // 
-            this.BtninfoteksProc.Caption = "Infoteks İşlemleri";
-            this.BtninfoteksProc.Id = 1;
-            this.BtninfoteksProc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtninfoteksProc.ImageOptions.Image")));
-            this.BtninfoteksProc.Name = "BtninfoteksProc";
-            this.BtninfoteksProc.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.BtninfoteksProc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtninfoteksProc_ItemClick);
-            // 
-            // BtnlogoProc
-            // 
-            this.BtnlogoProc.Caption = "Ayarlar";
-            this.BtnlogoProc.Id = 2;
-            this.BtnlogoProc.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.BtnlogoProc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnlogoProc.ImageOptions.Image")));
-            this.BtnlogoProc.Name = "BtnlogoProc";
-            this.BtnlogoProc.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.BtnlogoProc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnlogoProc_ItemClick);
-            // 
-            // btnSenkron
-            // 
-            this.btnSenkron.Caption = "Senkron\r\n";
-            this.btnSenkron.Id = 4;
-            this.btnSenkron.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSenkron.ImageOptions.Image")));
-            this.btnSenkron.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSenkron.ImageOptions.LargeImage")));
-            this.btnSenkron.Name = "btnSenkron";
-            toolTipTitleItem1.Text = "Senkron";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Hemen Senkrona Başla.";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnSenkron.SuperTip = superToolTip1;
-            this.btnSenkron.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSenkron_ItemClick);
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.skinBarSubItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnExcelProcces)});
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
-            // skinBarSubItem1
-            // 
-            this.skinBarSubItem1.Caption = "Tema";
-            this.skinBarSubItem1.Id = 0;
-            this.skinBarSubItem1.Name = "skinBarSubItem1";
-            // 
-            // btnExcelProcces
-            // 
-            this.btnExcelProcces.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btnExcelProcces.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.btnExcelProcces.Caption = "Excel İslemleri";
-            this.btnExcelProcces.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
-            this.btnExcelProcces.DropDownControl = this.popUpExcel;
-            this.btnExcelProcces.Id = 8;
-            this.btnExcelProcces.Name = "btnExcelProcces";
-            this.btnExcelProcces.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // popUpExcel
-            // 
-            this.popUpExcel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popUpExcel.Controls.Add(this.simpleButton1);
-            this.popUpExcel.Location = new System.Drawing.Point(248, 315);
-            this.popUpExcel.Manager = this.barManager1;
-            this.popUpExcel.Name = "popUpExcel";
-            this.popUpExcel.Size = new System.Drawing.Size(250, 130);
-            this.popUpExcel.TabIndex = 0;
-            this.popUpExcel.Visible = false;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(38, 37);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(105, 23);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "simpleButton1";
             // 
             // barDockControlTop
             // 
@@ -200,34 +100,50 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(420, 70);
+            this.barDockControlTop.Size = new System.Drawing.Size(370, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 306);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 445);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(420, 36);
+            this.barDockControlBottom.Size = new System.Drawing.Size(370, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 70);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 236);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 445);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(420, 70);
+            this.barDockControlRight.Location = new System.Drawing.Point(370, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 236);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 445);
+            // 
+            // skinBarSubItem1
+            // 
+            this.skinBarSubItem1.Caption = "Tema";
+            this.skinBarSubItem1.Id = 0;
+            this.skinBarSubItem1.Name = "skinBarSubItem1";
+            // 
+            // BtninfoteksProc
+            // 
+            this.BtninfoteksProc.Id = 9;
+            this.BtninfoteksProc.Name = "BtninfoteksProc";
+            // 
+            // BtnlogoProc
+            // 
+            this.BtnlogoProc.Id = 10;
+            this.BtnlogoProc.Name = "BtnlogoProc";
             // 
             // btnNowSenkron
             // 
@@ -239,18 +155,33 @@
             this.btnNowSenkron.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNowSenkron.ImageOptions.LargeImage")));
             this.btnNowSenkron.Name = "btnNowSenkron";
             this.btnNowSenkron.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
-            toolTipTitleItem2.Text = "Senkron";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Senkron İşlemine Başlar";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnNowSenkron.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Senkron";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Senkron İşlemine Başlar";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnNowSenkron.SuperTip = superToolTip1;
             // 
             // repositoryItemPictureEdit1
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
+            // 
+            // btnSenkron
+            // 
+            this.btnSenkron.Caption = "Senkron\r\n";
+            this.btnSenkron.Id = 4;
+            this.btnSenkron.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSenkron.ImageOptions.Image")));
+            this.btnSenkron.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSenkron.ImageOptions.LargeImage")));
+            this.btnSenkron.Name = "btnSenkron";
+            toolTipTitleItem2.Text = "Senkron";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Hemen Senkrona Başla.";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnSenkron.SuperTip = superToolTip2;
+            this.btnSenkron.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSenkron_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -272,57 +203,122 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barButtonItem2.Caption = "Excel İslemleri";
-            this.barButtonItem2.DropDownControl = this.popUpExcel;
-            this.barButtonItem2.Id = 7;
+            this.barButtonItem2.Id = 11;
             this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // btnExcelProcces
+            // 
+            this.btnExcelProcces.Id = 12;
+            this.btnExcelProcces.Name = "btnExcelProcces";
             // 
             // midPanel
             // 
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.midPanel.Location = new System.Drawing.Point(0, 70);
+            this.midPanel.Location = new System.Drawing.Point(0, 0);
             this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(420, 236);
+            this.midPanel.Size = new System.Drawing.Size(370, 445);
             this.midPanel.TabIndex = 4;
+            // 
+            // btnConnectionImage
+            // 
+            this.btnConnectionImage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.closed;
+            this.btnConnectionImage.Location = new System.Drawing.Point(250, 4);
+            this.btnConnectionImage.Name = "btnConnectionImage";
+            this.btnConnectionImage.Size = new System.Drawing.Size(31, 24);
+            this.btnConnectionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnConnectionImage.TabIndex = 0;
+            this.btnConnectionImage.TabStop = false;
             // 
             // thTimer
             // 
             this.thTimer.Tick += new System.EventHandler(this.thTimer_Tick);
             // 
-            // btnConnectionImage
+            // backGorundProc
             // 
-            this.btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.closed;
-            this.btnConnectionImage.Location = new System.Drawing.Point(384, 315);
-            this.btnConnectionImage.Name = "btnConnectionImage";
-            this.btnConnectionImage.Size = new System.Drawing.Size(38, 22);
-            this.btnConnectionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnConnectionImage.TabIndex = 0;
-            this.btnConnectionImage.TabStop = false;
+            this.backGorundProc.WorkerReportsProgress = true;
+            this.backGorundProc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backGorundProc_DoWork);
+            this.backGorundProc.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backGorundProc_RunWorkerCompleted);
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 45;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btnHide);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnCloseApp);
+            this.panel1.Controls.Add(this.btnConnectionImage);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(370, 28);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
+            this.btnCloseApp.Location = new System.Drawing.Point(322, 4);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(31, 24);
+            this.btnCloseApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCloseApp.TabIndex = 2;
+            this.btnCloseApp.TabStop = false;
+            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(148, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "INFOTEKS";
+            // 
+            // btnHide
+            // 
+            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
+            this.btnHide.Location = new System.Drawing.Point(285, 4);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(31, 24);
+            this.btnHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnHide.TabIndex = 1;
+            this.btnHide.TabStop = false;
+            this.btnHide.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // WinForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 342);
-            this.Controls.Add(this.popUpExcel);
-            this.Controls.Add(this.btnConnectionImage);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(370, 445);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.midPanel);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HtmlText = "INFOTEKS";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinForm";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popUpExcel)).EndInit();
-            this.popUpExcel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHide)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,8 +327,6 @@
         #endregion
 
         private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -347,11 +341,15 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraBars.BarButtonItem btnSenkron;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.PopupControlContainer popUpExcel;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraBars.BarButtonItem btnExcelProcces;
+        private System.ComponentModel.BackgroundWorker backGorundProc;
+        private ns1.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox btnCloseApp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btnHide;
     }
 }

@@ -21,11 +21,11 @@ namespace LogoDesktopApplication
     {
 
         #region Global Variable
-        WS_Class.WSProvider _ws;
+        WSProvider _ws;
         ConnectionGlobal _logoCon;
         kdContractInfoCevap kdContractInfo;
         kdEventsDataCevap kdEventsData;
-        kdSalesReceiptDataCevap kdSalesReceiptData;
+        kdSalesReceiptDataAllCevap kdSalesReceiptData;
         kdSalesReportDataCevap kdSalesReportData;
         kdStatisticsDataCevap kdStatisticsData;
         kdZReportDataCevap kdZReportData;
@@ -40,72 +40,98 @@ namespace LogoDesktopApplication
         OtoSenkron _otoSenkron;
         Log _log;
         kdAcquirerInfoCevap _acquir;
+        XmlProvider _xmlProv;
+        OtoSenkron item;
+        CreatedQuery _CreatedQuery;
+        PropertiesForm fform;
         #endregion
 
         public WinForm()
         {
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2016 Black";
             _log = new Log();
             InitializeComponent();
             _acquir = new kdAcquirerInfoCevap();
             _otoSenkron = new OtoSenkron();
-            _ws = new WS_Class.WSProvider();
+            _CreatedQuery = new CreatedQuery();
+            _ws = new WSProvider();
             _logoCon = new ConnectionGlobal();
             _logoConnection = _logoCon.Connection();
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
             _xmlProv = new XmlProvider();
              item = new OtoSenkron();
+
             _timer = new System.Windows.Forms.Timer();
             _timer.Interval = 60000;
             _timer.Tick += new EventHandler(otoSenkronMethod);
             _timer.Start();
+            
             NetworkControl();
             thTimer.Start();
             thTimer.Interval = 5000;
+            Control.CheckForIllegalCrossThreadCalls = false;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
-            _acquir = _ws.Query_Method_kdAcquirerInfo();
             CreatBank();
-            //Bank a = new Bank();
-            //_logoProvider.bankCreatAcc(a);
-            if (_logoCon.networkState)
-            {
-                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
-                if (kdSalesReceiptData.cevapKodu!="000")
-                {
-                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                    this,
-                    "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
-                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                    _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
-            }
-            else
-            {
-                DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
-                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                this,
-                "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
-                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            BtninfoteksProc.PerformClick();
-
+            control();
+            //if (_logoCon.networkState)
+            //{
+            //    _otoSenkron = _xmlProv.XmlRead();
+            //    kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptData(_otoSenkron));
+            //    if (kdSalesReceiptData.cevapKodu!="000")
+            //    {
+            //        dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+            //        this,
+            //        "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
+            //        "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //    else
+            //        _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+            //}
+            //else
+            //{
+            //    DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
+            //    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+            //    this,
+            //    "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
+            //    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
             DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
             //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
 
-        public void NetworkControl()
+
+        public void control()
         {
             item = _xmlProv.XmlRead();
-            if (item.Login.State == "True")
+            if (item.LoginState=="True")
             {
-                BtnlogoProc.Enabled = true;
+                midPanel.Controls.Clear();
+                PropertiesForm f = new PropertiesForm();                
+                midPanel.Controls.Add(f);
+                f.Show();
+                f.Dock = DockStyle.Fill;
+                f.BringToFront();
             }
             else
             {
-                BtnlogoProc.Enabled = false;
+                midPanel.Controls.Clear();
+                InfoteksLogin f = new InfoteksLogin();
+                midPanel.Controls.Add(f);
+                f.Dock = DockStyle.Fill;
             }
+        }
+        private void BtninfoteksProc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+        }
+
+        private void BtnlogoProc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        public void NetworkControl()
+        {
             try
             {
                 _logoCon.networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
@@ -134,7 +160,8 @@ namespace LogoDesktopApplication
 
             kdContractInfo = _ws.Query_Method_kdContractInfo();
             kdEventsData = _ws.Query_Method_kdEventsData();
-            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+            _otoSenkron = _xmlProv.XmlRead();
+            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
             kdSalesReportData = _ws.Query_Method_kdSalesReportData();
             kdStatisticsData = _ws.Query_Method_kdStatisticsData();
             kdZReportData = _ws.Query_Method_kdZReportData();
@@ -157,44 +184,24 @@ namespace LogoDesktopApplication
 
         public void FisAktar()
         {
-            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+            _otoSenkron = _xmlProv.XmlRead();
+            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
             _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
 
         }
 
         public void CreatBank()
         {
-            //Bank b = new Bank();
+            _acquir = _ws.Query_Method_kdAcquirerInfo();
             string Result = _logoProvider.bankCreat(_acquir);
-            //Result = _logoProvider.bankCreatAcc(b);
-
+            System.Threading.Thread.Sleep(500);
         }
 
         #endregion
 
-        private void BtninfoteksProc_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            midPanel.Controls.Clear();
-            InfoteksLogin f = new InfoteksLogin();
-            midPanel.Controls.Add(f);
-            f.Dock = DockStyle.Fill;
-        }
-
-        XmlProvider _xmlProv;
-        OtoSenkron item;
-        private void BtnlogoProc_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            midPanel.Controls.Clear();
-            LogoSenkronForm f = new LogoSenkronForm();
-            midPanel.Controls.Add(f);
-            f.Refresh();
-            f.Dock = DockStyle.Fill;
-
-        }
 
         public void thTimer_Tick(object sender, EventArgs e)
         {
-            int sayac = 0;
             _th = new Thread(new ThreadStart(NetworkControl));
             _th.Start();
         }
@@ -202,31 +209,10 @@ namespace LogoDesktopApplication
 
         private void btnSenkron_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DevExpress.XtraSplashScreen.AboutSplashScreenManager.ShowForm(this, typeof(waitForm));
-            if (_logoCon.networkState)
-            {
-                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
-                if (kdSalesReceiptData.cevapKodu != "000")
-                {
-                    DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
-                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                    this,
-                    "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
-                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                    _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
-                DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
-            }
-            else
-            {
-                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                this,
-                "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
-                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(waitForm));
+            backGorundProc.RunWorkerAsync();
+            backGorundProc.WorkerReportsProgress = true;
         }
-
 
         public void OtoSync()
         {
@@ -239,7 +225,8 @@ namespace LogoDesktopApplication
                 {
                     if (_logoCon.networkState)
                     {
-                        kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                        _otoSenkron = _xmlProv.XmlRead();
+                        kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
                         System.Threading.Thread.Sleep(1000);
                         if (kdSalesReceiptData.cevapKodu == "000")
                         {
@@ -275,7 +262,8 @@ namespace LogoDesktopApplication
                     {
                         if (_logoCon.networkState)
                         {
-                            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData();
+                            _otoSenkron = _xmlProv.XmlRead();
+                            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
                             System.Threading.Thread.Sleep(1000);
                             if (kdSalesReceiptData.cevapKodu == "000")
                             {
@@ -305,7 +293,7 @@ namespace LogoDesktopApplication
             }
             else
             {
-                _log.Warning("OtoSync CONFİG Dosyasını kontrol ediniz...        ");
+                _log.Warning("OtoSync CONFİG Dosyasını kontrol ediniz...");
             }
 
         }
@@ -317,5 +305,45 @@ namespace LogoDesktopApplication
 
         }
 
+        private void backGorundProc_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (_logoCon.networkState)
+            {
+                _otoSenkron = _xmlProv.XmlRead();
+                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
+                if (kdSalesReceiptData.cevapKodu != "000")
+                {
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                    _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+            }
+            else
+            {
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void backGorundProc_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCloseApp_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Application.Exit();
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblSenkronSaat = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.btnSenkronOnOf = new DevExpress.XtraEditors.CheckButton();
             this.midPanel = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboPeriod = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.panelBottom = new System.Windows.Forms.Panel();
             this.chckBoxSenkronType = new System.Windows.Forms.CheckBox();
             this.btnKaydet = new System.Windows.Forms.PictureBox();
-            this.btnSenkronOnOf = new DevExpress.XtraEditors.CheckButton();
             this.topPanel.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.panelBottom.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             this.lblSenkronSaat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSenkronSaat.AutoSize = true;
-            this.lblSenkronSaat.Location = new System.Drawing.Point(55, 47);
+            this.lblSenkronSaat.Location = new System.Drawing.Point(55, 173);
             this.lblSenkronSaat.Name = "lblSenkronSaat";
             this.lblSenkronSaat.Size = new System.Drawing.Size(105, 17);
             this.lblSenkronSaat.TabIndex = 1;
@@ -73,8 +73,20 @@
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(422, 68);
+            this.topPanel.Size = new System.Drawing.Size(527, 68);
             this.topPanel.TabIndex = 3;
+            // 
+            // btnSenkronOnOf
+            // 
+            this.btnSenkronOnOf.Checked = true;
+            this.btnSenkronOnOf.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSenkronOnOf.ImageOptions.Image")));
+            this.btnSenkronOnOf.Location = new System.Drawing.Point(173, 13);
+            this.btnSenkronOnOf.Name = "btnSenkronOnOf";
+            this.btnSenkronOnOf.Size = new System.Drawing.Size(182, 43);
+            this.btnSenkronOnOf.TabIndex = 1;
+            this.btnSenkronOnOf.Text = "Senkron Açık";
+            this.btnSenkronOnOf.CheckedChanged += new System.EventHandler(this.btnSenkronOnOf_CheckedChanged);
+            this.btnSenkronOnOf.Click += new System.EventHandler(this.btnSenkronOnOf_Click);
             // 
             // midPanel
             // 
@@ -85,7 +97,7 @@
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(0, 68);
             this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(422, 245);
+            this.midPanel.Size = new System.Drawing.Size(527, 496);
             this.midPanel.TabIndex = 4;
             this.midPanel.Visible = false;
             // 
@@ -94,9 +106,9 @@
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.CustomFormat = "H:mm";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 42);
+            this.dateTimePicker1.Location = new System.Drawing.Point(212, 168);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(248, 22);
             this.dateTimePicker1.TabIndex = 26;
             this.dateTimePicker1.Visible = false;
             // 
@@ -111,9 +123,9 @@
             "30 DK",
             "40 DK",
             "50 DK"});
-            this.comboPeriod.Location = new System.Drawing.Point(212, 95);
+            this.comboPeriod.Location = new System.Drawing.Point(212, 221);
             this.comboPeriod.Name = "comboPeriod";
-            this.comboPeriod.Size = new System.Drawing.Size(143, 24);
+            this.comboPeriod.Size = new System.Drawing.Size(248, 24);
             this.comboPeriod.TabIndex = 25;
             this.comboPeriod.Visible = false;
             // 
@@ -121,7 +133,7 @@
             // 
             this.lblSenkronPeriod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSenkronPeriod.AutoSize = true;
-            this.lblSenkronPeriod.Location = new System.Drawing.Point(38, 95);
+            this.lblSenkronPeriod.Location = new System.Drawing.Point(38, 221);
             this.lblSenkronPeriod.Name = "lblSenkronPeriod";
             this.lblSenkronPeriod.Size = new System.Drawing.Size(122, 17);
             this.lblSenkronPeriod.TabIndex = 2;
@@ -133,9 +145,9 @@
             this.panelBottom.Controls.Add(this.chckBoxSenkronType);
             this.panelBottom.Controls.Add(this.btnKaydet);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 242);
+            this.panelBottom.Location = new System.Drawing.Point(0, 493);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(422, 71);
+            this.panelBottom.Size = new System.Drawing.Size(527, 71);
             this.panelBottom.TabIndex = 5;
             // 
             // chckBoxSenkronType
@@ -152,25 +164,13 @@
             // 
             this.btnKaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnKaydet.Image = global::LogoDesktopApplication.Properties.Resources.tick;
-            this.btnKaydet.Location = new System.Drawing.Point(317, 21);
+            this.btnKaydet.Location = new System.Drawing.Point(369, 21);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(79, 29);
             this.btnKaydet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnKaydet.TabIndex = 27;
             this.btnKaydet.TabStop = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // btnSenkronOnOf
-            // 
-            this.btnSenkronOnOf.Checked = true;
-            this.btnSenkronOnOf.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSenkronOnOf.ImageOptions.Image")));
-            this.btnSenkronOnOf.Location = new System.Drawing.Point(173, 13);
-            this.btnSenkronOnOf.Name = "btnSenkronOnOf";
-            this.btnSenkronOnOf.Size = new System.Drawing.Size(182, 43);
-            this.btnSenkronOnOf.TabIndex = 1;
-            this.btnSenkronOnOf.Text = "Senkron Açık";
-            this.btnSenkronOnOf.CheckedChanged += new System.EventHandler(this.btnSenkronOnOf_CheckedChanged);
-            this.btnSenkronOnOf.Click += new System.EventHandler(this.btnSenkronOnOf_Click);
             // 
             // LogoSenkronForm
             // 
@@ -180,7 +180,7 @@
             this.Controls.Add(this.midPanel);
             this.Controls.Add(this.topPanel);
             this.Name = "LogoSenkronForm";
-            this.Size = new System.Drawing.Size(422, 313);
+            this.Size = new System.Drawing.Size(527, 564);
             this.Load += new System.EventHandler(this.LogoSenkronForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();

@@ -33,6 +33,8 @@ namespace LogoDesktopApplication
         public string salesFaturaTarihi { get; set; }
         public string salesType { get; set; }
         public string salesFaturaNo { get; set; }
+        public string salesServerId { get; set; }
+
         public List<salesLine> salesLines { get; set; }
         public List<bankLine> bankLines { get; set; }
     }

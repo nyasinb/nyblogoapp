@@ -1,4 +1,5 @@
-﻿using LogoDesktopApplication.WS_Class;
+﻿using LogoDesktopApplication.HelperForms;
+using LogoDesktopApplication.WS_Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,25 @@ namespace LogoDesktopApplication.LOGO_Class
         SQLProvider sqlProvider;
         Log _log;
         kdAcquirerInfoCevap _kdAcquirer;
+        string Result = null;
+        UnityObjects.Data arpvoucher = null;
+        UnityObjects.Lines transactions_lines = null;
+        WSProvider _ws;
+        CreatedQuery _CreatQuery;
+        OtoSenkron _xmlItem;
+        XmlProvider _xmlProv;
         #endregion
 
 
         public LogoProviderClass()
         {
             sqlProvider = new SQLProvider();
+            _xmlItem = new OtoSenkron();
+            _xmlProv = new XmlProvider();
             _kdAcquirer = new kdAcquirerInfoCevap();
             _log = new Log();
+            _ws = new WSProvider();
+            _CreatQuery = new CreatedQuery();
         }
 
         /// <summary>
@@ -93,6 +105,11 @@ namespace LogoDesktopApplication.LOGO_Class
         }
 
 
+        /// <summary>
+        /// Logoya malzeme aktarılırken, kdv bilgisi ve ismi gönderilir
+        /// </summary>
+        /// <param name="kdv"></param>
+        /// <param name="name"></param>
         public void HavuzMalzeme(int kdv, string name)
         {
             string Result = "";
@@ -231,7 +248,7 @@ namespace LogoDesktopApplication.LOGO_Class
         /// <param name="i"></param>
         /// <param name="bankName"></param>
         /// <returns></returns>
-        public void bankCreatAcc(kdSalesReceiptDataCevap kdSalesReceiptData, int j, int i, string bankName)
+        public void bankCreatAcc(kdSalesReceiptDataAllCevap kdSalesReceiptData, int j, int i, string bankName)
         {
             var result = "";
             UnityObjects.Data bankac = GMP3Infoteks.OKC.GlobalDll.unity.NewDataObject(UnityObjects.DataObjectType.doBankAccount);
@@ -270,12 +287,8 @@ namespace LogoDesktopApplication.LOGO_Class
                 }
             }
         }
-        string Result = null;
 
-        UnityObjects.Data arpvoucher = null;
-        UnityObjects.Lines transactions_lines = null;
-
-        public void CreateInvoiceCurrent(kdSalesReceiptDataCevap kdSalesReceiptData, int j,string fisno)
+        private void CreateInvoiceCurrent(kdSalesReceiptDataAllCevap kdSalesReceiptData, int j,string fisno)
         {
 
             UnityObjects.Lines transactions_lines = null;
@@ -352,7 +365,7 @@ namespace LogoDesktopApplication.LOGO_Class
                     transactions_lines[i].FieldByName("VAT_RATE").Value = kdSalesReceiptData.salesData[j].salesLines[i].salesLineVAT;
                 }
 
-            } // tip okcproduct değilse devam et.else
+            } 
             try
             {
                 if (invoice.Post() == true)
@@ -384,7 +397,7 @@ namespace LogoDesktopApplication.LOGO_Class
 
         }
 
-        public void KKOdemeAktar(kdSalesReceiptDataCevap kdSalesReceiptData, string fisNo, int j, bool parcali)
+        private void KKOdemeAktar(kdSalesReceiptDataAllCevap kdSalesReceiptData, string fisNo, int j, bool parcali)
         {
             //burası sadece kredi kartlı satışlarda iş yapacaz.
             for (int i = 0; i < kdSalesReceiptData.salesData[j].bankLines.Count; i++)
@@ -521,7 +534,7 @@ namespace LogoDesktopApplication.LOGO_Class
             }
         }
 
-        public void KKNakitAktar(kdSalesReceiptDataCevap kdSalesReceiptData, string fisNo, int j)
+        private void KKNakitAktar(kdSalesReceiptDataAllCevap kdSalesReceiptData, string fisNo, int j)
         {
             for (int i = 0; i < kdSalesReceiptData.salesData[j].salesLines.Count; i++)
             {
@@ -610,13 +623,15 @@ namespace LogoDesktopApplication.LOGO_Class
                 }
             }
         }
+
         /// <summary>
-        /// kdSalesReceiptData İçerisinde gelen fiş verilerini logoya sevk eder.
+        /// kdSalesReceiptData İçerisinde gelen datayı logonun ilgili alanlarına sevk eder. Fiş.. Fatura v.s
         /// </summary>
         /// <param name="kdSalesReceiptData"></param>
         /// <returns></returns>
-        public string transferVoucherNoCurrent(kdSalesReceiptDataCevap kdSalesReceiptData)
+        public string transferVoucherNoCurrent(kdSalesReceiptDataAllCevap kdSalesReceiptData)
         {
+            _xmlItem = _xmlProv.XmlRead();
             CreateCurrentParametric(1000, "Havuz Cari %");
             try
             {
@@ -649,6 +664,8 @@ namespace LogoDesktopApplication.LOGO_Class
                     {
                         CreateInvoiceCurrent(kdSalesReceiptData, j, fisNo);
                     }
+                    _ws.Query_Method_kdUpdateReceiptLogoStatus(_CreatQuery.CREATE_ServerIdResponse(_xmlItem, kdSalesReceiptData.salesData[j].salesServerId));
+
                 }
             }
             catch (Exception ex)

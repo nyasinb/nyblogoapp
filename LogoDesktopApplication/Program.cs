@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Skins;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace LogoDesktopApplication
         [STAThread]
         static void Main()
         {
+            SkinManager.EnableFormSkins();
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new WinForm());

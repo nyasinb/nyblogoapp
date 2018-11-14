@@ -16,19 +16,18 @@ namespace LogoDesktopApplication.WS_Class
 {
     public class WSProvider
     {
-
-        public kdSalesReceiptDataCevap Query_Method_kdSalesReceiptData()
+        public kdSalesReceiptDataAllCevap Query_Method_kdSalesReceiptData(string Query)
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
-            var _action = _url + "kdSalesReceiptData";
-            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(SOAP_QUERY_kdSalesReceiptData.Replace("\n", ""));
+            var _action = _url + "kdSalesReceiptAllData";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(Query.Replace("\n", ""));
             HttpWebRequest webRequest = CreateWebRequest(_url, _action);
             InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
             IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
             asyncResult.AsyncWaitHandle.WaitOne();
             string soapResult;
-            kdSalesReceiptDataCevap kdSalesReceiptDataCevapItem = null;
+            kdSalesReceiptDataAllCevap kdSalesReceiptDataCevapItem = null;
             using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
             {
                 using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
@@ -37,14 +36,14 @@ namespace LogoDesktopApplication.WS_Class
                     XmlDocument xml = new XmlDocument();
                     xml.LoadXml(soapResult);
 
-                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdSalesReceiptDataCevap");
+                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdSalesReceiptDataAllCevap");
                     Serializer ser = new Serializer();
                     string path = string.Empty;
                     foreach (XmlNode xn in receiptLine)
                     {
                         path = xn.OuterXml;
                     }
-                    kdSalesReceiptDataCevapItem = ser.Deserialize<kdSalesReceiptDataCevap>(path);
+                    kdSalesReceiptDataCevapItem = ser.Deserialize<kdSalesReceiptDataAllCevap>(path);
                 }
             }
             return kdSalesReceiptDataCevapItem;
@@ -249,6 +248,23 @@ namespace LogoDesktopApplication.WS_Class
             return kdAcquirerInfoCevapItem;
         }
 
+        public void Query_Method_kdUpdateReceiptLogoStatus(string Query)
+        {
+
+            var _url = "http://94.103.42.156:8069/kdintegration/";
+            var _action = _url + "kdSalesReceiptAllData";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(Query.Replace("\n", ""));
+            HttpWebRequest webRequest = CreateWebRequest(_url, _action);
+            InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
+            IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
+            asyncResult.AsyncWaitHandle.WaitOne();
+            using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
+            {
+                
+            }
+        }
+
+
         public HttpWebRequest CreateWebRequest(string url, string action)
         {
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
@@ -266,6 +282,8 @@ namespace LogoDesktopApplication.WS_Class
             return soapEnvelopeDocument;
         }
 
+
+
         public void InsertSoapEnvelopeIntoWebRequest(XmlDocument soapEnvelopeXml, HttpWebRequest webRequest)
         {
             using (Stream stream = webRequest.GetRequestStream())
@@ -282,9 +300,9 @@ namespace LogoDesktopApplication.WS_Class
                                              "<kurumKodu>12345YSN</kurumKodu>" +
                                              "<kurumToken>12345BZT</kurumToken>" +
                                              "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
-                                             "<reportDateStart/>" +
+                                             "<reportDateStart/>"+
                                              "<reportDateEnd/>" +
-                                             "<reportZNo/>" +
+                                             "<reportDateEnd/>" +
                                              "</kdSalesReceiptData></soapenv:Body></soapenv:Envelope>";
         public static string SOAP_QUERY_kdContractInfo = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdContractInfo>" +
                                              "<kurumKodu>12345YSN</kurumKodu>" +

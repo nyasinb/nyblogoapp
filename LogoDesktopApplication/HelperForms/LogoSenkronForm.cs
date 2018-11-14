@@ -18,13 +18,11 @@ namespace LogoDesktopApplication.HelperForms
         XmlProvider _xmlProv;
         OtoSenkron item;
         DialogResult dr;
-        Login _login;
         public bool senkronType { get; set; }
         public LogoSenkronForm()
         {
 
             InitializeComponent();
-            _login = new HelperForms.Login();
             _ser = new Serializer();
             item = new OtoSenkron();
             _xmlProv = new XmlProvider();
@@ -65,7 +63,7 @@ namespace LogoDesktopApplication.HelperForms
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             string WriteResult = "";
-            OtoSenkron s = new OtoSenkron();
+            OtoSenkron s = _xmlProv.XmlRead();
             s.Durum = btnSenkronOnOf.Checked.ToString();
             if (s.Durum == "false" || s.Durum == "False")
             {
@@ -76,7 +74,7 @@ namespace LogoDesktopApplication.HelperForms
                     this,
                     "Oto Senkron Kapatılıyor",
                     "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                s.Durum = "False";
                 WriteResult = _xmlProv.XmlWriterMethod(s);
             }
             else
@@ -99,12 +97,11 @@ namespace LogoDesktopApplication.HelperForms
                     s.Period + "'dk aralıklar ile\nSenkron yapılacaktır\nBilgisayarınız açık olmalı ve\nİnternet bağlantısı olması gerekmektedir.",
                     "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 }
+                s.Durum = "True";
             }
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                _login.State = "True";
-                //item.Login.Add(_login);
-                s = item;
+                s.LoginState = "True";
                 WriteResult = _xmlProv.XmlWriterMethod(s);
                 if (WriteResult == "0")
                 {
@@ -138,12 +135,10 @@ namespace LogoDesktopApplication.HelperForms
         void OpenMenu()
         {
             comboPeriod.SelectedIndex = 0;
-            if (File.Exists("CFG\\Config.xml"))
+            if (!File.Exists("CFG\\Config.xml"))
             {
-                item = _xmlProv.XmlRead();
-            }
-            else
                 _xmlProv.XmlWriterMethod(item);
+            }                
 
             item = _xmlProv.XmlRead();
 

@@ -19,15 +19,15 @@ namespace LogoDesktopApplication.HelperForms
         {
             try
             {
-                if (File.Exists("CFG\\Config.xml"))
-                {
-                    File.Delete("CFG\\Config.xml");
-                }
+
                 if (!Directory.Exists("CFG"))
                 {
                     Directory.CreateDirectory("CFG");
                 }
-
+                if (File.Exists("CFG\\Config.xml"))
+                {
+                    File.Delete("CFG\\Config.xml");
+                }
                 if (!File.Exists("CFG\\Config.xml"))
                 {
                     using (XmlWriter writer = XmlWriter.Create("CFG\\Config.xml"))
@@ -46,11 +46,14 @@ namespace LogoDesktopApplication.HelperForms
                         }
                         writer.WriteElementString("Period", s.Period.Replace("DK", " ").Trim());
                         writer.WriteElementString("Durum", s.Durum);
-                        writer.WriteStartElement("Login");
-                        writer.WriteElementString("userName",s.Login.userName);
-                        writer.WriteElementString("passWord", s.Login.passWord);
-                        writer.WriteElementString("State", Convert.ToString(s.Login.State));
-
+                        writer.WriteElementString("userName",s.userName);
+                        writer.WriteElementString("passWord", s.passWord);
+                        writer.WriteElementString("LoginState", Convert.ToString(s.LoginState));
+                        if (Convert.ToInt16(s.zNo) > 1)
+                        {
+                            writer.WriteElementString("zNo", s.zNo);
+                        }else
+                            writer.WriteElementString("zNo", "1");
 
                         writer.WriteEndElement();
                         writer.WriteEndDocument();
@@ -68,10 +71,20 @@ namespace LogoDesktopApplication.HelperForms
 
         public OtoSenkron XmlRead()
         {
+            OtoSenkron OtoSenkronItem = new OtoSenkron();
+            if (!Directory.Exists("CFG"))
+            {
+                Directory.CreateDirectory("CFG");
+            }
+            if (!File.Exists("CFG\\Config.xml"))
+            {
+                XmlWriterMethod(OtoSenkronItem);
+            }
+
             string path = Directory.GetCurrentDirectory() + @"\CFG\\Config.xml";
             string xmlInputData = File.ReadAllText(path);
 
-            OtoSenkron OtoSenkronItem = _ser.Deserialize<OtoSenkron>(xmlInputData);
+            OtoSenkronItem = _ser.Deserialize<OtoSenkron>(xmlInputData);
             return OtoSenkronItem;
         }
     }

@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\..\Desktop\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>False</Private>
@@ -97,6 +100,12 @@
       <DependentUpon>LogoSenkronForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperForms\OtoSenkron.cs" />
+    <Compile Include="HelperForms\PropertiesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HelperForms\PropertiesForm.Designer.cs">
+      <DependentUpon>PropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelperForms\waitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,9 +134,12 @@
     <Compile Include="WinForm.Designer.cs">
       <DependentUpon>WinForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WS Class\CreatedQuery.cs" />
     <Compile Include="WS Class\kdAcquirerInfoCevap.cs" />
     <Compile Include="WS Class\kdContractInfoCevap.cs" />
     <Compile Include="WS Class\kdEventsDataCevap.cs" />
+    <Compile Include="WS Class\kdgetSozlesmeStatusCevap.cs" />
+    <Compile Include="WS Class\kdSalesReceiptDataAllCevap.cs" />
     <Compile Include="WS Class\kdSalesReceiptDataCevap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelperForms\LogoSenkronForm.resx">
       <DependentUpon>LogoSenkronForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelperForms\PropertiesForm.resx">
+      <DependentUpon>PropertiesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelperForms\waitForm.resx">
       <DependentUpon>waitForm.cs</DependentUpon>
@@ -206,11 +221,16 @@
     <None Include="Resources\Toggle On-40.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HelperForms\Config.xml" />
     <None Include="Resources\closed.png" />
     <None Include="Resources\ConnectedWıfı.png" />
     <None Include="Resources\timeIcon.png" />
     <None Include="Resources\periodIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\On.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

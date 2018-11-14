@@ -12,13 +12,9 @@ namespace LogoDesktopApplication.HelperForms
         public string Saat { get; set; }
         public string Period { get; set; }
         public int SenkronType { get; set; }
-        public Login Login { get; set; }
-    }
-
-    public class Login
-    {
-        public string State { get; set; }
+        public string LoginState { get; set; }
         public string userName { get; set; }
         public string passWord { get; set; }
+        public string zNo { get; set; }    
     }
 }

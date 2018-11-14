@@ -11,20 +11,34 @@ using LogoDesktopApplication.WS_Class;
 using System.Xml;
 using System.Net;
 using System.IO;
+using LogoDesktopApplication.LOGO_Class;
 
 namespace LogoDesktopApplication.HelperForms
 {
     public partial class InfoteksLogin : UserControl
     {
+
+        #region Variable
         public static XmlProvider _xmlProv;
-        public static  OtoSenkron _item;
-        public static  Login _login;
-        public static kdContractInfoCevap kdContractResult;
+        public static OtoSenkron _item;
+        public static kdgetSozlesmeStatusCevap kdgetSozlesmeStatusResult;
+        public WSProvider _ws;
+        public CreatedQuery _cQuery;
+        public kdSalesReceiptDataAllCevap kdSalesReceiptData;
+        public LogoProviderClass _logoProvider;
+        public OtoSenkron _otoSenkron;
         DialogResult dr;
+        #endregion
+
+
         public InfoteksLogin()
         {
-            kdContractResult = new kdContractInfoCevap();
-            _login = new Login();
+            //lblBilgiMessage.Text = "Şifrenizi Unuttuysanız 0850 433 1414 nolu müşteri hizmelerini arayınız!";
+            _ws = new WSProvider();
+            _logoProvider = new LogoProviderClass();
+            kdSalesReceiptData = new kdSalesReceiptDataAllCevap();
+            _cQuery = new CreatedQuery();
+            kdgetSozlesmeStatusResult = new kdgetSozlesmeStatusCevap();
             _item = new OtoSenkron();
             _xmlProv = new XmlProvider();
             InitializeComponent();
@@ -33,36 +47,46 @@ namespace LogoDesktopApplication.HelperForms
         public void btnKaydet_Click(object sender, EventArgs e)
         {
             _item = _xmlProv.XmlRead();
-            _item.Login.userName = textBox1.Text;
-            _item.Login.passWord = textBox2.Text;
+            _item.userName = txtFirmaKodu.Text;
+            _item.passWord = txtFirmaToken.Text;
             _xmlProv.XmlWriterMethod(_item);
             _item = _xmlProv.XmlRead();
-            //tsm e connection yapıp logini doğrulayacağız
-            kdContractResult = Query_Method_kdContractInfo(_item.Login.userName, _item.Login.passWord);
-            if (kdContractResult.cevapKodu!="000")
+            kdgetSozlesmeStatusResult = Query_Method_kdgetSozlesmeStatus();
+            if (kdgetSozlesmeStatusResult.cevapKodu != "000")
             {
-                _item.Login.State = "False";
+                _item.LoginState = "False";
+                _xmlProv.XmlWriterMethod(_item);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
-                kdContractResult.cevapAciklama,
+                kdgetSozlesmeStatusResult.cevapAciklama,
                 "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                _item.Login.State = "True";
+                _item.LoginState = "True";
+                _xmlProv.XmlWriterMethod(_item);
                 //_item.Login.Add(_login);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
-                "Giriş Yapıldı, Senkron Ayarlarınızı Yapabilirsiniz",
-                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                "Giriş Yapıldı, Veri Senkronu Sağlanacak\nBu işlem uzun sürebilir\nDevam etmek istiyor musunuz ?",
+                "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    btnLogin.Enabled = false;
+                    progressBarControl1.Visible = true;
+                    backgroundWorker1.RunWorkerAsync();
+                    backgroundWorker1.WorkerReportsProgress = true;
+                }
+                else
+                {
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Yeniden Başlatılıyor, Lütfen Bekleyiniz...",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Application.Restart();
+                }
             }
-            _xmlProv.XmlWriterMethod(_item);
 
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
 
         public HttpWebRequest CreateWebRequest(string url, string action)
@@ -82,18 +106,18 @@ namespace LogoDesktopApplication.HelperForms
             return soapEnvelopeDocument;
         }
 
-        public kdContractInfoCevap Query_Method_kdContractInfo(string ad,string soyad)
+        public kdgetSozlesmeStatusCevap Query_Method_kdgetSozlesmeStatus()
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
-            var _action = _url + "kdContractInfo";
-            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(Query(ad,soyad));
+            var _action = _url + "kdgetSozlesmeStatus";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(ResultQuery());
             HttpWebRequest webRequest = CreateWebRequest(_url, _action);
             InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
             IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
             asyncResult.AsyncWaitHandle.WaitOne();
             string soapResult;
-            kdContractInfoCevap kdContractInfoCevapItem;
+            kdgetSozlesmeStatusCevap kdgetSozlesmeStatusCevapItem;
             using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
             {
                 using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
@@ -102,17 +126,17 @@ namespace LogoDesktopApplication.HelperForms
                     XmlDocument xml = new XmlDocument();
                     xml.LoadXml(soapResult);
 
-                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdContractInfoCevap");
+                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdgetSozlesmeStatusCevap");
                     Serializer ser = new Serializer();
                     string path = string.Empty;
                     foreach (XmlNode xn in receiptLine)
                     {
                         path = xn.OuterXml;
                     }
-                    kdContractInfoCevapItem = ser.Deserialize<kdContractInfoCevap>(path);
+                    kdgetSozlesmeStatusCevapItem = ser.Deserialize<kdgetSozlesmeStatusCevap>(path);
                 }
             }
-            return kdContractInfoCevapItem;
+            return kdgetSozlesmeStatusCevapItem;
         }
         public void InsertSoapEnvelopeIntoWebRequest(XmlDocument soapEnvelopeXml, HttpWebRequest webRequest)
         {
@@ -122,17 +146,49 @@ namespace LogoDesktopApplication.HelperForms
             }
         }
 
-        public string Query(string ad, string soyad)
+        public string ResultQuery()
         {
-            string QUERY = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdContractInfo>" +
-                             "<kurumKodu>" +ad+ "</kurumKodu>" +
-                             "<kurumToken>" + soyad + "</kurumToken>" +
-                             "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
-                             "</kdContractInfo></soapenv:Body></soapenv:Envelope>";
+            string QUERY = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdgetSozlesmeStatus>" +
+                             "<kurumKodu>" +_item.userName+ "</kurumKodu>" +
+                             "<kurumToken>" + _item.passWord + "</kurumToken>" +
+                             "</kdgetSozlesmeStatus></soapenv:Body></soapenv:Envelope>";
             return QUERY;
         }
-        
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                _otoSenkron = _xmlProv.XmlRead();
+                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_cQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
+                _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                int zN = Convert.ToInt16(_otoSenkron.zNo);
+                zN++;
+                _otoSenkron.zNo = zN.ToString();
+                _xmlProv.XmlWriterMethod(_otoSenkron);
+                backgroundWorker1.ReportProgress(i, e.Result);
+            }
+        }
 
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBarControl1.EditValue = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            progressBarControl1.Visible = false;
+            btnLogin.Enabled = true;
+            dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+            this,
+            "Yeniden Başlatılıyor, Lütfen Bekleyiniz...",
+            "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Application.Restart();
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.infoteks.com.tr/");
+        }
     }
 }
