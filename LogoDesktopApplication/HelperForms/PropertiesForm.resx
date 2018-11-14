@@ -3381,13 +3381,13 @@
         AMCQTP7G/wfo/Yo7sUfDAAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="bunifuElipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>161, 17</value>
-  </metadata>
   <metadata name="bunifuElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>305, 17</value>
   </metadata>
   <metadata name="bunifuElipse3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>449, 17</value>
+  </metadata>
+  <metadata name="bunifuElipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>593, 17</value>
   </metadata>
 </root>

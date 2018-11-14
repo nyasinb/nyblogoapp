@@ -259,3 +259,174 @@ Parametre adı: index
 14-11-2018 16:10:08.559 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
 14-11-2018 16:11:08.562 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
 14-11-2018 16:12:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:13:08.562 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:14:08.562 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:15:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:16:08.558 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:17:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:18:08.553 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:19:08.554 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:20:08.557 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:21:08.561 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:22:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:23:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:24:08.562 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:25:08.558 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:26:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:27:08.557 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:28:08.565 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:29:08.554 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:30:08.569 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:31:08.557 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:32:08.563 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:33:08.554 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:34:08.555 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:35:08.558 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:36:10.194 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:36:10.194 [WARNING] OtoSync  ::  
+14-11-2018 16:37:09.933 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:37:09.934 [WARNING] OtoSync  ::  
+14-11-2018 16:38:10.046 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:38:10.047 [WARNING] OtoSync  ::  
+14-11-2018 16:39:10.115 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:39:10.116 [WARNING] OtoSync  ::  
+14-11-2018 16:40:10.700 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:40:10.701 [WARNING] OtoSync  ::  
+14-11-2018 16:41:09.998 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:41:09.998 [WARNING] OtoSync  ::  
+14-11-2018 16:50:43.125 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+14-11-2018 16:51:57.372 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 16:51:59.544 [INFO]    POST OK ! Fat No : 000010003200001
+14-11-2018 16:52:00.368 [WARNING] OtoSync  ::  
+14-11-2018 16:52:55.948 [WARNING] Oto Senkron Kapalı
+14-11-2018 16:53:55.954 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:01:48.409 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:03:00.070 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:03:47.206 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:11:33.516 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:11:50.251 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:11:53.003 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:14.690 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:19:39.649 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:40.833 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:19:41.893 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:42.750 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:19:43.803 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:44.809 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:19:46.230 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:47.185 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:19:48.388 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:19:49.353 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:20:56.598 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:20:58.008 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:20:59.417 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:21:00.996 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:21:02.314 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:21:03.758 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:21:04.693 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:21:06.034 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:21:07.114 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:21:08.537 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:21:09.615 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:21:11.327 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:21:22.188 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:22:35.734 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:22:36.778 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:22:37.907 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:22:38.839 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:22:39.940 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:22:41.169 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:22:42.562 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:22:43.671 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:22:44.990 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:22:46.103 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:09.547 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:24:10.936 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:12.015 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:24:12.873 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:14.291 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:24:15.268 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:16.266 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:24:17.102 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:18.007 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:24:18.977 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:24:39.795 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:25:20.110 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:26:20.116 [WARNING] Oto Senkron Kapalı
+14-11-2018 17:36:07.206 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:36:10.147 [INFO]    POST OK ! Fat No : 000010003200001
+14-11-2018 17:36:13.903 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:36:14.928 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:36:16.388 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:36:17.683 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:36:19.677 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:36:22.215 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:36:24.747 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 17:36:27.398 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 17:36:55.646 [WARNING] Oto Senkron Kapalı
+14-11-2018 18:16:15.257 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:16.466 [INFO]    POST OK ! Fat No : 000010003200001
+14-11-2018 18:16:16.791 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:17.156 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:17.428 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:17.806 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:18.074 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:18.430 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:18.695 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:19.078 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:23.210 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:23.727 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:23.992 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:24.362 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:24.619 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:24.983 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:25.246 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:25.608 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:25.881 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:26.267 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:35.013 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:35.368 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:35.641 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:35.998 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:36.277 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:36.623 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:36.902 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:37.413 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:37.752 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:38.294 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:41.230 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:41.798 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:42.153 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:42.693 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:43.014 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:43.415 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:43.741 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:44.142 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:16:44.459 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:16:44.876 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:00.962 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:17:01.381 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:01.660 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:17:02.031 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:02.312 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:17:02.717 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:02.993 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:17:03.356 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:03.640 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:17:04.020 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:17:07.102 [WARNING] Oto Senkron Kapalı
+14-11-2018 18:19:50.328 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:19:50.946 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:19:51.247 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:19:51.684 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:19:51.974 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:19:52.336 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:19:52.628 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:19:52.988 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:19:53.278 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:19:53.683 [INFO]    DBError(8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_01_INVOICE_I2' dizinine sahip 'dbo.LG_001_01_INVOICE' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (2, 7, 000010003200001).
+14-11-2018 18:21:41.536 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:21:43.622 [INFO]    POST OK ! Fat No : 000010003200001
+14-11-2018 18:21:44.593 [WARNING] OtoSync  ::  
+14-11-2018 18:22:41.859 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+14-11-2018 18:22:41.865 [WARNING] OtoSync  ::  

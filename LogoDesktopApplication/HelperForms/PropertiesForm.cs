@@ -229,6 +229,10 @@ namespace LogoDesktopApplication.HelperForms
         {
             if (NetworkControl())
             {
+                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(null, typeof(waitForm));
+
+                btnManuelSenkron.Enabled = false;
+                otoSyncProgress.Visible = true;
                 item = _xmlProv.XmlRead();
                 kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(item));
                 if (kdSalesReceiptData.cevapKodu != "000")
@@ -238,10 +242,24 @@ namespace LogoDesktopApplication.HelperForms
                     "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
                     "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
+                for (int i = 0; i < kdSalesReceiptData.salesData.Count; i++)
+                {
                     _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
+                }
+                otoSyncProgress.Visible = false;
+                btnManuelSenkron.Enabled = true;
+                DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, null);
 
             }
+            else
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Senkron Yapılamaz.\nInternet bağlantınızı kontrol ediniz ve tekrar deneyiniz",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void otoSync_DoWork(object sender, DoWorkEventArgs e)
+        {
 
         }
     }

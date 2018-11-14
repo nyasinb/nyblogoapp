@@ -157,10 +157,10 @@ namespace LogoDesktopApplication.HelperForms
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i < 50; i++)
+            _otoSenkron = _xmlProv.XmlRead();
+            kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_cQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
+            for (int i = 0; i < kdSalesReceiptData.salesData.Count; i++)
             {
-                _otoSenkron = _xmlProv.XmlRead();
-                kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_cQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
                 _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
                 int zN = Convert.ToInt16(_otoSenkron.zNo);
                 zN++;

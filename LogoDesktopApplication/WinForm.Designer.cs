@@ -59,16 +59,16 @@ namespace LogoDesktopApplication
             this.backGorundProc = new System.ComponentModel.BackgroundWorker();
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCloseApp = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnHide = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCloseApp = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -257,29 +257,9 @@ namespace LogoDesktopApplication
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(370, 28);
             this.panel1.TabIndex = 1;
-            // 
-            // btnCloseApp
-            // 
-            this.btnCloseApp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
-            this.btnCloseApp.Location = new System.Drawing.Point(322, 4);
-            this.btnCloseApp.Name = "btnCloseApp";
-            this.btnCloseApp.Size = new System.Drawing.Size(31, 24);
-            this.btnCloseApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCloseApp.TabIndex = 2;
-            this.btnCloseApp.TabStop = false;
-            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(148, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "INFOTEKS";
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // btnHide
             // 
@@ -293,6 +273,29 @@ namespace LogoDesktopApplication
             this.btnHide.TabStop = false;
             this.btnHide.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(148, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "INFOTEKS";
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
+            this.btnCloseApp.Location = new System.Drawing.Point(322, 4);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(31, 24);
+            this.btnCloseApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCloseApp.TabIndex = 2;
+            this.btnCloseApp.TabStop = false;
+            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
+            // 
             // WinForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -303,7 +306,7 @@ namespace LogoDesktopApplication
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HtmlText = "INFOTEKS";
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -317,8 +320,8 @@ namespace LogoDesktopApplication
             ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

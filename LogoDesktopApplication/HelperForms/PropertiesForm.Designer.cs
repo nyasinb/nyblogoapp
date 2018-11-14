@@ -48,9 +48,10 @@
             this.bunifuCustomLabel2 = new ns1.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new ns1.BunifuCustomLabel();
-            this.bunifuElipse2 = new ns1.BunifuElipse(this.components);
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             this.bunifuElipse3 = new ns1.BunifuElipse(this.components);
+            this.bunifuElipse2 = new ns1.BunifuElipse(this.components);
+            this.otoSyncProgress = new DevExpress.XtraEditors.ProgressBarControl();
             this.midPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnKaydet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogout)).BeginInit();
@@ -58,12 +59,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSenkronOnOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnManuelSenkron)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otoSyncProgress.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // midPanel
             // 
             this.midPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("midPanel.BackgroundImage")));
             this.midPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.midPanel.Controls.Add(this.otoSyncProgress);
             this.midPanel.Controls.Add(this.BtnKaydet);
             this.midPanel.Controls.Add(this.btnLogout);
             this.midPanel.Controls.Add(this.bunifuCustomLabel7);
@@ -77,7 +80,7 @@
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(0, 0);
             this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(360, 386);
+            this.midPanel.Size = new System.Drawing.Size(356, 388);
             this.midPanel.TabIndex = 0;
             // 
             // BtnKaydet
@@ -85,7 +88,7 @@
             this.BtnKaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnKaydet.BackColor = System.Drawing.Color.Transparent;
             this.BtnKaydet.Image = global::LogoDesktopApplication.Properties.Resources.tick;
-            this.BtnKaydet.Location = new System.Drawing.Point(309, 118);
+            this.BtnKaydet.Location = new System.Drawing.Point(307, 119);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(45, 34);
             this.BtnKaydet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +101,7 @@
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
-            this.btnLogout.Location = new System.Drawing.Point(265, 322);
+            this.btnLogout.Location = new System.Drawing.Point(263, 323);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(40, 32);
             this.btnLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -115,7 +118,7 @@
             this.bunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(99, 328);
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(97, 329);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(144, 18);
             this.bunifuCustomLabel7.TabIndex = 8;
@@ -131,7 +134,7 @@
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.bunifuCustomLabel6);
             this.panel2.Controls.Add(this.bunifuCustomLabel5);
-            this.panel2.Location = new System.Drawing.Point(29, 168);
+            this.panel2.Location = new System.Drawing.Point(27, 169);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 145);
             this.panel2.TabIndex = 6;
@@ -223,7 +226,7 @@
             this.btnSenkronOnOff.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSenkronOnOff.BackColor = System.Drawing.Color.Transparent;
             this.btnSenkronOnOff.Image = ((System.Drawing.Image)(resources.GetObject("btnSenkronOnOff.Image")));
-            this.btnSenkronOnOff.Location = new System.Drawing.Point(191, 118);
+            this.btnSenkronOnOff.Location = new System.Drawing.Point(189, 119);
             this.btnSenkronOnOff.Name = "btnSenkronOnOff";
             this.btnSenkronOnOff.Size = new System.Drawing.Size(112, 35);
             this.btnSenkronOnOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -238,7 +241,7 @@
             this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(24, 124);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(22, 125);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(148, 18);
             this.bunifuCustomLabel4.TabIndex = 4;
@@ -249,7 +252,7 @@
             this.btnManuelSenkron.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnManuelSenkron.BackColor = System.Drawing.Color.Transparent;
             this.btnManuelSenkron.Image = ((System.Drawing.Image)(resources.GetObject("btnManuelSenkron.Image")));
-            this.btnManuelSenkron.Location = new System.Drawing.Point(196, 65);
+            this.btnManuelSenkron.Location = new System.Drawing.Point(194, 66);
             this.btnManuelSenkron.Name = "btnManuelSenkron";
             this.btnManuelSenkron.Size = new System.Drawing.Size(39, 29);
             this.btnManuelSenkron.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,7 +269,7 @@
             this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(252, 69);
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(250, 70);
             this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
             this.bunifuCustomLabel3.Size = new System.Drawing.Size(51, 18);
             this.bunifuCustomLabel3.TabIndex = 2;
@@ -279,7 +282,7 @@
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(36, 69);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(34, 70);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(136, 18);
             this.bunifuCustomLabel2.TabIndex = 1;
@@ -290,7 +293,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.bunifuCustomLabel1);
-            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(358, 42);
             this.panel1.TabIndex = 0;
@@ -308,11 +311,6 @@
             this.bunifuCustomLabel1.TabIndex = 0;
             this.bunifuCustomLabel1.Text = "SENKRON İŞLEMLERİ";
             // 
-            // bunifuElipse2
-            // 
-            this.bunifuElipse2.ElipseRadius = 45;
-            this.bunifuElipse2.TargetControl = this.midPanel;
-            // 
             // bunifuElipse1
             // 
             this.bunifuElipse1.ElipseRadius = 45;
@@ -323,13 +321,28 @@
             this.bunifuElipse3.ElipseRadius = 45;
             this.bunifuElipse3.TargetControl = this.panel1;
             // 
+            // bunifuElipse2
+            // 
+            this.bunifuElipse2.ElipseRadius = 45;
+            this.bunifuElipse2.TargetControl = this;
+            // 
+            // otoSyncProgress
+            // 
+            this.otoSyncProgress.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.otoSyncProgress.Location = new System.Drawing.Point(0, 370);
+            this.otoSyncProgress.Name = "otoSyncProgress";
+            this.otoSyncProgress.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.otoSyncProgress.Size = new System.Drawing.Size(356, 18);
+            this.otoSyncProgress.TabIndex = 29;
+            this.otoSyncProgress.Visible = false;
+            // 
             // PropertiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.midPanel);
             this.Name = "PropertiesForm";
-            this.Size = new System.Drawing.Size(360, 386);
+            this.Size = new System.Drawing.Size(356, 388);
             this.Load += new System.EventHandler(this.PropertiesForm_Load);
             this.midPanel.ResumeLayout(false);
             this.midPanel.PerformLayout();
@@ -341,6 +354,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnManuelSenkron)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otoSyncProgress.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,8 +379,9 @@
         private ns1.BunifuCustomLabel bunifuCustomLabel7;
         private System.Windows.Forms.PictureBox btnLogout;
         private System.Windows.Forms.PictureBox BtnKaydet;
-        private ns1.BunifuElipse bunifuElipse2;
         private ns1.BunifuElipse bunifuElipse1;
         private ns1.BunifuElipse bunifuElipse3;
+        private ns1.BunifuElipse bunifuElipse2;
+        private DevExpress.XtraEditors.ProgressBarControl otoSyncProgress;
     }
 }
