@@ -24,9 +24,11 @@ namespace LogoDesktopApplication.HelperForms
         public bool senkronType { get; set; }
         CreatedQuery _CreatedQuery;
         LogoProviderClass _logoProvider;
+        kdAcquirerInfoCevap _acquir;
         public PropertiesForm()
         {
             InitializeComponent();
+            _acquir = new kdAcquirerInfoCevap();
             _logoProvider = new LogoProviderClass();
             kdSalesReceiptData = new kdSalesReceiptDataAllCevap();
             _CreatedQuery = new CreatedQuery();
@@ -52,36 +54,17 @@ namespace LogoDesktopApplication.HelperForms
             }
         }
 
-        private void btnLogout_MouseHover(object sender, EventArgs e)
-        {
-            btnLogout.BackColor = Color.Black;
-        }
-
-        private void btnLogout_MouseLeave(object sender, EventArgs e)
-        {
-            btnLogout.BackColor = Color.Transparent;
-        }
-
-        private void btnManuelSenkron_MouseHover(object sender, EventArgs e)
-        {
-            btnManuelSenkron.BackColor = Color.Black;
-        }
-
-        private void btnManuelSenkron_MouseLeave(object sender, EventArgs e)
-        {
-            btnManuelSenkron.BackColor = Color.Transparent;
-        }
         int i = 1;
         private void btnSenkronOnOff_Click(object sender, EventArgs e)
         {
             if (i % 2 == 0)
             {
-                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.off;
+                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.ofswitch;
                 panel2.Visible = false;
             }
             else
             {
-                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.On;
+                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.onswitch;
                 panel2.Visible = true;
             }
             i++;
@@ -100,14 +83,14 @@ namespace LogoDesktopApplication.HelperForms
             if (item.Durum == "0" || item.Durum=="False")
             {
                 panel2.Visible = false;
-                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.off;
+                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.ofswitch;
             }
 
             else
             {
                 panel2.Visible = true;
                 chckBoxSenkronType.Visible = true;
-                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.On;
+                btnSenkronOnOff.Image = global::LogoDesktopApplication.Properties.Resources.onswitch;
             }
             if (item.SenkronType == 1)//1 ise aktif.yani saat
             {
@@ -193,7 +176,7 @@ namespace LogoDesktopApplication.HelperForms
             }
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                s.LoginState = "True";
+                s.InfoLoginState = "True";
                 WriteResult = _xmlProv.XmlWriterMethod(s);
                 if (WriteResult == "0")
                 {
@@ -208,7 +191,7 @@ namespace LogoDesktopApplication.HelperForms
         private void btnLogout_Click(object sender, EventArgs e)
         {
             item = _xmlProv.XmlRead();
-            item.LoginState = "False";
+            item.InfoLoginState = "False";
             _xmlProv.XmlWriterMethod(item);
             dr = DevExpress.XtraEditors.XtraMessageBox.Show(
             this,
@@ -220,11 +203,6 @@ namespace LogoDesktopApplication.HelperForms
             }
         }
 
-        private void btnHide_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnManuelSenkron_Click(object sender, EventArgs e)
         {
             if (NetworkControl())
@@ -233,6 +211,12 @@ namespace LogoDesktopApplication.HelperForms
 
                 btnManuelSenkron.Enabled = false;
                 otoSyncProgress.Visible = true;
+
+                _acquir = _ws.Query_Method_kdAcquirerInfo();
+                string Result = _logoProvider.bankCreat(_acquir);
+                System.Threading.Thread.Sleep(500);
+
+
                 item = _xmlProv.XmlRead();
                 kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(item));
                 if (kdSalesReceiptData.cevapKodu != "000")
@@ -258,9 +242,61 @@ namespace LogoDesktopApplication.HelperForms
                 "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void otoSync_DoWork(object sender, DoWorkEventArgs e)
+        void HoverLeaveColor(object sender,EventArgs e)
         {
-
+            ToolTip tt = new ToolTip();
+            string pictureBoxName = ((PictureBox)sender).Name;
+            if (pictureBoxName == "btnManuelSenkron")
+            {
+                btnManuelSenkron.BackColor = System.Drawing.Color.Transparent;
+                return;
+            }
+            else if (pictureBoxName == "btnSenkronOnOff")
+            {
+                btnSenkronOnOff.BackColor = System.Drawing.Color.Transparent;
+                return;
+            }
+            else if (pictureBoxName == "BtnKaydet")
+            {
+                BtnKaydet.BackColor = System.Drawing.Color.Transparent;
+                return;
+            }
+            else if (pictureBoxName == "btnLogout")
+            {
+                btnLogout.BackColor = System.Drawing.Color.Transparent;
+                return;
+            }
+        }
+        void HoverColorPing(object sender,EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            string pictureBoxName = ((PictureBox)sender).Name;
+            
+            if (pictureBoxName == "btnManuelSenkron")
+            {
+                tt.SetToolTip(this.btnManuelSenkron, "Otomatik Senkron Ayarlarını Göster");
+                btnManuelSenkron.BackColor = System.Drawing.Color.FromArgb(197, 141, 214);
+                return;
+            }
+            else if (pictureBoxName == "btnSenkronOnOff")
+            {
+                tt.SetToolTip(this.btnSenkronOnOff, "Otomatik Senkron Ayarlarını Göster");
+                btnSenkronOnOff.BackColor = System.Drawing.Color.FromArgb(197, 141, 214);
+                return;
+            }
+            else if (pictureBoxName == "BtnKaydet")
+            {
+                tt.SetToolTip(this.BtnKaydet, "Ayarları Kayıt Et");
+                BtnKaydet.BackColor = System.Drawing.Color.FromArgb(197, 141, 214);
+                return;
+            }
+            else if (pictureBoxName == "btnLogout")
+            {
+                tt.SetToolTip(this.btnLogout, "Farklı bir kullanıcıya geçmek için kullanılır...");
+                btnLogout.BackColor = System.Drawing.Color.FromArgb(197, 141, 214);
+                return;
+            }
+            
         }
     }
 }

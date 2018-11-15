@@ -13,8 +13,8 @@ namespace LogoDesktopApplication.WS_Class
         public string CREATE_kdContractInfo(OtoSenkron o)
         {
             string SOAP_QUERY_kdContractInfo = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdContractInfo>" +
-                             "<kurumKodu>" + o.userName + "</kurumKodu>" +
-                             "<kurumToken>" + o.passWord + "</kurumToken>" +
+                             "<kurumKodu>" + o.InfoKurumKodu + "</kurumKodu>" +
+                             "<kurumToken>" + o.InfoKurumToken + "</kurumToken>" +
                              "<OKCSeriNo>TEST00009995</OKCSeriNo>" +
                              "</kdContractInfo></soapenv:Body></soapenv:Envelope>";
             return SOAP_QUERY_kdContractInfo;
@@ -23,8 +23,8 @@ namespace LogoDesktopApplication.WS_Class
         {
 
          string SOAP_QUERY_kdSalesReceiptAllData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdSalesReceiptAllData>" +
-                                     "<kurumKodu>" + o.userName + "</kurumKodu>" +
-                                     "<kurumToken>" + o.passWord + "</kurumToken>" +
+                                     "<kurumKodu>" + o.InfoKurumKodu + "</kurumKodu>" +
+                                     "<kurumToken>" + o.InfoKurumToken + "</kurumToken>" +
                                      "<reportDateStart/>" +
                                      "<reportDateEnd/>" +
                                      "</kdSalesReceiptAllData></soapenv:Body></soapenv:Envelope>";
@@ -35,8 +35,8 @@ namespace LogoDesktopApplication.WS_Class
         {
 
             string SOAP_QUERY_kdSalesReceiptAllData = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdUpdateReceiptLogoStatus>" +
-                                        "<kurumKodu>" + o.userName + "</kurumKodu>" +
-                                        "<kurumToken>" + o.passWord + "</kurumToken>" +
+                                        "<kurumKodu>" + o.InfoKurumKodu + "</kurumKodu>" +
+                                        "<kurumToken>" + o.InfoKurumToken + "</kurumToken>" +
                                         "<serverId>"+id+"</serverId>"+
                                         "</kdUpdateReceiptLogoStatus></soapenv:Body></soapenv:Envelope>";
             return SOAP_QUERY_kdSalesReceiptAllData;

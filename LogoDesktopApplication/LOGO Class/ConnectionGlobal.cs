@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogoDesktopApplication.HelperForms;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace LogoDesktopApplication.LOGO_Class
     public class ConnectionGlobal
     {
         public bool networkState = false;
-
+        
         public ConnectionGlobal()
         {
             LobObject();
@@ -37,9 +38,9 @@ namespace LogoDesktopApplication.LOGO_Class
 
             }
         }
-        public bool Connection()
+        public bool Connection(OtoSenkron o)
         {
-            return GMP3Infoteks.OKC.logoConnection.Connection("LOGO", "LOGO");
+            return GMP3Infoteks.OKC.logoConnection.Connection(o.LogoUserName,o.LogoPassword);
         }
         
 

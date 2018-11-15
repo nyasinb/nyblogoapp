@@ -121,31 +121,40 @@
   <data name="periodIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\periodIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="timeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\timeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="offButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\offButton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backward" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="offButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\offButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tick" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="onButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ConnectedWıfı" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ConnectedWıfı.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Toggle Off-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Toggle Off-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimizeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimizeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Toggle On-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Toggle On-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-exit-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-exit-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gprsoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gprsoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gprson" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gprson.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gprsoff1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gprsoff1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="closedicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\closedicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onswitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\onswitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ofswitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ofswitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

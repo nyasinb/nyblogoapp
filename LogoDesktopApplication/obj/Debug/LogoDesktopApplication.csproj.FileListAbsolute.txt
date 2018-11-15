@@ -1,7 +1,6 @@
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.exe.config
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.exe
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LogoDesktopApplication.pdb
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.exe.config
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.pdb
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\DevExpress.Data.v17.1.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\DevExpress.Printing.v17.1.Core.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\DevExpress.Sparkline.v17.1.Core.dll
@@ -62,6 +61,6 @@ C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\Log
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.StartingControlForm.resources
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.WinForm.resources
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.GenerateResource.Cache
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe.licenses
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.exe
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.pdb
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.exe.licenses
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.pdb

@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LogoDesktopApplication")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Infoteks Logo App")]
+[assembly: AssemblyDescription("OKC Verilerini Logo Programına Aktarmada Kullanılır")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("INFOTEKS BİLGİSAYAR")]
 [assembly: AssemblyProduct("LogoDesktopApplication")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

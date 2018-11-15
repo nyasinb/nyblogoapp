@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LogoDesktopApplication</RootNamespace>
-    <AssemblyName>LogoDesktopApplication</AssemblyName>
+    <AssemblyName>LOGO MANAGER</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -46,6 +46,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>info %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LogoDesktopApplication.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52">
@@ -231,6 +237,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ofswitch.png" />
+    <None Include="Resources\onswitch.png" />
+    <None Include="Resources\gprsoff1.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\offButton1.png" />
+    <None Include="Resources\onButton.png" />
+    <None Include="Resources\offButton.png" />
+    <None Include="Resources\icons8-exit-50.png" />
+    <None Include="Resources\closedicon.png" />
+    <None Include="Resources\minimizeicon.png" />
+    <None Include="Resources\gprson.png" />
+    <None Include="Resources\gprsoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="info %281%29.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -63,9 +63,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backward {
+        internal static System.Drawing.Bitmap closedicon {
             get {
-                object obj = ResourceManager.GetObject("backward", resourceCulture);
+                object obj = ResourceManager.GetObject("closedicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap closed {
+        internal static System.Drawing.Bitmap gprsoff {
             get {
-                object obj = ResourceManager.GetObject("closed", resourceCulture);
+                object obj = ResourceManager.GetObject("gprsoff", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ConnectedWıfı {
+        internal static System.Drawing.Bitmap gprsoff1 {
             get {
-                object obj = ResourceManager.GetObject("ConnectedWıfı", resourceCulture);
+                object obj = ResourceManager.GetObject("gprsoff1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap off {
+        internal static System.Drawing.Bitmap gprson {
             get {
-                object obj = ResourceManager.GetObject("off", resourceCulture);
+                object obj = ResourceManager.GetObject("gprson", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,69 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap On {
+        internal static System.Drawing.Bitmap icons8_exit_50 {
             get {
-                object obj = ResourceManager.GetObject("On", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-exit-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimizeicon {
+            get {
+                object obj = ResourceManager.GetObject("minimizeicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap offButton {
+            get {
+                object obj = ResourceManager.GetObject("offButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap offButton1 {
+            get {
+                object obj = ResourceManager.GetObject("offButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ofswitch {
+            get {
+                object obj = ResourceManager.GetObject("ofswitch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap onButton {
+            get {
+                object obj = ResourceManager.GetObject("onButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap onswitch {
+            get {
+                object obj = ResourceManager.GetObject("onswitch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,39 +183,9 @@ namespace LogoDesktopApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tick {
+        internal static System.Drawing.Bitmap save {
             get {
-                object obj = ResourceManager.GetObject("tick", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap timeIcon {
-            get {
-                object obj = ResourceManager.GetObject("timeIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Toggle_Off_40 {
-            get {
-                object obj = ResourceManager.GetObject("Toggle Off-40", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Toggle_On_40 {
-            get {
-                object obj = ResourceManager.GetObject("Toggle On-40", resourceCulture);
+                object obj = ResourceManager.GetObject("save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

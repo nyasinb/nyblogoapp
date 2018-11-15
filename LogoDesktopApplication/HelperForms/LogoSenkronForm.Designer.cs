@@ -163,7 +163,7 @@
             // btnKaydet
             // 
             this.btnKaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnKaydet.Image = global::LogoDesktopApplication.Properties.Resources.tick;
+            //this.btnKaydet.Image = global::LogoDesktopApplication.Properties.Resources.tick;
             this.btnKaydet.Location = new System.Drawing.Point(369, 21);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(79, 29);

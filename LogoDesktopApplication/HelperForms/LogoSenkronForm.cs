@@ -39,12 +39,12 @@ namespace LogoDesktopApplication.HelperForms
             {
                 btnSenkronOnOf.Text = "Senkron Kapalı";
                 midPanel.Visible = false;
-                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.Toggle_Off_40;
+                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.ofswitch;
                 chckBoxSenkronType.Visible = false;
             }
             else
             {
-                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.Toggle_On_40;
+                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.onswitch;
                 btnSenkronOnOf.Text = "Senkron Açık";
                 midPanel.Visible = true;
                 chckBoxSenkronType.Visible = true;
@@ -101,7 +101,7 @@ namespace LogoDesktopApplication.HelperForms
             }
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                s.LoginState = "True";
+                s.InfoLoginState = "True";
                 WriteResult = _xmlProv.XmlWriterMethod(s);
                 if (WriteResult == "0")
                 {
@@ -144,7 +144,7 @@ namespace LogoDesktopApplication.HelperForms
 
             if (item.Durum == "0")
             {
-                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.Toggle_Off_40;
+                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.ofswitch;
                 midPanel.Visible = false;
                 btnSenkronOnOf.Checked = false;
                 chckBoxSenkronType.Checked = true;
@@ -156,14 +156,14 @@ namespace LogoDesktopApplication.HelperForms
             if (item.Durum == "False")
             {
                 btnSenkronOnOf.Checked = false;
-                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.Toggle_Off_40;
+                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.ofswitch;
                 midPanel.Visible = false;
                 chckBoxSenkronType.Visible = false;
             }
             else
             {
                 btnSenkronOnOf.Checked = true;
-                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.Toggle_On_40;
+                btnSenkronOnOf.ImageOptions.Image = global::LogoDesktopApplication.Properties.Resources.onswitch;
                 midPanel.Visible = true;
                 chckBoxSenkronType.Visible = true;
 

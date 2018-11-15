@@ -33,7 +33,6 @@ namespace LogoDesktopApplication.HelperForms
 
         public InfoteksLogin()
         {
-            //lblBilgiMessage.Text = "Şifrenizi Unuttuysanız 0850 433 1414 nolu müşteri hizmelerini arayınız!";
             _ws = new WSProvider();
             _logoProvider = new LogoProviderClass();
             kdSalesReceiptData = new kdSalesReceiptDataAllCevap();
@@ -43,18 +42,65 @@ namespace LogoDesktopApplication.HelperForms
             _xmlProv = new XmlProvider();
             InitializeComponent();
         }
-
+        
         public void btnKaydet_Click(object sender, EventArgs e)
         {
             _item = _xmlProv.XmlRead();
-            _item.userName = txtFirmaKodu.Text;
-            _item.passWord = txtFirmaToken.Text;
-            _xmlProv.XmlWriterMethod(_item);
+            if (_item.InfoLoginState == "True")
+                LogoLoginMethod();
+            else
+                InfoteksLoginMethod();
+        }
+        private void InfoteksLogin_Load(object sender, EventArgs e)
+        {
+            ShowScreen();
+        }
+        void ShowScreen()
+        {
             _item = _xmlProv.XmlRead();
+
+            if (_item.InfoLoginState == "True" && _item.LogoLoginState == "False")
+            {
+                txtFirmaKodu.Text=_item.InfoLisances;
+                txtFirmaKodu.isPassword = true;
+                infoPanel.Enabled = false;
+                logoPanel.Enabled = true;
+
+            }
+            else if (_item.InfoLoginState=="" && _item.LogoLoginState=="")
+            {
+                infoPanel.Enabled = true;
+                logoPanel.Enabled = false;
+            }
+            else if (_item.InfoLoginState == "True" && _item.LogoLoginState == "")
+            {
+                txtFirmaKodu.Text = _item.InfoLisances;
+                txtFirmaKodu.isPassword = true;
+
+                infoPanel.Enabled = false;
+                logoPanel.Enabled = true;
+            }
+            else
+            {
+                infoPanel.Enabled = false;
+                logoPanel.Enabled = true;
+            }
+        }
+
+        void InfoteksLoginMethod()
+        {
+            //if (txtFirmaKodu.Text=="" || txtFirmaToken.Text=="")
+            //{
+            //    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+            //    this,
+            //    "Lütfen ilgili alanları doldurunuz",
+            //    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
             kdgetSozlesmeStatusResult = Query_Method_kdgetSozlesmeStatus();
             if (kdgetSozlesmeStatusResult.cevapKodu != "000")
             {
-                _item.LoginState = "False";
+                _item.LogoLoginState = "False";
                 _xmlProv.XmlWriterMethod(_item);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
@@ -63,9 +109,28 @@ namespace LogoDesktopApplication.HelperForms
             }
             else
             {
-                _item.LoginState = "True";
+                _item.LogoLoginState = "True";
+                logoPanel.Enabled = true;
+                _item.InfoLisances = txtFirmaKodu.Text;
                 _xmlProv.XmlWriterMethod(_item);
-                //_item.Login.Add(_login);
+                ShowScreen();
+            }
+        }
+
+        ConnectionGlobal glob;
+        void LogoLoginMethod()
+        {
+            _item = _xmlProv.XmlRead();
+            _item.LogoUserName = txtLogoUser.Text;
+            _item.LogoPassword= txtLogoPass.Text;
+            _xmlProv.XmlWriterMethod(_item);
+            _item = _xmlProv.XmlRead();
+            bool LogoconnectionState = LogoConnection();
+            if (LogoconnectionState)
+            {
+                _item = _xmlProv.XmlRead();
+                _item.LogoLoginState = "True";
+                _item = _xmlProv.XmlRead();
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
                 "Giriş Yapıldı, Veri Senkronu Sağlanacak\nBu işlem uzun sürebilir\nDevam etmek istiyor musunuz ?",
@@ -79,14 +144,24 @@ namespace LogoDesktopApplication.HelperForms
                 }
                 else
                 {
-                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                    this,
-                    "Yeniden Başlatılıyor, Lütfen Bekleyiniz...",
-                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Application.Restart();
                 }
             }
+            else
+            {
+                _item.LogoLoginState = "False";
+                _item = _xmlProv.XmlRead();
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Logo Giriş Bilgileri Hatalı Tekrar Deneyiniz.",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
+        public bool LogoConnection()
+        {
+            _item = _xmlProv.XmlRead();
+            return GMP3Infoteks.OKC.logoConnection.Connection(_item.LogoUserName, _item.LogoPassword);
         }
 
         public HttpWebRequest CreateWebRequest(string url, string action)
@@ -149,8 +224,7 @@ namespace LogoDesktopApplication.HelperForms
         public string ResultQuery()
         {
             string QUERY = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdgetSozlesmeStatus>" +
-                             "<kurumKodu>" +_item.userName+ "</kurumKodu>" +
-                             "<kurumToken>" + _item.passWord + "</kurumToken>" +
+                             "<kurumKodu>" +_item.InfoLisances+ "</kurumKodu>" +
                              "</kdgetSozlesmeStatus></soapenv:Body></soapenv:Envelope>";
             return QUERY;
         }
@@ -162,9 +236,6 @@ namespace LogoDesktopApplication.HelperForms
             for (int i = 0; i < kdSalesReceiptData.salesData.Count; i++)
             {
                 _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
-                int zN = Convert.ToInt16(_otoSenkron.zNo);
-                zN++;
-                _otoSenkron.zNo = zN.ToString();
                 _xmlProv.XmlWriterMethod(_otoSenkron);
                 backgroundWorker1.ReportProgress(i, e.Result);
             }
@@ -179,10 +250,6 @@ namespace LogoDesktopApplication.HelperForms
         {
             progressBarControl1.Visible = false;
             btnLogin.Enabled = true;
-            dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-            this,
-            "Yeniden Başlatılıyor, Lütfen Bekleyiniz...",
-            "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Application.Restart();
         }
 
@@ -190,5 +257,22 @@ namespace LogoDesktopApplication.HelperForms
         {
             System.Diagnostics.Process.Start("https://www.infoteks.com.tr/");
         }
+
+        void KeyEvents(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                InfoteksLoginMethod();
+            }
+            else if (e.KeyCode==Keys.Escape)
+            {
+                txtLogoUser.Text = "";
+                txtFirmaKodu.Text = "";
+                txtLogoPass.Text = "";
+            }
+
+        }
+
+
     }
 }

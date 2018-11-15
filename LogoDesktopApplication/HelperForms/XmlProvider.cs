@@ -46,14 +46,11 @@ namespace LogoDesktopApplication.HelperForms
                         }
                         writer.WriteElementString("Period", s.Period.Replace("DK", " ").Trim());
                         writer.WriteElementString("Durum", s.Durum);
-                        writer.WriteElementString("userName",s.userName);
-                        writer.WriteElementString("passWord", s.passWord);
-                        writer.WriteElementString("LoginState", Convert.ToString(s.LoginState));
-                        if (Convert.ToInt16(s.zNo) > 1)
-                        {
-                            writer.WriteElementString("zNo", s.zNo);
-                        }else
-                            writer.WriteElementString("zNo", "1");
+                        writer.WriteElementString("userName",s.InfoLisances);
+                        writer.WriteElementString("InfoLoginState", Convert.ToString(s.InfoLoginState));
+                        writer.WriteElementString("LogoLoginState", Convert.ToString(s.LogoLoginState));
+                        writer.WriteElementString("LogoUserName", s.LogoUserName);
+                        writer.WriteElementString("LogoPassword", s.LogoPassword);
 
                         writer.WriteEndElement();
                         writer.WriteEndDocument();

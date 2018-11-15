@@ -43,12 +43,13 @@ namespace LogoDesktopApplication
         XmlProvider _xmlProv;
         OtoSenkron item;
         CreatedQuery _CreatedQuery;
-        PropertiesForm fform;
+        int Move;
+        int Mouse_X;
+        int Mouse_Y;
         #endregion
-
         public WinForm()
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2016 Black";
+            //DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = "Office 2016 Black";
             _log = new Log();
             InitializeComponent();
             _acquir = new kdAcquirerInfoCevap();
@@ -56,11 +57,17 @@ namespace LogoDesktopApplication
             _CreatedQuery = new CreatedQuery();
             _ws = new WSProvider();
             _logoCon = new ConnectionGlobal();
-            _logoConnection = _logoCon.Connection();
             _logoProvider = new LogoProviderClass();
             _sqlProvider = new SQLProvider();
             _xmlProv = new XmlProvider();
              item = new OtoSenkron();
+
+            item = _xmlProv.XmlRead();
+            if (item.InfoLoginState=="True")
+            {
+                _logoConnection = _logoCon.Connection(_otoSenkron);
+            }
+
 
             _timer = new System.Windows.Forms.Timer();
             _timer.Interval = 60000;
@@ -73,30 +80,7 @@ namespace LogoDesktopApplication
             Control.CheckForIllegalCrossThreadCalls = false;
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
-            CreatBank();
             control();
-            //if (_logoCon.networkState)
-            //{
-            //    _otoSenkron = _xmlProv.XmlRead();
-            //    kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptData(_otoSenkron));
-            //    if (kdSalesReceiptData.cevapKodu!="000")
-            //    {
-            //        dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-            //        this,
-            //        "Senkron Yapılamaz.\n" + kdSalesReceiptData.cevapAciklama + "\nLütfen Infoteks ile iletişime geçiniz",
-            //        "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //    else
-            //        _logoProvider.transferVoucherNoCurrent(kdSalesReceiptData);
-            //}
-            //else
-            //{
-            //    DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
-            //    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-            //    this,
-            //    "Internet bağlantısı sağlanamadı\nBağlantınızı kontrol ediniz",
-            //    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
             DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
             //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
@@ -105,7 +89,7 @@ namespace LogoDesktopApplication
         public void control()
         {
             item = _xmlProv.XmlRead();
-            if (item.LoginState=="True")
+            if (item.InfoLoginState=="True" && item.LogoLoginState=="True")
             {
                 midPanel.Controls.Clear();
                 PropertiesForm f = new PropertiesForm();                
@@ -122,14 +106,8 @@ namespace LogoDesktopApplication
                 f.Dock = DockStyle.Fill;
             }
         }
-        private void BtninfoteksProc_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
 
-        private void BtnlogoProc_ItemClick(object sender, ItemClickEventArgs e)
-        {
 
-        }
         public void NetworkControl()
         {
             try
@@ -137,11 +115,11 @@ namespace LogoDesktopApplication
                 _logoCon.networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
                 if (_logoCon.networkState == true)
                 {
-                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.ConnectedWıfı;
+                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.gprson;
                 }
                 else
                 {
-                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.closed;
+                    btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.gprsoff1;
                 }
 
             }
@@ -216,6 +194,7 @@ namespace LogoDesktopApplication
 
         public void OtoSync()
         {
+
             _otoSenkron = _xmlProv.XmlRead();
             if (_otoSenkron.Durum == "True" && _otoSenkron.SenkronType == 0)  //0 ise period, 1 ise saat.
             {
@@ -247,7 +226,7 @@ namespace LogoDesktopApplication
                     }
                     else
                     {
-                        _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
+                        _log.Warning("oto senkron yapılamadı bağlantı hatası");
                         say -= 10;
                     }
                 }
@@ -282,7 +261,7 @@ namespace LogoDesktopApplication
                         }
                         else
                         {
-                            _log.Warning("oto senkron yapılamadı " + kdSalesReceiptData.cevapAciklama);
+                            _log.Warning("oto senkron yapılamadı bağlantı hatası");
                         }
                     }
                 }
@@ -345,9 +324,7 @@ namespace LogoDesktopApplication
             this.Dispose();
             Application.Exit();
         }
-        int Move;
-        int Mouse_X;
-        int Mouse_Y;
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             Move = 0;
@@ -365,6 +342,26 @@ namespace LogoDesktopApplication
             if (Move == 1)
             {
                 this.SetDesktopLocation(MousePosition.X - Mouse_X, MousePosition.Y - Mouse_Y);
+            }
+        }
+        private void btnConnectionImage_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            string objname = ((PictureBox)sender).Name;
+            if (objname== "btnConnectionImage")
+            {
+                tt.SetToolTip(this.btnConnectionImage, "İnternet Bağlantısı Açık");
+                return;
+            }
+            else if (objname == "btnHide")
+            {
+                tt.SetToolTip(this.btnHide, "Simge Durumunda Küçült");
+                return;
+            }
+            else if (objname == "btnCloseApp")
+            {
+                tt.SetToolTip(this.btnCloseApp, "Programı Kapat");
+                return;
             }
         }
     }

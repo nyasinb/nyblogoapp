@@ -54,21 +54,21 @@ namespace LogoDesktopApplication
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnExcelProcces = new DevExpress.XtraBars.BarButtonItem();
             this.midPanel = new System.Windows.Forms.Panel();
-            this.btnConnectionImage = new System.Windows.Forms.PictureBox();
-            this.thTimer = new System.Windows.Forms.Timer(this.components);
-            this.backGorundProc = new System.ComponentModel.BackgroundWorker();
-            this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHide = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCloseApp = new System.Windows.Forms.PictureBox();
+            this.btnConnectionImage = new System.Windows.Forms.PictureBox();
+            this.thTimer = new System.Windows.Forms.Timer(this.components);
+            this.backGorundProc = new System.ComponentModel.BackgroundWorker();
+            this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -213,22 +213,84 @@ namespace LogoDesktopApplication
             // 
             // midPanel
             // 
+            this.midPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("midPanel.BackgroundImage")));
+            this.midPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.midPanel.Location = new System.Drawing.Point(0, 0);
             this.midPanel.Name = "midPanel";
             this.midPanel.Size = new System.Drawing.Size(370, 445);
             this.midPanel.TabIndex = 4;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.btnHide);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnCloseApp);
+            this.panel1.Controls.Add(this.btnConnectionImage);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(370, 36);
+            this.panel1.TabIndex = 1;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // btnHide
+            // 
+            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHide.Image = global::LogoDesktopApplication.Properties.Resources.minimizeicon;
+            this.btnHide.Location = new System.Drawing.Point(285, 8);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(31, 24);
+            this.btnHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnHide.TabIndex = 1;
+            this.btnHide.TabStop = false;
+            this.btnHide.Tag = "";
+            this.btnHide.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btnHide.MouseHover += new System.EventHandler(this.btnConnectionImage_MouseHover);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(148, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "INFOTEKS";
+            // 
+            // btnCloseApp
+            // 
+            this.btnCloseApp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCloseApp.Image = global::LogoDesktopApplication.Properties.Resources.closedicon;
+            this.btnCloseApp.Location = new System.Drawing.Point(322, 8);
+            this.btnCloseApp.Name = "btnCloseApp";
+            this.btnCloseApp.Size = new System.Drawing.Size(31, 24);
+            this.btnCloseApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCloseApp.TabIndex = 2;
+            this.btnCloseApp.TabStop = false;
+            this.btnCloseApp.Tag = "";
+            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
+            this.btnCloseApp.MouseHover += new System.EventHandler(this.btnConnectionImage_MouseHover);
+            // 
             // btnConnectionImage
             // 
             this.btnConnectionImage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.closed;
-            this.btnConnectionImage.Location = new System.Drawing.Point(250, 4);
+            this.btnConnectionImage.Image = global::LogoDesktopApplication.Properties.Resources.gprsoff1;
+            this.btnConnectionImage.Location = new System.Drawing.Point(250, 8);
             this.btnConnectionImage.Name = "btnConnectionImage";
             this.btnConnectionImage.Size = new System.Drawing.Size(31, 24);
             this.btnConnectionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnConnectionImage.TabIndex = 0;
             this.btnConnectionImage.TabStop = false;
+            this.btnConnectionImage.Tag = "";
+            this.btnConnectionImage.MouseHover += new System.EventHandler(this.btnConnectionImage_MouseHover);
             // 
             // thTimer
             // 
@@ -245,59 +307,10 @@ namespace LogoDesktopApplication
             this.bunifuElipse1.ElipseRadius = 45;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.btnHide);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnCloseApp);
-            this.panel1.Controls.Add(this.btnConnectionImage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 28);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            // 
-            // btnHide
-            // 
-            this.btnHide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
-            this.btnHide.Location = new System.Drawing.Point(285, 4);
-            this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(31, 24);
-            this.btnHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnHide.TabIndex = 1;
-            this.btnHide.TabStop = false;
-            this.btnHide.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(148, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "INFOTEKS";
-            // 
-            // btnCloseApp
-            // 
-            this.btnCloseApp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCloseApp.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseApp.Image")));
-            this.btnCloseApp.Location = new System.Drawing.Point(322, 4);
-            this.btnCloseApp.Name = "btnCloseApp";
-            this.btnCloseApp.Size = new System.Drawing.Size(31, 24);
-            this.btnCloseApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCloseApp.TabIndex = 2;
-            this.btnCloseApp.TabStop = false;
-            this.btnCloseApp.Click += new System.EventHandler(this.btnCloseApp_Click);
-            // 
             // WinForm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(370, 445);
             this.Controls.Add(this.panel1);
@@ -317,11 +330,11 @@ namespace LogoDesktopApplication
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseApp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConnectionImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

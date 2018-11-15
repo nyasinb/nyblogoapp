@@ -1,0 +1,8 @@
+﻿15-11-2018 09:53:08.648 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+15-11-2018 09:53:08.665 [WARNING] OtoSync  ::  
+15-11-2018 09:54:08.146 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+15-11-2018 09:54:08.154 [WARNING] OtoSync  ::  
+15-11-2018 15:13:29.994 [WARNING] CreateCurrentParametric ::8)-Kayıt veritabanına aktarılamadı.23000 : Benzersiz 'I001_CLCARD_I2' dizinine sahip 'dbo.LG_001_CLCARD' nesnesine yinelenen anahtar satırı eklenemiyor. Yinelenen anahtar değeri: (1000).
+15-11-2018 15:13:30.010 [WARNING] OtoSync  ::  
+15-11-2018 19:13:02.978 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...
+15-11-2018 19:30:11.563 [WARNING] OtoSync CONFİG Dosyasını kontrol ediniz...

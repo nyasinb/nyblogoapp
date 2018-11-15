@@ -39,17 +39,19 @@
             // 
             // marqueeProgressBarControl1
             // 
+            this.marqueeProgressBarControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.marqueeProgressBarControl1.EditValue = 0;
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(31, 284);
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(113, 365);
             this.marqueeProgressBarControl1.Margin = new System.Windows.Forms.Padding(4);
             this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(539, 15);
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(272, 16);
             this.marqueeProgressBarControl1.TabIndex = 5;
             // 
             // labelControl1
             // 
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl1.Location = new System.Drawing.Point(31, 352);
+            this.labelControl1.Location = new System.Drawing.Point(429, 365);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(143, 16);
@@ -58,7 +60,8 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(31, 254);
+            this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl2.Location = new System.Drawing.Point(13, 365);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(73, 16);
@@ -67,9 +70,11 @@
             // 
             // pictureEdit2
             // 
+            this.pictureEdit2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureEdit2.BackgroundImage")));
+            this.pictureEdit2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(16, 15);
+            this.pictureEdit2.Location = new System.Drawing.Point(0, -5);
             this.pictureEdit2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -78,11 +83,12 @@
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
             this.pictureEdit2.Properties.ZoomAccelerationFactor = 1D;
-            this.pictureEdit2.Size = new System.Drawing.Size(568, 222);
+            this.pictureEdit2.Size = new System.Drawing.Size(599, 362);
             this.pictureEdit2.TabIndex = 9;
             // 
             // StartingControlForm
             // 
+            this.ActiveGlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 394);
@@ -90,9 +96,9 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.marqueeProgressBarControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartingControlForm";
-            this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             this.ResumeLayout(false);

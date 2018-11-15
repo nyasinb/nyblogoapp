@@ -1,0 +1,68 @@
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\Bunifu_UI_v1.52.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Data.v17.1.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Printing.v17.1.Core.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Sparkline.v17.1.Core.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.SpellChecker.v17.1.Core.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Utils.v17.1.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraBars.v17.1.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraEditors.v17.1.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraSpellChecker.v17.1.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\GMP3Infoteks.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Pdf.v17.1.Core.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Data.v17.1.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Printing.v17.1.Core.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Sparkline.v17.1.Core.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.SpellChecker.v17.1.Core.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Utils.v17.1.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraBars.v17.1.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraEditors.v17.1.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.XtraSpellChecker.v17.1.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\DevExpress.Pdf.v17.1.Core.xml
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.Data.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.Data.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.Data.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.Data.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.Printing.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.Utils.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.Utils.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.Utils.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.Utils.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.XtraBars.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.XtraEditors.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.XtraSpellChecker.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.XtraSpellChecker.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.XtraSpellChecker.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.XtraSpellChecker.v17.1.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\de\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\es\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ja\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\ru\DevExpress.Pdf.v17.1.Core.resources.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\Interop.UnityObjects.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.csproj.ResolveComReference.cache
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.HelperForms.InfoteksLogin.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.HelperForms.LogoSenkronForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.HelperForms.PropertiesForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.HelperForms.waitForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.Properties.Resources.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.StartingControlForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.WinForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\LogoDesktopApplication.csproj.GenerateResource.Cache
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\Infoteks Logo App.exe.config
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\Infoteks Logo App.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Release\Infoteks Logo App.pdb
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\Infoteks Logo App.exe.licenses
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\Infoteks Logo App.exe
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Release\Infoteks Logo App.pdb
