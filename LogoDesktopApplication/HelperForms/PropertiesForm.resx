@@ -1137,16 +1137,6 @@
         J1i8SATU48mELEkmrCFgX3rJMIX/2Q==
 </value>
   </data>
-  <data name="btnLogout.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANgAAAAlCAYAAAAgLCcqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADVSURBVHhe7dxBCoMwAEXBnk9zuLYXTolVaEtESf27WQxI
-        xOXDGBJvj3muQIbAIEhgECQwCBIYBAkMggQGo0qp9974B4HBqGmqz/V6L7RuYNtDwDl7zXQDO3rtAed8
-        BdYqFBdcxzcYBAkMgpbA2rTQwgZc7/0GK2VZcvy9CfzHFBGCBAZBAoMggUGQwCBIYBAkMAgSGAQJDIIE
-        BgHb9kOBQcK6/VBgECQwCBIYBAkMrrBz3OswMP/ogBPaokZn/DAwJ51hnCkiBAkMggQGQQKDIIFBzFxf
-        Q50WPtabrNkAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="bunifuElipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>39, 25</value>
   </metadata>

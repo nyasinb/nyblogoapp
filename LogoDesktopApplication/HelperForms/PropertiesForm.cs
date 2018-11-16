@@ -126,6 +126,7 @@ namespace LogoDesktopApplication.HelperForms
 
         private void PropertiesForm_Load(object sender, EventArgs e)
         {
+
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -192,14 +193,15 @@ namespace LogoDesktopApplication.HelperForms
         {
             item = _xmlProv.XmlRead();
             item.InfoLoginState = "False";
+            item.LogoLoginState = "False";
             _xmlProv.XmlWriterMethod(item);
             dr = DevExpress.XtraEditors.XtraMessageBox.Show(
             this,
-            "Uygulamanız Sonlandırılacaktır, Lütfen Tekrar Başlatınız.",
+            "Uygulamanız Yeniden Başlatılacaktır, Lütfen Tekrar Başlatınız.",
             "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr==DialogResult.Yes)
             {
-                Application.Exit();
+                Application.Restart();
             }
         }
 

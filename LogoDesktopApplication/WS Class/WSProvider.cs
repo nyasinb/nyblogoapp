@@ -49,12 +49,12 @@ namespace LogoDesktopApplication.WS_Class
             return kdSalesReceiptDataCevapItem;
         }
                 
-        public kdContractInfoCevap Query_Method_kdContractInfo()
+        public kdContractInfoCevap Query_Method_kdContractInfo(string Query)
         {
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
             var _action = _url + "kdContractInfo";
-            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(SOAP_QUERY_kdContractInfo);
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(Query);
             HttpWebRequest webRequest = CreateWebRequest(_url, _action);
             InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
             IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
@@ -247,6 +247,40 @@ namespace LogoDesktopApplication.WS_Class
             }
             return kdAcquirerInfoCevapItem;
         }
+
+        public kdgetSozlesmeStatusCevap Query_Method_kdgetSozlesmeStatus(string query)
+        {
+
+            var _url = "http://94.103.42.156:8069/kdintegration/";
+            var _action = _url + "kdgetSozlesmeStatus";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(query);
+            HttpWebRequest webRequest = CreateWebRequest(_url, _action);
+            InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
+            IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
+            asyncResult.AsyncWaitHandle.WaitOne();
+            string soapResult;
+            kdgetSozlesmeStatusCevap kdgetSozlesmeStatusCevapItem;
+            using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
+            {
+                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                {
+                    soapResult = rd.ReadToEnd();
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(soapResult);
+
+                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdgetSozlesmeStatusCevap");
+                    Serializer ser = new Serializer();
+                    string path = string.Empty;
+                    foreach (XmlNode xn in receiptLine)
+                    {
+                        path = xn.OuterXml;
+                    }
+                    kdgetSozlesmeStatusCevapItem = ser.Deserialize<kdgetSozlesmeStatusCevap>(path);
+                }
+            }
+            return kdgetSozlesmeStatusCevapItem;
+        }
+
 
         public void Query_Method_kdUpdateReceiptLogoStatus(string Query)
         {

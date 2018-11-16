@@ -12,6 +12,7 @@ using System.Xml;
 using System.Net;
 using System.IO;
 using LogoDesktopApplication.LOGO_Class;
+using ns1;
 
 namespace LogoDesktopApplication.HelperForms
 {
@@ -22,6 +23,7 @@ namespace LogoDesktopApplication.HelperForms
         public static XmlProvider _xmlProv;
         public static OtoSenkron _item;
         public static kdgetSozlesmeStatusCevap kdgetSozlesmeStatusResult;
+        public static kdGetLicenseInfoCevap kdLisancesSozlesmeResult;
         public WSProvider _ws;
         public CreatedQuery _cQuery;
         public kdSalesReceiptDataAllCevap kdSalesReceiptData;
@@ -38,6 +40,7 @@ namespace LogoDesktopApplication.HelperForms
             kdSalesReceiptData = new kdSalesReceiptDataAllCevap();
             _cQuery = new CreatedQuery();
             kdgetSozlesmeStatusResult = new kdgetSozlesmeStatusCevap();
+            kdLisancesSozlesmeResult = new kdGetLicenseInfoCevap();
             _item = new OtoSenkron();
             _xmlProv = new XmlProvider();
             InitializeComponent();
@@ -61,24 +64,33 @@ namespace LogoDesktopApplication.HelperForms
 
             if (_item.InfoLoginState == "True" && _item.LogoLoginState == "False")
             {
-                txtFirmaKodu.Text=_item.InfoLisances;
-                txtFirmaKodu.isPassword = true;
+                txtLisansKoduText.Text=_item.InfoLisances;
+                txtLisansKoduText.isPassword = true;
                 infoPanel.Enabled = false;
                 logoPanel.Enabled = true;
-
             }
             else if (_item.InfoLoginState=="" && _item.LogoLoginState=="")
             {
                 infoPanel.Enabled = true;
                 logoPanel.Enabled = false;
             }
+            else if(_item.InfoLoginState=="False" && _item.LogoLoginState == "")
+            {
+                infoPanel.Enabled = true;
+                logoPanel.Enabled = false;
+            }
             else if (_item.InfoLoginState == "True" && _item.LogoLoginState == "")
             {
-                txtFirmaKodu.Text = _item.InfoLisances;
-                txtFirmaKodu.isPassword = true;
+                txtLisansKoduText.Text = _item.InfoLisances;
+                txtLisansKoduText.isPassword = true;
 
                 infoPanel.Enabled = false;
                 logoPanel.Enabled = true;
+            }
+            else if (_item.InfoLoginState == "False" && _item.LogoLoginState == "False")
+            {
+                infoPanel.Enabled = true;
+                logoPanel.Enabled = false;
             }
             else
             {
@@ -86,34 +98,97 @@ namespace LogoDesktopApplication.HelperForms
                 logoPanel.Enabled = true;
             }
         }
+        bool networkState;
+        public bool NetworkControl()
+        {
+            try
+            {
+                networkState = System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
+                if (networkState)
+                    networkState = true;
+                else
+                    networkState = false;
+            }
+            catch (Exception ex)
+            {
+            }
+            return networkState;
+        }
 
+        string Lisances = "";
         void InfoteksLoginMethod()
         {
-            //if (txtFirmaKodu.Text=="" || txtFirmaToken.Text=="")
-            //{
-            //    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-            //    this,
-            //    "Lütfen ilgili alanları doldurunuz",
-            //    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-            kdgetSozlesmeStatusResult = Query_Method_kdgetSozlesmeStatus();
-            if (kdgetSozlesmeStatusResult.cevapKodu != "000")
+            if (NetworkControl())
             {
-                _item.LogoLoginState = "False";
-                _xmlProv.XmlWriterMethod(_item);
-                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
-                this,
-                kdgetSozlesmeStatusResult.cevapAciklama,
-                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (txtLisansKoduText.Text == "")
+                {
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    "Lütfen Lisans Numaranızı Giriniz",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (txtLisansKoduText.Text.Length==16)
+                {
+                    Lisances = Lisances.Insert(4, "-");
+                    Lisances = Lisances.Insert(9, "-");
+                    Lisances = Lisances.Insert(14, "-");
+                }else
+                    Lisances = txtLisansKoduText.Text;
+
+                kdLisancesSozlesmeResult = Query_Method_kdGetLicenseInfo();
+                if (kdLisancesSozlesmeResult.cevapKodu != "000")
+                {
+                    _item.LogoLoginState = "False";
+                    _xmlProv.XmlWriterMethod(_item);
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    kdLisancesSozlesmeResult.cevapAciklama,
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+
+
+                    Lisances = txtLisansKoduText.Text;
+                    _item.InfoKurumKodu = kdLisancesSozlesmeResult.kurumKodu;
+                    _item.InfoKurumToken = kdLisancesSozlesmeResult.kurumToken;
+                    _item.InfoLisances = txtLisansKoduText.Text;
+                    _xmlProv.XmlWriterMethod(_item);
+                    string serial = "Lisans Bitiş Tarihleri\n";
+
+                    kdgetSozlesmeStatusResult = Query_Method_kdgetSozlesmeStatus();
+
+                    for (int i = 0; i < kdgetSozlesmeStatusResult.registeredOKC.Count; i++)
+                    {
+                         serial += kdgetSozlesmeStatusResult.registeredOKC[i].name+ " Sözleşme Bitiş Tarihi :"+ kdgetSozlesmeStatusResult.registeredOKC[i].sozlesmeBit+"\n";
+                    }
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    serial + "Lisans doğrulandı.",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    _item.INFOTEKSSozlesmeZamani = DateTime.Now.Day.ToString();
+                    _item.InfoLoginState = "True";
+                    logoPanel.Enabled = true;
+                    _xmlProv.XmlWriterMethod(_item);
+
+
+                    ShowScreen();
+                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                    this,
+                    kdLisancesSozlesmeResult.cevapAciklama+" Logo bağlantı bilgilerini giriniz",
+                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                _item.LogoLoginState = "True";
-                logoPanel.Enabled = true;
-                _item.InfoLisances = txtFirmaKodu.Text;
-                _xmlProv.XmlWriterMethod(_item);
-                ShowScreen();
+                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                this,
+                "Internet bağlantınızı kontrol ediniz",
+                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+
             }
         }
 
@@ -128,9 +203,8 @@ namespace LogoDesktopApplication.HelperForms
             bool LogoconnectionState = LogoConnection();
             if (LogoconnectionState)
             {
-                _item = _xmlProv.XmlRead();
                 _item.LogoLoginState = "True";
-                _item = _xmlProv.XmlRead();
+                _xmlProv.XmlWriterMethod(_item);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
                 "Giriş Yapıldı, Veri Senkronu Sağlanacak\nBu işlem uzun sürebilir\nDevam etmek istiyor musunuz ?",
@@ -150,7 +224,7 @@ namespace LogoDesktopApplication.HelperForms
             else
             {
                 _item.LogoLoginState = "False";
-                _item = _xmlProv.XmlRead();
+                _xmlProv.XmlWriterMethod(_item);
                 dr = DevExpress.XtraEditors.XtraMessageBox.Show(
                 this,
                 "Logo Giriş Bilgileri Hatalı Tekrar Deneyiniz.",
@@ -186,7 +260,7 @@ namespace LogoDesktopApplication.HelperForms
 
             var _url = "http://94.103.42.156:8069/kdintegration/";
             var _action = _url + "kdgetSozlesmeStatus";
-            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(ResultQuery());
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(kdgetSozlesmeStatusResultQuery());
             HttpWebRequest webRequest = CreateWebRequest(_url, _action);
             InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
             IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
@@ -213,6 +287,40 @@ namespace LogoDesktopApplication.HelperForms
             }
             return kdgetSozlesmeStatusCevapItem;
         }
+
+        public kdGetLicenseInfoCevap Query_Method_kdGetLicenseInfo()
+        {
+
+            var _url = "http://94.103.42.156:8069/kdintegration/";
+            var _action = _url + "kdGetLicenseInfo";
+            XmlDocument soapEnvelopeXml = CreateSoapEnvelope(kdGetLicenseInfoResultQuery());
+            HttpWebRequest webRequest = CreateWebRequest(_url, _action);
+            InsertSoapEnvelopeIntoWebRequest(soapEnvelopeXml, webRequest);
+            IAsyncResult asyncResult = webRequest.BeginGetResponse(null, null);
+            asyncResult.AsyncWaitHandle.WaitOne();
+            string soapResult;
+            kdGetLicenseInfoCevap kdGetLicenseInfoCevapItem;
+            using (WebResponse webResponse = webRequest.EndGetResponse(asyncResult))
+            {
+                using (StreamReader rd = new StreamReader(webResponse.GetResponseStream()))
+                {
+                    soapResult = rd.ReadToEnd();
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(soapResult);
+
+                    XmlNodeList receiptLine = xml.GetElementsByTagName("kdGetLicenseInfoCevap");
+                    Serializer ser = new Serializer();
+                    string path = string.Empty;
+                    foreach (XmlNode xn in receiptLine)
+                    {
+                        path = xn.OuterXml;
+                    }
+                    kdGetLicenseInfoCevapItem = ser.Deserialize<kdGetLicenseInfoCevap>(path);
+                }
+            }
+            return kdGetLicenseInfoCevapItem;
+        }
+
         public void InsertSoapEnvelopeIntoWebRequest(XmlDocument soapEnvelopeXml, HttpWebRequest webRequest)
         {
             using (Stream stream = webRequest.GetRequestStream())
@@ -221,11 +329,21 @@ namespace LogoDesktopApplication.HelperForms
             }
         }
 
-        public string ResultQuery()
+        public string kdgetSozlesmeStatusResultQuery()
         {
+            _item = _xmlProv.XmlRead();
             string QUERY = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdgetSozlesmeStatus>" +
-                             "<kurumKodu>" +_item.InfoLisances+ "</kurumKodu>" +
+                             "<kurumKodu>" +_item.InfoKurumKodu+ "</kurumKodu>" +
+                             "<kurumToken>" + _item.InfoKurumToken + "</kurumToken>" +
                              "</kdgetSozlesmeStatus></soapenv:Body></soapenv:Envelope>";
+            return QUERY;
+        }
+
+        public string kdGetLicenseInfoResultQuery()
+        {
+            string QUERY = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdGetLicenseInfo>" +
+                             "<lisansNo>" + Lisances + "</lisansNo>" +
+                             "</kdGetLicenseInfo></soapenv:Body></soapenv:Envelope>";
             return QUERY;
         }
 
@@ -262,17 +380,61 @@ namespace LogoDesktopApplication.HelperForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                InfoteksLoginMethod();
+                _item = _xmlProv.XmlRead();
+                if (_item.InfoLoginState == "True")
+                    LogoLoginMethod();
+                else
+                    InfoteksLoginMethod();
             }
             else if (e.KeyCode==Keys.Escape)
             {
                 txtLogoUser.Text = "";
-                txtFirmaKodu.Text = "";
+                txtLisansKoduText.Text = "";
                 txtLogoPass.Text = "";
             }
 
         }
+        private void SetMaximumLength(BunifuMaterialTextbox materialTxtBox, int maximumLength)
+        {
+            foreach (Control ctl in materialTxtBox.Controls)
+            {
+                if (ctl.GetType() == typeof(TextBox))
+                {
+                    var txt = (TextBox)ctl;
+                    txt.MaxLength = maximumLength;
+                }
+            }
+        }
 
+        void MouserHover(object sender, EventArgs e)
+        {
+            ToolTip tt = new ToolTip();
+            string objname = ((ns1.BunifuMaterialTextbox)sender).Name;
+            if (objname == "txtLisansKoduText")
+            {
+                tt.SetToolTip(this.txtLisansKoduText, "16 Karakter Olarak Giriniz");
+                return;
+            }
+        }
 
+        private void txtLisansKoduText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SetMaximumLength(txtLisansKoduText, 16);
+            //if (txtLisansKoduText.Text.Length==4)
+            //{
+            //    string metin = txtLisansKoduText.Text;
+            //    txtLisansKoduText.Text = metin.Insert(4,"-");
+            //}
+            //else if (txtLisansKoduText.Text.Length == 8)
+            //{
+            //    string metin = txtLisansKoduText.Text;
+            //    txtLisansKoduText.Text = metin.Insert(8, "-");
+            //}
+            //else if (txtLisansKoduText.Text.Length ==12)
+            //{
+            //    string metin = txtLisansKoduText.Text;
+            //    txtLisansKoduText.Text = metin.Insert(12, "-");
+            //}
+        }
     }
 }

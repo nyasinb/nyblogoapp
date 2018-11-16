@@ -42,5 +42,16 @@ namespace LogoDesktopApplication.WS_Class
             return SOAP_QUERY_kdSalesReceiptAllData;
         }
 
+        public string CREATE_kdgetSozlesmeStatus(OtoSenkron o)
+        {
+
+            string SOAP_QUERY_kdgetSozlesmeStatus = @"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://schemas.xmlsoap.org/wsdl/""><soapenv:Header/><soapenv:Body><kdgetSozlesmeStatus>" +
+                                        "<kurumKodu>" + o.InfoKurumKodu + "</kurumKodu>" +
+                                        "<kurumToken>" + o.InfoKurumToken + "</kurumToken>" +
+                                        "</kdgetSozlesmeStatus></soapenv:Body></soapenv:Envelope>";
+            return SOAP_QUERY_kdgetSozlesmeStatus;
+        }
+
+
     }
 }

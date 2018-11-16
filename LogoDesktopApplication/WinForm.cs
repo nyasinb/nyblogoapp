@@ -43,6 +43,7 @@ namespace LogoDesktopApplication
         XmlProvider _xmlProv;
         OtoSenkron item;
         CreatedQuery _CreatedQuery;
+        kdgetSozlesmeStatusCevap kdgetSozlesmeStatusCevap;
         int Move;
         int Mouse_X;
         int Mouse_Y;
@@ -61,9 +62,10 @@ namespace LogoDesktopApplication
             _sqlProvider = new SQLProvider();
             _xmlProv = new XmlProvider();
              item = new OtoSenkron();
-
+            kdContractInfo = new kdContractInfoCevap();
+            kdgetSozlesmeStatusCevap = new kdgetSozlesmeStatusCevap();
             item = _xmlProv.XmlRead();
-            if (item.InfoLoginState=="True")
+            if (item.LogoLoginState=="True")
             {
                 _logoConnection = _logoCon.Connection(_otoSenkron);
             }
@@ -81,10 +83,73 @@ namespace LogoDesktopApplication
             DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(this, typeof(StartingControlForm));
             System.Threading.Thread.Sleep(1500);
             control();
+            SozlesmeControl();
             DevExpress.XtraSplashScreen.AboutSplashScreenManager.CloseForm(false, 0, this);
+
+
             //System.Diagnostics.Process.Start(@"E:\Program Files (x86)\LOGO\Logo Start\LOGOSTART.exe");
         }
 
+
+        void SozlesmeControl()
+        {
+            if (_logoCon.networkState)
+            {
+                if (File.Exists("CFG\\Config.xml"))
+                {
+                    string sozWarning = "";
+                    item = _xmlProv.XmlRead();
+                    TimeSpan Timesonuc;
+                    if (item.InfoLoginState == "True")
+                    {
+                        //sozleşme 0 ise ve sözleşme tarih ve datetime eşit ise uyarı ver ve sözleşmeyi 1 yap tarihi 1 gün arttır.
+                        if (item.INFOTEKSSozlesmeZamani.ToString() == DateTime.Now.Day.ToString())
+                        {
+                            kdgetSozlesmeStatusCevap = _ws.Query_Method_kdgetSozlesmeStatus(_CreatedQuery.CREATE_kdgetSozlesmeStatus(item));
+                            if (kdgetSozlesmeStatusCevap.registeredOKC.Count>0)
+                            {
+                                for (int i = 0; i < kdgetSozlesmeStatusCevap.registeredOKC.Count; i++)
+                                {
+                                    Timesonuc = Convert.ToDateTime(kdgetSozlesmeStatusCevap.registeredOKC[i].sozlesmeBit) - DateTime.Now;
+                                    if (Timesonuc.Days>0 && Timesonuc.Days <= 30)
+                                    {
+                                        sozWarning += Timesonuc.Days + 1 + " Gün Sonra '" + kdgetSozlesmeStatusCevap.registeredOKC[i].name + "' Seri numaralı cihazın sözleşmesi sonlanacaktır.Sözleşme Bitiş Tarihi :" + kdgetSozlesmeStatusCevap.registeredOKC[i].sozlesmeBit + "\n";
+                                    }
+                                }
+                                if (sozWarning!="")
+                                {
+                                    dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                                    this,
+                                    sozWarning + " Sözleşmesi biten cihazların Logo aktarımları sonlanacaktır.Infoteks ile iletişime geçiniz",
+                                    "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                item.INFOTEKSSozlesmeZamani = Convert.ToString(Convert.ToInt16(DateTime.Now.Day) + 1);
+                                _xmlProv.XmlWriterMethod(item);
+                            }
+                            else
+                            {
+                                item.INFOTEKSSozlesmeZamani = "0";
+                                item.InfoLoginState = "False";
+                                item.LogoLoginState = "False";
+                                _xmlProv.XmlWriterMethod(item);
+                                dr = DevExpress.XtraEditors.XtraMessageBox.Show(
+                                this,
+                                "Sözleşmesi aktif cihaz bulunamadı. Infoteks ile iletişime geçiniz\nİletişim: 0850 433 14 14",
+                                "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                            _log.Info("KDVSözleşme Uyarısı verilmiş tekrar verilmicek.");
+                    }
+                    else
+                        _log.Info("İnfoteks Sözleşmesi yapılmamış");
+                }
+                else
+                    _log.Info("Config dosyası yok..");
+            }
+            else
+                _log.Warning("Net Bağlantısı Yok, sözleşme uyarısı verilemedi");
+        }
 
         public void control()
         {
@@ -136,7 +201,7 @@ namespace LogoDesktopApplication
         void MethodTest()
         {
 
-            kdContractInfo = _ws.Query_Method_kdContractInfo();
+            //kdContractInfo = _ws.Query_Method_kdContractInfo();
             kdEventsData = _ws.Query_Method_kdEventsData();
             _otoSenkron = _xmlProv.XmlRead();
             kdSalesReceiptData = _ws.Query_Method_kdSalesReceiptData(_CreatedQuery.CREATE_kdSalesReceiptAllData(_otoSenkron));
@@ -344,11 +409,12 @@ namespace LogoDesktopApplication
                 this.SetDesktopLocation(MousePosition.X - Mouse_X, MousePosition.Y - Mouse_Y);
             }
         }
+        bool info = false;
         private void btnConnectionImage_MouseHover(object sender, EventArgs e)
         {
             ToolTip tt = new ToolTip();
             string objname = ((PictureBox)sender).Name;
-            if (objname== "btnConnectionImage")
+            if (objname == "btnConnectionImage")
             {
                 tt.SetToolTip(this.btnConnectionImage, "İnternet Bağlantısı Açık");
                 return;
@@ -362,7 +428,12 @@ namespace LogoDesktopApplication
             {
                 tt.SetToolTip(this.btnCloseApp, "Programı Kapat");
                 return;
-            }
+            }          
+        }
+
+        private void WinForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

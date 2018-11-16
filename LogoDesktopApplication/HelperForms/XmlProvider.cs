@@ -1,10 +1,12 @@
-﻿using System;
+﻿using LogoDesktopApplication.WS_Class;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using static LogoDesktopApplication.HelperForms.HelperItemCs;
 
 namespace LogoDesktopApplication.HelperForms
 {
@@ -46,12 +48,14 @@ namespace LogoDesktopApplication.HelperForms
                         }
                         writer.WriteElementString("Period", s.Period.Replace("DK", " ").Trim());
                         writer.WriteElementString("Durum", s.Durum);
-                        writer.WriteElementString("userName",s.InfoLisances);
+                        writer.WriteElementString("InfoLisances", s.InfoLisances);
+                        writer.WriteElementString("InfoKurumKodu", s.InfoKurumKodu);
+                        writer.WriteElementString("InfoKurumToken", s.InfoKurumToken);
                         writer.WriteElementString("InfoLoginState", Convert.ToString(s.InfoLoginState));
                         writer.WriteElementString("LogoLoginState", Convert.ToString(s.LogoLoginState));
                         writer.WriteElementString("LogoUserName", s.LogoUserName);
                         writer.WriteElementString("LogoPassword", s.LogoPassword);
-
+                        writer.WriteElementString("INFOTEKSSozlesmeZamani", s.INFOTEKSSozlesmeZamani);
                         writer.WriteEndElement();
                         writer.WriteEndDocument();
 
@@ -84,5 +88,7 @@ namespace LogoDesktopApplication.HelperForms
             OtoSenkronItem = _ser.Deserialize<OtoSenkron>(xmlInputData);
             return OtoSenkronItem;
         }
+
+
     }
 }

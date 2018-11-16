@@ -144,6 +144,7 @@
     <Compile Include="WS Class\kdAcquirerInfoCevap.cs" />
     <Compile Include="WS Class\kdContractInfoCevap.cs" />
     <Compile Include="WS Class\kdEventsDataCevap.cs" />
+    <Compile Include="WS Class\kdGetLicenseInfoCevap.cs" />
     <Compile Include="WS Class\kdgetSozlesmeStatusCevap.cs" />
     <Compile Include="WS Class\kdSalesReceiptDataAllCevap.cs" />
     <Compile Include="WS Class\kdSalesReceiptDataCevap.cs" />

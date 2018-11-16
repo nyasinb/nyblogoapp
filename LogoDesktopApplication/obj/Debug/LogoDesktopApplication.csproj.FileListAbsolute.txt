@@ -1,3 +1,14 @@
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\Interop.UnityObjects.dll
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.ResolveComReference.cache
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.InfoteksLogin.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.LogoSenkronForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.PropertiesForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.waitForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.Properties.Resources.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.StartingControlForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.WinForm.resources
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.GenerateResource.Cache
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.exe.licenses
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.exe.config
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.exe
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\LOGO MANAGER.pdb
@@ -51,16 +62,6 @@ C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\Log
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\es\DevExpress.Pdf.v17.1.Core.resources.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\ja\DevExpress.Pdf.v17.1.Core.resources.dll
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\bin\Debug\ru\DevExpress.Pdf.v17.1.Core.resources.dll
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\Interop.UnityObjects.dll
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.ResolveComReference.cache
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.InfoteksLogin.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.LogoSenkronForm.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.PropertiesForm.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.HelperForms.waitForm.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.Properties.Resources.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.StartingControlForm.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.WinForm.resources
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csproj.GenerateResource.Cache
-C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.exe.licenses
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.exe
 C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LOGO MANAGER.pdb
+C:\Users\Lenovo\documents\visual studio 2015\Projects\LogoDesktopApplication\LogoDesktopApplication\obj\Debug\LogoDesktopApplication.csprojResolveAssemblyReference.cache

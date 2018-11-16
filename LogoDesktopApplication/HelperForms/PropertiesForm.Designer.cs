@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesForm));
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
             this.midPanel = new System.Windows.Forms.Panel();
+            this.btnLogout = new ns1.BunifuThinButton2();
             this.BtnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnManuelSenkron = new System.Windows.Forms.PictureBox();
             this.bunifuCustomLabel1 = new ns1.BunifuCustomLabel();
@@ -47,7 +48,6 @@
             this.bunifuCustomLabel4 = new ns1.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new ns1.BunifuCustomLabel();
             this.bunifuElipse2 = new ns1.BunifuElipse(this.components);
-            this.btnLogout = new ns1.BunifuThinButton2();
             this.bunifuElipse3 = new ns1.BunifuElipse(this.components);
             this.midPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnManuelSenkron)).BeginInit();
@@ -79,6 +79,32 @@
             this.midPanel.Name = "midPanel";
             this.midPanel.Size = new System.Drawing.Size(356, 475);
             this.midPanel.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.ActiveBorderThickness = 1;
+            this.btnLogout.ActiveCornerRadius = 20;
+            this.btnLogout.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(141)))), ((int)(((byte)(214)))));
+            this.btnLogout.ActiveForecolor = System.Drawing.Color.White;
+            this.btnLogout.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(141)))), ((int)(((byte)(214)))));
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.ButtonText = "Oturumu Sonlandır";
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.IdleBorderThickness = 1;
+            this.btnLogout.IdleCornerRadius = 20;
+            this.btnLogout.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.btnLogout.IdleForecolor = System.Drawing.Color.White;
+            this.btnLogout.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.btnLogout.Location = new System.Drawing.Point(81, 365);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(5);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(216, 37);
+            this.btnLogout.TabIndex = 31;
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // BtnKaydet
             // 
@@ -281,33 +307,6 @@
             // 
             this.bunifuElipse2.ElipseRadius = 45;
             this.bunifuElipse2.TargetControl = this;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.ActiveBorderThickness = 1;
-            this.btnLogout.ActiveCornerRadius = 20;
-            this.btnLogout.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(141)))), ((int)(((byte)(214)))));
-            this.btnLogout.ActiveForecolor = System.Drawing.Color.White;
-            this.btnLogout.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(141)))), ((int)(((byte)(214)))));
-            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
-            this.btnLogout.ButtonText = "Oturumu Sonlandır";
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.IdleBorderThickness = 1;
-            this.btnLogout.IdleCornerRadius = 20;
-            this.btnLogout.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.btnLogout.IdleForecolor = System.Drawing.Color.White;
-            this.btnLogout.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.btnLogout.Location = new System.Drawing.Point(81, 365);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(5);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(216, 37);
-            this.btnLogout.TabIndex = 31;
-            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // bunifuElipse3
             // 

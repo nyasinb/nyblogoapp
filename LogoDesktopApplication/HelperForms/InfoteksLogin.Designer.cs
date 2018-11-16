@@ -39,7 +39,7 @@
             this.btnLogin = new ns1.BunifuThinButton2();
             this.bunifuElipse2 = new ns1.BunifuElipse(this.components);
             this.bunifuElipse4 = new ns1.BunifuElipse(this.components);
-            this.txtFirmaKodu = new ns1.BunifuMaterialTextbox();
+            this.txtLisansKoduText = new ns1.BunifuMaterialTextbox();
             this.bunifuElipse3 = new ns1.BunifuElipse(this.components);
             this.lblBilgiMessage = new ns1.BunifuCustomLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -157,32 +157,34 @@
             this.bunifuElipse4.ElipseRadius = 45;
             this.bunifuElipse4.TargetControl = this.progressBarControl1;
             // 
-            // txtFirmaKodu
+            // txtLisansKoduText
             // 
-            this.txtFirmaKodu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFirmaKodu.BackColor = System.Drawing.Color.White;
-            this.txtFirmaKodu.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFirmaKodu.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtFirmaKodu.ForeColor = System.Drawing.Color.Black;
-            this.txtFirmaKodu.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.txtFirmaKodu.HintText = "Lisans Kodunuz";
-            this.txtFirmaKodu.isPassword = false;
-            this.txtFirmaKodu.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.txtFirmaKodu.LineIdleColor = System.Drawing.Color.White;
-            this.txtFirmaKodu.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.txtFirmaKodu.LineThickness = 2;
-            this.txtFirmaKodu.Location = new System.Drawing.Point(18, 43);
-            this.txtFirmaKodu.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFirmaKodu.Name = "txtFirmaKodu";
-            this.txtFirmaKodu.Size = new System.Drawing.Size(315, 39);
-            this.txtFirmaKodu.TabIndex = 33;
-            this.txtFirmaKodu.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtFirmaKodu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyEvents);
+            this.txtLisansKoduText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLisansKoduText.BackColor = System.Drawing.Color.White;
+            this.txtLisansKoduText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLisansKoduText.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtLisansKoduText.ForeColor = System.Drawing.Color.Black;
+            this.txtLisansKoduText.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.txtLisansKoduText.HintText = "Lisans Kodunuz";
+            this.txtLisansKoduText.isPassword = false;
+            this.txtLisansKoduText.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.txtLisansKoduText.LineIdleColor = System.Drawing.Color.White;
+            this.txtLisansKoduText.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.txtLisansKoduText.LineThickness = 2;
+            this.txtLisansKoduText.Location = new System.Drawing.Point(18, 43);
+            this.txtLisansKoduText.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLisansKoduText.Name = "txtLisansKoduText";
+            this.txtLisansKoduText.Size = new System.Drawing.Size(315, 39);
+            this.txtLisansKoduText.TabIndex = 33;
+            this.txtLisansKoduText.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtLisansKoduText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyEvents);
+            this.txtLisansKoduText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLisansKoduText_KeyPress);
+            this.txtLisansKoduText.MouseHover += new System.EventHandler(this.MouserHover);
             // 
             // bunifuElipse3
             // 
             this.bunifuElipse3.ElipseRadius = 25;
-            this.bunifuElipse3.TargetControl = this.txtFirmaKodu;
+            this.bunifuElipse3.TargetControl = this.txtLisansKoduText;
             // 
             // lblBilgiMessage
             // 
@@ -253,7 +255,7 @@
             // 
             this.infoPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.infoPanel.Controls.Add(this.label1);
-            this.infoPanel.Controls.Add(this.txtFirmaKodu);
+            this.infoPanel.Controls.Add(this.txtLisansKoduText);
             this.infoPanel.Location = new System.Drawing.Point(8, 18);
             this.infoPanel.Name = "infoPanel";
             this.infoPanel.Size = new System.Drawing.Size(353, 100);
@@ -296,7 +298,7 @@
         private ns1.BunifuElipse bunifuElipse4;
         private ns1.BunifuElipse bunifuElipse3;
         private ns1.BunifuCustomLabel lblBilgiMessage;
-        private ns1.BunifuMaterialTextbox txtFirmaKodu;
+        private ns1.BunifuMaterialTextbox txtLisansKoduText;
         private System.Windows.Forms.Label label3;
         private ns1.BunifuMaterialTextbox txtLogoPass;
         private ns1.BunifuElipse bunifuElipse5;

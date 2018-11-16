@@ -19,5 +19,6 @@ namespace LogoDesktopApplication.HelperForms
         public string LogoLoginState { get; set; }
         public string LogoUserName { get; set; }
         public string LogoPassword { get; set; }
+        public string INFOTEKSSozlesmeZamani { get; set; }
     }
 }

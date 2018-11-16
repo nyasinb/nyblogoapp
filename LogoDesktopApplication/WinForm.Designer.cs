@@ -53,7 +53,6 @@ namespace LogoDesktopApplication
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnExcelProcces = new DevExpress.XtraBars.BarButtonItem();
-            this.midPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHide = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace LogoDesktopApplication
             this.thTimer = new System.Windows.Forms.Timer(this.components);
             this.backGorundProc = new System.ComponentModel.BackgroundWorker();
             this.bunifuElipse1 = new ns1.BunifuElipse(this.components);
+            this.midPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -211,16 +211,6 @@ namespace LogoDesktopApplication
             this.btnExcelProcces.Id = 12;
             this.btnExcelProcces.Name = "btnExcelProcces";
             // 
-            // midPanel
-            // 
-            this.midPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("midPanel.BackgroundImage")));
-            this.midPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.midPanel.Location = new System.Drawing.Point(0, 0);
-            this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(370, 445);
-            this.midPanel.TabIndex = 4;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
@@ -307,6 +297,16 @@ namespace LogoDesktopApplication
             this.bunifuElipse1.ElipseRadius = 45;
             this.bunifuElipse1.TargetControl = this;
             // 
+            // midPanel
+            // 
+            this.midPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("midPanel.BackgroundImage")));
+            this.midPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.midPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.midPanel.Location = new System.Drawing.Point(0, 0);
+            this.midPanel.Name = "midPanel";
+            this.midPanel.Size = new System.Drawing.Size(370, 445);
+            this.midPanel.TabIndex = 4;
+            // 
             // WinForm
             // 
             this.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -327,6 +327,7 @@ namespace LogoDesktopApplication
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "WinForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.WinForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -350,7 +351,6 @@ namespace LogoDesktopApplication
         private DevExpress.XtraBars.BarButtonItem BtninfoteksProc;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private DevExpress.XtraBars.BarButtonItem BtnlogoProc;
-        private System.Windows.Forms.Panel midPanel;
         private System.Windows.Forms.Timer thTimer;
         private System.Windows.Forms.PictureBox btnConnectionImage;
         private DevExpress.XtraBars.BarEditItem btnNowSenkron;
@@ -367,5 +367,6 @@ namespace LogoDesktopApplication
         private System.Windows.Forms.PictureBox btnCloseApp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnHide;
+        private System.Windows.Forms.Panel midPanel;
     }
 }
